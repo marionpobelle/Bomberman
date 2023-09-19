@@ -1,6 +1,3 @@
-#pragma once
-class Timer
-{
 #ifndef __NY_TIMER__
 #define __NY_TIMER__
 
@@ -53,5 +50,3 @@ class Timer
 	};
 
 #endif
-};
-

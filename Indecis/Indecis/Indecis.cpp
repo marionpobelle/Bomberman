@@ -5,7 +5,7 @@
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 #include "Buffer.h"
-#include "Timer.h"
+#include "NYTimer.h"
 
 int main()
 {
