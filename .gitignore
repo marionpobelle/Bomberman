@@ -30,3 +30,6 @@
 *.exe
 *.out
 *.app
+Indecis/.vs
+Indecis/Debug
+Indecis/Indecis/Debug
