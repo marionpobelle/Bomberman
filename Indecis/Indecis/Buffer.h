@@ -9,9 +9,9 @@ class Buffer
 public:
 	Buffer(int maxLineSize); 
 	CHAR_INFO buffer[SCREEN_HEIGHT][SCREEN_WIDTH];
-	static void UpdateConsole(int Grid[], int size, std::vector<Entity*> entityList);
+	void UpdateConsole(int Grid[], int size, std::vector<Entity*>& _entityList);
 
-	static int m_maxSize;
+	int m_maxSize;
 private:
 
 

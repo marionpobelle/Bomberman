@@ -8,9 +8,13 @@
 
 using namespace std;
 
-int Buffer::m_maxSize = 1000;
+Buffer::Buffer(int _maxSize) 
+    : m_maxSize(_maxSize)
+{
+   
+}
 
-void Buffer::UpdateConsole(int Grid[], int size, std::vector<Entity*> _entityList) {
+void Buffer::UpdateConsole(int Grid[], int size, std::vector<Entity*>& _entityList) {
     HANDLE hOutput = (HANDLE)GetStdHandle(STD_OUTPUT_HANDLE);
 
     COORD dwBufferSize = { SCREEN_WIDTH,SCREEN_HEIGHT };
@@ -24,8 +28,8 @@ void Buffer::UpdateConsole(int Grid[], int size, std::vector<Entity*> _entityLis
 
     //reading Grid toward buffer (temp will be changed later)
     for (int i = 0; i < size; ++i) {
-        int height = (int)ceil(i / Buffer::m_maxSize);
-        buffer[height][i % Buffer::m_maxSize].Char.AsciiChar = Grid[i];
+        int height = (int)ceil(i / m_maxSize);
+        buffer[height][i % m_maxSize].Char.AsciiChar = Grid[i];
     }
 
     for (int i = 0; i < SCREEN_WIDTH; i++)
@@ -36,10 +40,14 @@ void Buffer::UpdateConsole(int Grid[], int size, std::vector<Entity*> _entityLis
             for (int e = 0; e < _entityList.size(); e++)
             {
                 if (round(_entityList[e]->x) == i && round(_entityList[e]->y) == j) {
+                    _entityList[e]->Draw();
                     buffer[i][j].Attributes = 0x2580;
-                    buffer[i][j].Char.AsciiChar = 'i';
-                    buffer[i][j-1].Attributes = 0x2580;
-                    buffer[i][j-1].Char.AsciiChar = 'i';
+                    buffer[i][j].Char.AsciiChar = 0x2580;
+                    if (i >= 1 && j >= 1) {
+                        buffer[i][j - 1].Attributes = 0x2580;
+                        buffer[i][j - 1].Char.AsciiChar = 0x2580;
+                    }
+
                 }
 
             }

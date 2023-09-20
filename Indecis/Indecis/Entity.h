@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <vector>
 
 class Entity
 {
@@ -12,7 +13,11 @@ public:
         y = _y;
     }
 
-    virtual void Update() {
+    virtual void Update(std::vector<Entity*>& _entityList) {
+
+    }
+
+    virtual void Draw() {
 
     }
 };
