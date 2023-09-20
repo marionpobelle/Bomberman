@@ -1,7 +1,7 @@
 #ifndef __NY_TIMER__
 #define __NY_TIMER__
 
-//#include <windows.h>
+#include <windows.h>
 
 	class NYTimer
 	{
