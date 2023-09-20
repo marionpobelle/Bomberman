@@ -1,4 +1,3 @@
-#pragma once
 class Entity
 {
 public:
@@ -9,5 +8,8 @@ public:
         x = _x;
         y = _y;
     }
-};
 
+    void Update() {
+        //std::cout << "yo" << std::endl;
+    }
+};
