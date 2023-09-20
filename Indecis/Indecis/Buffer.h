@@ -5,11 +5,11 @@
 class Buffer
 {
 public:
-	Buffer(int Grid[], int size, int MaxLineSize); 
-	void UpdateConsole(int Grid[], int size, int MaxLineSize);
-	CHAR_INFO buffer[SCREEN_HEIGHT][SCREEN_WIDTH];
+	Buffer(int maxLineSize); 
+	static CHAR_INFO buffer[SCREEN_HEIGHT][SCREEN_WIDTH];
+	static void UpdateConsole(int Grid[], int size);
 
-	int m_maxSize;
+	static int m_maxSize;
 private:
 
 

@@ -6,12 +6,12 @@
 
 using namespace std;
 
-Buffer::Buffer(int Grid[], int size, int MaxLineSize) {
-    Buffer::m_maxSize = MaxLineSize;
+Buffer::Buffer(int maxLineSize) {
+    Buffer::m_maxSize = maxLineSize;
 }
 
 
-void Buffer::UpdateConsole(int Grid[], int size, int MaxLineSize) {
+void Buffer::UpdateConsole(int Grid[], int size) {
     HANDLE hOutput = (HANDLE)GetStdHandle(STD_OUTPUT_HANDLE);
 
     COORD dwBufferSize = { SCREEN_WIDTH,SCREEN_HEIGHT };
