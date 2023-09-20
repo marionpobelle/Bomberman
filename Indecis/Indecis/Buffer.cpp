@@ -8,7 +8,10 @@ using namespace std;
 
 Buffer::Buffer(int Grid[], int size, int MaxLineSize) {
     Buffer::m_maxSize = MaxLineSize;
+}
 
+
+void Buffer::UpdateConsole(int Grid[], int size, int MaxLineSize) {
     HANDLE hOutput = (HANDLE)GetStdHandle(STD_OUTPUT_HANDLE);
 
     COORD dwBufferSize = { SCREEN_WIDTH,SCREEN_HEIGHT };
@@ -24,8 +27,6 @@ Buffer::Buffer(int Grid[], int size, int MaxLineSize) {
         int height = (int)ceil(i / Buffer::m_maxSize);
         Buffer::buffer[height][i % Buffer::m_maxSize].Char.AsciiChar = Grid[i];
     }
-
-
     WriteConsoleOutput(hOutput, (CHAR_INFO*)Buffer::buffer, dwBufferSize,
         dwBufferCoord, &rcRegion);
 }
