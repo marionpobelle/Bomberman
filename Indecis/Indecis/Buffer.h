@@ -5,7 +5,8 @@
 class Buffer
 {
 public:
-	Buffer(int Grid[], int size, int MaxLineSize);
+	Buffer(int Grid[], int size, int MaxLineSize); 
+	void UpdateConsole(int Grid[], int size, int MaxLineSize);
 	CHAR_INFO buffer[SCREEN_HEIGHT][SCREEN_WIDTH];
 
 	int m_maxSize;
