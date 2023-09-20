@@ -8,8 +8,7 @@
 
 using namespace std;
 
-Buffer::Buffer(int _maxSize) 
-    : m_maxSize(_maxSize)
+Buffer::Buffer(int _maxSize) : m_maxSize(_maxSize)
 {
    
 }
