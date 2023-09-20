@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>430</x>
+      <y>240</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>Object
+--
+Struct Pos {
+   x= 0;
+   y= 0;
+};
+int visual;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>590</x>
+      <y>520</y>
+      <w>140</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>Entity
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>690</x>
+      <y>650</y>
+      <w>150</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Player
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>520</x>
+      <y>660</y>
+      <w>150</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Enemy
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
