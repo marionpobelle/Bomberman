@@ -1,15 +1,17 @@
 #pragma once
-#include "Definitions.h"
 #include <windows.h>
+#include <vector>;
+#include "Entity.h"
+#include "Definitions.h"
 
 class Buffer
 {
 public:
 	Buffer(int maxLineSize); 
-	static CHAR_INFO buffer[SCREEN_HEIGHT][SCREEN_WIDTH];
-	static void UpdateConsole(int Grid[], int size);
+	CHAR_INFO buffer[SCREEN_HEIGHT][SCREEN_WIDTH];
+	static void UpdateConsole(int Grid[], int size, std::vector<Entity*> entityList);
 
-	static int m_maxSize;
+	int m_maxSize;
 private:
 
 

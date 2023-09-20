@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 #include <windows.h>
 #include "Entity.h";
 
@@ -20,7 +21,7 @@ public:
         orientation = 0;
     }
 
-    void Update() {
+     void Update() {
         if (GetAsyncKeyState(downVK)) {
            x++;
         }
@@ -33,6 +34,7 @@ public:
         if (GetAsyncKeyState(leftVK)) {
             y--;
         }
+
     }
 };
 

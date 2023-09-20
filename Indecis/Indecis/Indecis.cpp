@@ -1,44 +1,31 @@
-// Indecis.cpp : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
-//
-
 #include <iostream>
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
+#include <vector>
 #include "Buffer.h"
 #include "NYTimer.h"
-Entity player = Entity(0, 0);
-void Update() {
-    if (GetAsyncKeyState(VK_DOWN)) {
-        player.x++;
-    }
-    if (GetAsyncKeyState(VK_UP)) {
-        player.x--;
-    }
-    if (GetAsyncKeyState(VK_RIGHT)) {
-        player.y++;
-    }
-    if (GetAsyncKeyState(VK_LEFT)) {
-        player.y--;
-    }
+#include "Entity.h"
+#include "Player.h"
 
-    //Draw();
+std::vector<Entity*> entityList;
+int grid[3];
+
+void Update() {
+    for (size_t i = 0; i < entityList.size(); i++)
+    {
+        entityList[i]->Update();
+    }
+    Buffer::UpdateConsole(grid, 100, entityList);
 }
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    //Buffer buffer = Buffer(3);
+
+    entityList.push_back(new Player(10, 10, VK_LEFT, VK_RIGHT, VK_UP, VK_DOWN));
+
     while (true) {
         Update();
     }
+    return 0;
 }
-
-// Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
-// Déboguer le programme : F5 ou menu Déboguer > Démarrer le débogage
-
-// Astuces pour bien démarrer : 
-//   1. Utilisez la fenêtre Explorateur de solutions pour ajouter des fichiers et les gérer.
-//   2. Utilisez la fenêtre Team Explorer pour vous connecter au contrôle de code source.
-//   3. Utilisez la fenêtre Sortie pour voir la sortie de la génération et d'autres messages.
-//   4. Utilisez la fenêtre Liste d'erreurs pour voir les erreurs.
-//   5. Accédez à Projet > Ajouter un nouvel élément pour créer des fichiers de code, ou à Projet > Ajouter un élément existant pour ajouter des fichiers de code existants au projet.
-//   6. Pour rouvrir ce projet plus tard, accédez à Fichier > Ouvrir > Projet et sélectionnez le fichier .sln.

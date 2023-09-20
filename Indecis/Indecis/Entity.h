@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 
 class Entity
 {
@@ -11,7 +12,7 @@ public:
         y = _y;
     }
 
-    void Update() {
-        //std::cout << "yo" << std::endl;
+    virtual void Update() {
+
     }
 };
