@@ -6,10 +6,30 @@
 #include <windows.h>
 #include "Buffer.h"
 #include "NYTimer.h"
+Entity player = Entity(0, 0);
+void Update() {
+    if (GetAsyncKeyState(VK_DOWN)) {
+        player.x++;
+    }
+    if (GetAsyncKeyState(VK_UP)) {
+        player.x--;
+    }
+    if (GetAsyncKeyState(VK_RIGHT)) {
+        player.y++;
+    }
+    if (GetAsyncKeyState(VK_LEFT)) {
+        player.y--;
+    }
+
+    //Draw();
+}
 
 int main()
 {
     std::cout << "Hello World!\n";
+    while (true) {
+        Update();
+    }
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
