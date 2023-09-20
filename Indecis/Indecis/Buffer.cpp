@@ -1,35 +1,31 @@
-#include "Buffer.h"
-#define WIN32_LEAN_AND_MEAN
+#include "Definitions.h"
 #include <windows.h>
+#include <iostream>
+#include <string>
+#include "Buffer.h"
 
-Buffer::Buffer(int screenWidth, int screenHeight) {
+using namespace std;
+
+Buffer::Buffer(int Grid[], int size, int MaxLineSize) {
+    Buffer::m_maxSize = MaxLineSize;
+
     HANDLE hOutput = (HANDLE)GetStdHandle(STD_OUTPUT_HANDLE);
 
-    COORD dwBufferSize = { screenWidth,screenHeight };
+    COORD dwBufferSize = { SCREEN_WIDTH,SCREEN_HEIGHT };
     COORD dwBufferCoord = { 0, 0 };
-    SMALL_RECT rcRegion = { 0, 0, screenWidth - 1, screenHeight - 1 };
+    SMALL_RECT rcRegion = { 0, 0, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1 };
 
-    CHAR_INFO buffer[screenWidth];
-
-    ReadConsoleOutput(hOutput, (CHAR_INFO*)buffer, dwBufferSize,
+    ReadConsoleOutput(hOutput, (CHAR_INFO*)Buffer::buffer, dwBufferSize,
         dwBufferCoord, &rcRegion);
 
-    buffer[7][10].Char.AsciiChar = 'H';
-    buffer[7][10].Attributes = 0x0E;
-    buffer[7][11].Char.AsciiChar = 'i';
-    buffer[7][11].Attributes = 0x0B;
-    buffer[7][12].Char.AsciiChar = '!';
-    buffer[7][12].Attributes = 0x0A;
+    //reading Grid toward buffer (temp will be changed later)
+    int i = 0;
+    for (i = 0; i < size; ++i) {
+        int height = (int)ceil(i / Buffer::m_maxSize);
+        Buffer::buffer[height][i % Buffer::m_maxSize].Char.AsciiChar = Grid[i];
+    }
 
-    buffer[6][1].Char.AsciiChar = '1';
-    buffer[6][1].Attributes = 0x0B;
-    buffer[6][2].Char.AsciiChar = '2';
-    buffer[6][2].Attributes = 0x0B;
-    buffer[5][1].Char.AsciiChar = '3';
-    buffer[5][1].Attributes = 0x0B;
-    buffer[5][2].Char.AsciiChar = 218;
-    buffer[5][2].Attributes = 0x0B;
 
-    WriteConsoleOutput(hOutput, (CHAR_INFO*)buffer, dwBufferSize,
+    WriteConsoleOutput(hOutput, (CHAR_INFO*)Buffer::buffer, dwBufferSize,
         dwBufferCoord, &rcRegion);
 }
