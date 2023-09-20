@@ -1,5 +1,13 @@
 #include "Entity.h"
 
-//void Update() {
-//    std::cout << "position" << std::endl;
-//}
+Entity::Entity(float _x, float _y) : x(_x), y(_y)
+{}
+
+void Entity::Update(std::vector<Entity*>& _entityList) //constructor
+{
+
+}
+
+void Entity::Draw() {
+
+}

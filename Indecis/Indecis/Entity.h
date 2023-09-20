@@ -8,16 +8,9 @@ public:
     float x;
     float y;
 
-    Entity(float _x, float _y) {     // Constructor
-        x = _x;
-        y = _y;
-    }
+    Entity(float _x, float _y);
 
-    virtual void Update(std::vector<Entity*>& _entityList) {
+    virtual void Update(std::vector<Entity*>& _entityList);
 
-    }
-
-    virtual void Draw() {
-
-    }
+    virtual void Draw();
 };
