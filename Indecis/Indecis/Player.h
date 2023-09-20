@@ -11,6 +11,7 @@ public:
     UCHAR rightVK;
     UCHAR upVK;
     UCHAR downVK;
+    static float SPEED;
 
 public:
     Player(int _x, int _y, UCHAR _leftVK, UCHAR _rightVK, UCHAR _upVK, UCHAR _downVK) : Entity(_x, _y) {     // Constructor       
@@ -23,18 +24,17 @@ public:
 
      void Update() {
         if (GetAsyncKeyState(downVK)) {
-           x++;
+           x += SPEED;
         }
         if (GetAsyncKeyState(upVK)) {
-            x--;
+            x -= SPEED;
         }
         if (GetAsyncKeyState(rightVK)) {
-            y++;
+            y += SPEED;
         }
         if (GetAsyncKeyState(leftVK)) {
-            y--;
+            y -= SPEED;
         }
-
-    }
+     }
 };
 

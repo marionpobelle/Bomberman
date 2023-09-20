@@ -11,7 +11,7 @@ public:
 	CHAR_INFO buffer[SCREEN_HEIGHT][SCREEN_WIDTH];
 	static void UpdateConsole(int Grid[], int size, std::vector<Entity*> entityList);
 
-	int m_maxSize;
+	static int m_maxSize;
 private:
 
 

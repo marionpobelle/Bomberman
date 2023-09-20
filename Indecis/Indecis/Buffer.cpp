@@ -8,18 +8,10 @@
 
 using namespace std;
 
-Buffer::Buffer(int maxLineSize) {
-    m_maxSize = maxLineSize;
-}
+int Buffer::m_maxSize = 1000;
 
 void Buffer::UpdateConsole(int Grid[], int size, std::vector<Entity*> _entityList) {
     HANDLE hOutput = (HANDLE)GetStdHandle(STD_OUTPUT_HANDLE);
-
-    ////reading Grid toward buffer (temp will be changed later)
-    ////for (int i = 0; i < size; ++i) {
-    ////    int height = (int)ceil(i / Buffer::m_maxSize);
-    ////    Buffer::buffer[height][i % Buffer::m_maxSize].Char.AsciiChar = Grid[i];
-    ////}
 
     COORD dwBufferSize = { SCREEN_WIDTH,SCREEN_HEIGHT };
     COORD dwBufferCoord = { 0, 0 };
@@ -29,6 +21,12 @@ void Buffer::UpdateConsole(int Grid[], int size, std::vector<Entity*> _entityLis
 
     ReadConsoleOutput(hOutput, (CHAR_INFO*)buffer, dwBufferSize,
     dwBufferCoord, &rcRegion);
+
+    //reading Grid toward buffer (temp will be changed later)
+    for (int i = 0; i < size; ++i) {
+        int height = (int)ceil(i / Buffer::m_maxSize);
+        buffer[height][i % Buffer::m_maxSize].Char.AsciiChar = Grid[i];
+    }
 
     for (int i = 0; i < SCREEN_WIDTH; i++)
     {
@@ -40,6 +38,8 @@ void Buffer::UpdateConsole(int Grid[], int size, std::vector<Entity*> _entityLis
                 if (round(_entityList[e]->x) == i && round(_entityList[e]->y) == j) {
                     buffer[i][j].Attributes = 0x2580;
                     buffer[i][j].Char.AsciiChar = 'i';
+                    buffer[i][j-1].Attributes = 0x2580;
+                    buffer[i][j-1].Char.AsciiChar = 'i';
                 }
 
             }
