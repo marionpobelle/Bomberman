@@ -1,8 +1,8 @@
 #include "Player.h"
 float Player::SPEED = 0.1;
 
-Player::Player(int _x, int _y, UCHAR _leftVK, UCHAR _rightVK, UCHAR _upVK, UCHAR _downVK, UCHAR _bombVK) //constructor
-    : Entity(_x, _y), leftVK(_leftVK), rightVK(_rightVK), upVK(_upVK), downVK(_downVK), bombVK(_bombVK)
+Player::Player(float _x, float _y, UCHAR _leftVK, UCHAR _rightVK, UCHAR _upVK, UCHAR _downVK, UCHAR _bombVK) //constructor
+    : Entity(_x, _y), leftVK(_leftVK), rightVK(_rightVK), upVK(_upVK), downVK(_downVK), bombVK(_bombVK), orientation(0)
 {}
 
 
@@ -51,7 +51,7 @@ void Player::PlantBomb(std::vector<Entity*>& _entityList) {
     default:
         break;
     }
-    _entityList.push_back(new Entity(bombX, bombY));
+    _entityList.push_back(new Bomb(bombX, bombY));
 }
 
 

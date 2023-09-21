@@ -4,6 +4,7 @@
 #include <vector>
 #include "Entity.h";
 #include "Buffer.h";
+#include "Bomb.h"
 
 class Player : public Entity
 {
@@ -18,7 +19,7 @@ public:
     float bombCooldown;
 
 public:
-    Player(int _x, int _y, UCHAR _leftVK, UCHAR _rightVK, UCHAR _upVK, UCHAR _downVK, UCHAR _bombVK);
+    Player(float _x, float _y, UCHAR _leftVK, UCHAR _rightVK, UCHAR _upVK, UCHAR _downVK, UCHAR _bombVK);
 
     void Update(std::vector<Entity*> &_entityList);
 
