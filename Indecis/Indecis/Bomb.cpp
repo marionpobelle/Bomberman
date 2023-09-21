@@ -16,7 +16,7 @@ void Bomb::Update(std::vector<Entity*>& _entityList) {
         //        _entityList.erase(ptr);
         //    }
         //}
-        delete this;
+        //delete this;
     }
 }
 
