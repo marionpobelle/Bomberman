@@ -13,15 +13,17 @@ public:
     UCHAR rightVK;
     UCHAR upVK;
     UCHAR downVK;
+    UCHAR bombVK;
     static float SPEED;
+    float bombCooldown;
 
 public:
-    Player(int _x, int _y, UCHAR _leftVK, UCHAR _rightVK, UCHAR _upVK, UCHAR _downVK);
+    Player(int _x, int _y, UCHAR _leftVK, UCHAR _rightVK, UCHAR _upVK, UCHAR _downVK, UCHAR _bombVK);
 
-    void Update(std::vector<Entity*>& _entityList);
+    void Update(std::vector<Entity*> &_entityList);
 
-    void PlantBomb(std::vector<Entity*>& _entityList);
+    void PlantBomb(std::vector<Entity*> &_entityList);
 
-    void Draw(Buffer buffer);
+    void Draw(Buffer &_buffer);
 };
 

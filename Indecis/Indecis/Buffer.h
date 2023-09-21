@@ -4,6 +4,8 @@
 #include "Entity.h"
 #include "Definitions.h"
 
+class Entity;
+
 class Buffer
 {
 public:

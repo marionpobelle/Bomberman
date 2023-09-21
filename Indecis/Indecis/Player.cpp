@@ -1,9 +1,8 @@
 #include "Player.h"
 float Player::SPEED = 0.1;
 
-
-Player::Player(int _x, int _y, UCHAR _leftVK, UCHAR _rightVK, UCHAR _upVK, UCHAR _downVK) //constructor
-    : Entity(_x, _y), leftVK(_leftVK), rightVK(_rightVK), upVK(_upVK), downVK(_downVK)
+Player::Player(int _x, int _y, UCHAR _leftVK, UCHAR _rightVK, UCHAR _upVK, UCHAR _downVK, UCHAR _bombVK) //constructor
+    : Entity(_x, _y), leftVK(_leftVK), rightVK(_rightVK), upVK(_upVK), downVK(_downVK), bombVK(_bombVK)
 {}
 
 
@@ -24,12 +23,15 @@ void Player::Update(std::vector<Entity*>& _entityList) {
         y -= SPEED;
         orientation = 2;
     }
-    if (GetAsyncKeyState(VK_SHIFT)) {
+    if (GetAsyncKeyState(bombVK)) {
         PlantBomb(_entityList);
     }
+    if (bombCooldown > 0) bombCooldown -= .1;
 }
 
 void Player::PlantBomb(std::vector<Entity*>& _entityList) {
+    if (bombCooldown > 0) return;
+    bombCooldown = 3.0;
     int bombX = x;
     int bombY = y;
     switch (orientation)
@@ -38,7 +40,7 @@ void Player::PlantBomb(std::vector<Entity*>& _entityList) {
         bombY = round(y) + 1;
         break;
     case 1:
-        bombX = round(x) + 2;
+        bombX = round(x) + 1;
         break;
     case 2:
         bombY = round(y) - 1;
@@ -53,11 +55,13 @@ void Player::PlantBomb(std::vector<Entity*>& _entityList) {
 }
 
 
-void Player::Draw(Buffer buffer){
+void Player::Draw(Buffer &_buffer){
     int _x = round(x);
     int _y = round(y);
-    //Buffer::buffer[x] [y] .Attributes = 0x2580;
-    //Buffer::buffer[x][y].Char.AsciiChar = 0x2580;
-    //Buffer::buffer[x][y - 1].Attributes = 0x2580;
-    //Buffer::buffer[x][y - 1].Char.AsciiChar = 0x2580;
+    _buffer.buffer[_x][_y] .Attributes = 0x2580;
+    _buffer.buffer[_x][_y].Char.AsciiChar = 0x2580;
+    if (_y >= 1) {
+        _buffer.buffer[_x][_y - 1].Attributes = 0x2580;
+        _buffer.buffer[_x][_y - 1].Char.AsciiChar = 0x2580;
+    }
 }
