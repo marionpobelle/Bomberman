@@ -8,15 +8,14 @@ void Bomb::Update(std::vector<Entity*>& _entityList) {
     timer -= NYTimer::deltaTime;
 
     if (timer <= 0) {
-        //std::cout << "should explose" << std::endl;
         std::vector<Entity*>::iterator ptr;
-        //for (ptr = _entityList.begin(); ptr < _entityList.end(); ptr++) {
-        //    std::cout << *ptr << std::endl;
-        //    if (*ptr == this) {
-        //        _entityList.erase(ptr);
-        //    }
-        //}
-        //delete this;
+        for (ptr = _entityList.begin(); ptr < _entityList.end(); ptr++) {
+            if (*ptr == this) {
+                _entityList.erase(ptr);
+                break;
+            }
+        }
+        delete this;
     }
 }
 
