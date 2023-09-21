@@ -19,7 +19,7 @@ public:
     float bombCooldown;
 
 public:
-    Player(float _x, float _y, UCHAR _leftVK, UCHAR _rightVK, UCHAR _upVK, UCHAR _downVK, UCHAR _bombVK);
+    Player(float _x, float _y, char _charVisual, UCHAR _leftVK, UCHAR _rightVK, UCHAR _upVK, UCHAR _downVK, UCHAR _bombVK);
 
     void Update(std::vector<Entity*> &_entityList, Grid& grid);
 

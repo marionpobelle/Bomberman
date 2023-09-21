@@ -8,12 +8,17 @@ class Buffer;
 class Entity
 {
 public:
-    float x;
-    float y;
+	struct Position {
+		float x = 0;
+		float y = 0;
+	};
+	Position position;
 
-    Entity(float _x, float _y);
+	char charVisual;
+	std::string visual;
+
+    Entity(float _x, float _y, char _charVisual);
 
     virtual void Update(std::vector<Entity*> &_entityList, Grid& grid);
 
-    virtual void Draw(Buffer& _buffer, int _x, int _y);
 };
