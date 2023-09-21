@@ -20,6 +20,7 @@ public:
 private:
 	void DrawBox(int coordX, int coordY);
 	void DrawCharVisual(int _x, int _y, char _charVisual);
+	void DrawBackground(int _x, int _y, char _charVisual);
 
 };
 

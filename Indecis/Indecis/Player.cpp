@@ -1,42 +1,46 @@
 #include "Player.h"
-float Player::SPEED = .05;
+float Player::SPEED = .01;
 
 Player::Player(float _x, float _y, char _charVisual, UCHAR _leftVK, UCHAR _rightVK, UCHAR _upVK, UCHAR _downVK, UCHAR _bombVK) //constructor
     : Entity(_x, _y, _charVisual), leftVK(_leftVK), rightVK(_rightVK), upVK(_upVK), downVK(_downVK), bombVK(_bombVK), orientation(0)
 {}
 
 
-void Player::Update(std::vector<Entity*>& _entityList, Grid& grid) {
+void Player::Update(std::vector<Entity*> &_entityList, Grid &_grid) {
     if (GetAsyncKeyState(downVK)) {
-        int nextStep = grid.GetGridCoordinates(floor(position.x)+1, floor(position.y));
-        if (grid.grid[nextStep] != 1) {
+        int nextStep = _grid.GetGridCoordinates(floor(position.x), floor(position.y) + 1);
+        if (_grid.grid[nextStep] != 1) {
         	position.y += (SPEED * NYTimer::deltaTime);
             orientation = 0;
-        }
-        else {
-            std::cout << "collision" << std::endl;
+        } else {
+            position.y = floor(position.y);
         }
     }
     if (GetAsyncKeyState(upVK)) {
-        int nextStep = grid.GetGridCoordinates(floor(position.x) - 1, floor(position.y));
-        if (grid.grid[nextStep] != 1) {
+        int nextStep = _grid.GetGridCoordinates(floor(position.x), floor(position.y) - 1);
+        if (_grid.grid[nextStep] != 1) {
         	position.y -= (SPEED * NYTimer::deltaTime);
             orientation = 2;
+        } else {
+            position.y = floor(position.y);
         }
     }
     if (GetAsyncKeyState(rightVK)) {
-        int nextStep = grid.GetGridCoordinates(floor(position.x), floor(position.y) + 1);
-        if (grid.grid[nextStep] != 1) {
+        int nextStep = _grid.GetGridCoordinates(floor(position.x) + 1, floor(position.y));
+        if (_grid.grid[nextStep] != 1) {
         	position.x += (SPEED * NYTimer::deltaTime);
         	orientation = 1;
+        } else {
+            position.x = floor(position.x);
         }
-
     }
     if (GetAsyncKeyState(leftVK)) {
-        int nextStep = grid.GetGridCoordinates(floor(position.x), floor(position.y) - 1);
-        if (grid.grid[nextStep] != 1) {
+        int nextStep = _grid.GetGridCoordinates(floor(position.x) - 1, floor(position.y));
+        if (_grid.grid[nextStep] != 1) {
         	position.x -= (SPEED * NYTimer::deltaTime);
         	orientation = 3;
+        } else {
+            position.x = floor(position.x);
         }
     }
 
