@@ -24,6 +24,6 @@ public:
 
     void PlantBomb(std::vector<Entity*> &_entityList);
 
-    void Draw(Buffer &_buffer);
+    void Draw(Buffer &_buffer, int _x, int _y);
 };
 

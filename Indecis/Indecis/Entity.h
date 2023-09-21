@@ -15,5 +15,5 @@ public:
 
     virtual void Update(std::vector<Entity*> &_entityList);
 
-    virtual void Draw(Buffer &_buffer);
+    virtual void Draw(Buffer& _buffer, int _x, int _y);
 };

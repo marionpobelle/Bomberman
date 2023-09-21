@@ -37,16 +37,16 @@ void Player::PlantBomb(std::vector<Entity*>& _entityList) {
     switch (orientation)
     {
     case 0:
-        bombY = round(y) + 1;
+        bombY = floor(y) + 2;
         break;
     case 1:
-        bombX = round(x) + 1;
+        bombX = floor(x) + 1;
         break;
     case 2:
-        bombY = round(y) - 1;
+        bombY = floor(y) - 2;
         break;
     case 3:
-        bombX = round(x) - 1;
+        bombX = floor(x) - 1;
         break;
     default:
         break;
@@ -55,13 +55,11 @@ void Player::PlantBomb(std::vector<Entity*>& _entityList) {
 }
 
 
-void Player::Draw(Buffer &_buffer){
-    int _x = round(x);
-    int _y = round(y);
-    _buffer.buffer[_x][_y] .Attributes = 0x2580;
-    _buffer.buffer[_x][_y].Char.AsciiChar = 0x2580;
+void Player::Draw(Buffer &_buffer, int _x, int _y){
+    _buffer.buffer[_x][_y] .Attributes = 0x0001 + 0x0020;
+    _buffer.buffer[_x][_y].Char.UnicodeChar = 0x2580;
     if (_y >= 1) {
-        _buffer.buffer[_x][_y - 1].Attributes = 0x2580;
-        _buffer.buffer[_x][_y - 1].Char.AsciiChar = 0x2580;
+        _buffer.buffer[_x][_y - 1].Attributes = 0x0001 + 0x0020;
+        _buffer.buffer[_x][_y - 1].Char.UnicodeChar = 0x2580;
     }
 }

@@ -20,8 +20,6 @@ void Buffer::UpdateConsole(int Grid[], int size, std::vector<Entity*> &_entityLi
     COORD dwBufferCoord = { 0, 0 };
     SMALL_RECT rcRegion = { 0, 0, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1 };
 
-    //CHAR_INFO buffer[SCREEN_HEIGHT][SCREEN_WIDTH];
-
     ReadConsoleOutput(hOutput, (CHAR_INFO*)buffer, dwBufferSize,
     dwBufferCoord, &rcRegion);
 
@@ -38,17 +36,11 @@ void Buffer::UpdateConsole(int Grid[], int size, std::vector<Entity*> &_entityLi
             buffer[i][j].Attributes = 0x2577;
             for (int e = 0; e < _entityList.size(); e++)
             {
-                if (round(_entityList[e]->x) == i && round(_entityList[e]->y) == j) {
-                    _entityList[e]->Draw(*this);
-                    //buffer[i][j].Attributes = 0x2580;
-                    //buffer[i][j].Char.AsciiChar = 0x2580;
-                    //if (i >= 1 && j >= 1) {
-                    //    buffer[i][j - 1].Attributes = 0x2580;
-                    //    buffer[i][j - 1].Char.AsciiChar = 0x2580;
-                    //}
-
+                int _entityX = floor(_entityList[e]->x);
+                int _entityY = floor(_entityList[e]->y);
+                if (_entityX == i && _entityY == j) {
+                    _entityList[e]->Draw(*this, _entityX, _entityY);
                 }
-
             }
         }
     }
