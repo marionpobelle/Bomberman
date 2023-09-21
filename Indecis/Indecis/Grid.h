@@ -9,6 +9,7 @@ class Grid
 public:
 	Grid(int gameGridWidth, int gameGridHeight)	;
 	void ReadAndAddFileToGrid(std::string fileName);
+	int GetGridCoordinates(int x, int y);
 
 	int *grid;
 	int m_gameGridSize;

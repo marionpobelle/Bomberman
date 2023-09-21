@@ -28,3 +28,8 @@ void Grid::ReadAndAddFileToGrid(std::string fileName) {
         }
     }
 }
+
+int Grid::GetGridCoordinates(int x, int y) {
+    int coordinates = x * m_gameGridWidth + y;
+    return coordinates;
+}
