@@ -1,34 +1,35 @@
 #include "Player.h"
-float Player::SPEED = 0.1;
+float Player::SPEED = .05;
 
-Player::Player(int _x, int _y, char _charVisual, UCHAR _leftVK, UCHAR _rightVK, UCHAR _upVK, UCHAR _downVK, UCHAR _bombVK) //constructor
-    : Entity(_x, _y, _charVisual), leftVK(_leftVK), rightVK(_rightVK), upVK(_upVK), downVK(_downVK), bombVK(_bombVK)
+Player::Player(float _x, float _y, char _charVisual, UCHAR _leftVK, UCHAR _rightVK, UCHAR _upVK, UCHAR _downVK, UCHAR _bombVK) //constructor
+    : Entity(_x, _y), leftVK(_leftVK), rightVK(_rightVK), upVK(_upVK), downVK(_downVK), bombVK(_bombVK), orientation(0)
 {}
 
 
 void Player::Update(std::vector<Entity*>& _entityList) {
     if (GetAsyncKeyState(downVK)) {
-        position.y += SPEED;
+        position.y += (SPEED * NYTimer::deltaTime);
         orientation = 0;
     }
     if (GetAsyncKeyState(upVK)) {
-        position.y -= SPEED;
+        position.y -= (SPEED * NYTimer::deltaTime);
         orientation = 2;
     }
     if (GetAsyncKeyState(rightVK)) {
         
-        position.x += SPEED;
+        position.x += (SPEED * NYTimer::deltaTime);
         orientation = 1;
     }
     if (GetAsyncKeyState(leftVK)) {
         
-        position.x -= SPEED;
+        position.x -= (SPEED * NYTimer::deltaTime);
         orientation = 3;
     }
     if (GetAsyncKeyState(bombVK)) {
         PlantBomb(_entityList);
     }
-    if (bombCooldown > 0) bombCooldown -= .1;
+
+    if (bombCooldown > 0) bombCooldown -= 0.005 * NYTimer::deltaTime;
 }
 
 void Player::PlantBomb(std::vector<Entity*>& _entityList) {
@@ -53,5 +54,5 @@ void Player::PlantBomb(std::vector<Entity*>& _entityList) {
     default:
         break;
     }
-    _entityList.push_back(new Entity(bombX, bombY, 'B'));
+    _entityList.push_back(new Bomb(bombX, bombY, 'B'));
 }

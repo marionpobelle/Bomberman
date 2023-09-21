@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Bomb.cpp" />
     <ClCompile Include="Buffer.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Grid.cpp" />
@@ -148,6 +149,7 @@
     <ClCompile Include="UIWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Bomb.h" />
     <ClInclude Include="Buffer.h" />
     <ClInclude Include="Definitions.h" />
     <ClInclude Include="Entity.h" />
