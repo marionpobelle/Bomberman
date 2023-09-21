@@ -141,16 +141,20 @@
   <ItemGroup>
     <ClCompile Include="Buffer.cpp" />
     <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="Grid.cpp" />
     <ClCompile Include="Indecis.cpp" />
     <ClCompile Include="NYTimer.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="UIWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Buffer.h" />
     <ClInclude Include="Definitions.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="Grid.h" />
     <ClInclude Include="NYTimer.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="UIWindow.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
