@@ -53,7 +53,6 @@ void Buffer::UpdateConsole(Grid grid, std::vector<Entity*>& _entityList) {
         dwBufferCoord, &rcRegion);
 }
 
-
 void Buffer::DrawBox(int coordX, int coordY) {
     //Ici on dessine une boite de la taille d'une case de grille
     for (int k = 0; k < screenGridRatio * 2; k++) {
@@ -67,7 +66,6 @@ void Buffer::DrawBox(int coordX, int coordY) {
         }
     }
 }
-
 
 void Buffer::DrawCharVisual(int _x, int _y, char _charVisual) {
     for (int k = 0; k < screenGridRatio * 2; k++) {

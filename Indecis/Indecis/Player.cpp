@@ -40,10 +40,6 @@ void Player::Update(std::vector<Entity*>& _entityList, Grid& grid) {
         }
     }
 
-        
-
-
-    
     if (GetAsyncKeyState(bombVK)) {
         PlantBomb(_entityList);
     }
@@ -59,13 +55,13 @@ void Player::PlantBomb(std::vector<Entity*>& _entityList) {
     switch (orientation)
     {
     case 0:
-        bombY = floor(position.y) + 2;
+        bombY = floor(position.y) + 1;
         break;
     case 1:
         bombX = floor(position.x) + 1;
         break;
     case 2:
-        bombY = floor(position.y) - 2;
+        bombY = floor(position.y) - 1;
         break;
     case 3:
         bombX = floor(position.x) - 1;

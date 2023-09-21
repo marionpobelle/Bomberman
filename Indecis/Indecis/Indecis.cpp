@@ -25,8 +25,6 @@ void Update() {
 
 int main()
 {
-    
-
     grid.ReadAndAddFileToGrid("maps/map.txt");
 
     buffer.UpdateConsole(grid, entityList);
