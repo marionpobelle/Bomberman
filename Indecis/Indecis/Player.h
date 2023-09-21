@@ -18,7 +18,7 @@ public:
     float bombCooldown;
 
 public:
-    Player(int _x, int _y, UCHAR _leftVK, UCHAR _rightVK, UCHAR _upVK, UCHAR _downVK, UCHAR _bombVK);
+    Player(int _x, int _y, char _charVisual, UCHAR _leftVK, UCHAR _rightVK, UCHAR _upVK, UCHAR _downVK, UCHAR _bombVK);
 
     void Update(std::vector<Entity*> &_entityList);
 

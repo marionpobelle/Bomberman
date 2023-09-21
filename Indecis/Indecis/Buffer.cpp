@@ -9,7 +9,7 @@
 
 using namespace std;
 
-Buffer::Buffer(int maxLineSize, int screenGridRatio) : m_maxSize(maxLineSize), m_screenGridRatio(screenGridRatio)
+Buffer::Buffer(int _maxLineSize, int _screenGridRatio) : maxSize(_maxLineSize), screenGridRatio(_screenGridRatio)
 {
 
 }
@@ -34,19 +34,19 @@ void Buffer::UpdateConsole(Grid grid, std::vector<Entity*>& _entityList) {
             buffer[i][j].Attributes = 0x2577;
             for (int e = 0; e < _entityList.size(); e++)
             {
-                int _entityX = floor(_entityList[e]->x);
-                int _entityY = floor(_entityList[e]->y);
+                int _entityX = floor(_entityList[e]->position.x);
+                int _entityY = floor(_entityList[e]->position.y);
                 if (_entityX == i && _entityY == j) {
-                    _entityList[e]->Draw(*this, _entityX, _entityY);
+                    DrawCharVisual(_entityX, _entityY, _entityList[e]->charVisual);
                 }
             }
         }
     }
 
     //Lecture de la grid vers le buffer
-    for (int i = 0; i < grid.m_gameGridSize; ++i) {
-        int coordY = (int)ceil(i / m_maxSize);
-        int coordX = i % m_maxSize;
+    for (int i = 0; i < grid.gameGridSize; ++i) {
+        int coordY = (int)ceil(i / maxSize);
+        int coordX = i % maxSize;
         if (grid.grid[i] == 1) {
             DrawBox(coordX, coordY);
         }
@@ -60,14 +60,34 @@ void Buffer::UpdateConsole(Grid grid, std::vector<Entity*>& _entityList) {
 
 void Buffer::DrawBox(int coordX, int coordY) {
     //Ici on dessine une boite de la taille d'une case de grille
-    for (int k = 0; k < m_screenGridRatio * 2; k++) {
-        for (int l = 0; l < m_screenGridRatio; l++) {
+    for (int k = 0; k < screenGridRatio * 2; k++) {
+        for (int l = 0; l < screenGridRatio; l++) {
             //avoir les coordonn�es 
-            int charCoordX = coordX * m_screenGridRatio * 2 + k;
-            int CharCoordY = coordY * m_screenGridRatio + l;
+            int charCoordX = coordX * screenGridRatio * 2 + k;
+            int CharCoordY = coordY * screenGridRatio + l;
             //ajout de char dans le buffer, a modifier plus tard pour l'adapter en fonction du character � afficher
             buffer[CharCoordY][charCoordX].Char.AsciiChar = 'X';
             buffer[CharCoordY][charCoordX].Attributes = 0x0A;
         }
     }
+}
+
+
+void Buffer::DrawCharVisual(int _x, int _y, char _charVisual) {
+    for (int k = 0; k < screenGridRatio * 2; k++) {
+        for (int l = 0; l < screenGridRatio; l++) {
+            //avoir les coordonn�es 
+            int charCoordX = _x * screenGridRatio * 2 + k;
+            int CharCoordY = _y * screenGridRatio + l;
+            //ajout de char dans le buffer, a modifier plus tard pour l'adapter en fonction du character � afficher
+            buffer[CharCoordY][charCoordX].Attributes = 0x0003 + 0x0020;
+            buffer[CharCoordY][charCoordX].Char.UnicodeChar = 0x2580;
+        }
+    }
+    /*buffer[_x][_y].Attributes = 0x0003 + 0x0020;
+    buffer[_x][_y].Char.UnicodeChar = 0x2580;
+    if (_y >= 1) {
+        buffer[_x][_y - 1].Attributes = 0x0004 + 0x0020;
+        buffer[_x][_y - 1].Char.UnicodeChar = 0x2580;
+    }*/
 }

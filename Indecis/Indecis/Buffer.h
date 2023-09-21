@@ -10,15 +10,16 @@ class Entity;
 class Buffer
 {
 public:
-	Buffer(int maxLineSize, int screenGridRatio);
+	Buffer(int _maxLineSize, int _screenGridRatio);
 	CHAR_INFO buffer[SCREEN_HEIGHT][SCREEN_WIDTH];
 	void UpdateConsole(Grid grid, std::vector<Entity*>& _entityList);
 
-	int m_maxSize;
-	const int m_screenGridRatio;
+	int maxSize;
+	const int screenGridRatio;
 
 private:
 	void DrawBox(int coordX, int coordY);
+	void DrawCharVisual(int _x, int _y, char _charVisual);
 
 };
 
