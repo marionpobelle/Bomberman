@@ -6,22 +6,38 @@ Player::Player(float _x, float _y, UCHAR _leftVK, UCHAR _rightVK, UCHAR _upVK, U
 {}
 
 
-void Player::Update(std::vector<Entity*>& _entityList) {
+void Player::Update(std::vector<Entity*>& _entityList, Grid& grid) {
     if (GetAsyncKeyState(downVK)) {
-        x += (SPEED * NYTimer::deltaTime);
-        orientation = 1;
+        int nextStep = grid.GetGridCoordinates(floor(x)+1, floor(y));
+        if (grid.grid[nextStep] != 1) {
+            x += (SPEED * NYTimer::deltaTime);
+            orientation = 1;
+        }
+        else {
+            std::cout << "collision" << std::endl;
+        }
     }
     if (GetAsyncKeyState(upVK)) {
-        x -= (SPEED * NYTimer::deltaTime);
-        orientation = 3;
+        int nextStep = grid.GetGridCoordinates(floor(x) - 1, floor(y));
+        if (grid.grid[nextStep] != 1) {
+            x -= (SPEED * NYTimer::deltaTime);
+            orientation = 3;
+        }
     }
     if (GetAsyncKeyState(rightVK)) {
-        y += (SPEED * NYTimer::deltaTime);
-        orientation = 0;
+        int nextStep = grid.GetGridCoordinates(floor(x), floor(y) + 1);
+        if (grid.grid[nextStep] != 1) {
+            y += (SPEED * NYTimer::deltaTime);
+            orientation = 0;
+        }
+
     }
     if (GetAsyncKeyState(leftVK)) {
-        y -= (SPEED * NYTimer::deltaTime);
-        orientation = 2;
+        int nextStep = grid.GetGridCoordinates(floor(x), floor(y) - 1);
+        if (grid.grid[nextStep] != 1) {
+            y -= (SPEED * NYTimer::deltaTime);
+            orientation = 2;
+        }
     }
     if (GetAsyncKeyState(bombVK)) {
         PlantBomb(_entityList);

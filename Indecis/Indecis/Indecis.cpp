@@ -17,7 +17,7 @@ Grid grid(10, 10);
 void Update() {
     for (int i = 0; i < entityList.size(); i++)
     {
-        entityList[i]->Update(entityList);
+        entityList[i]->Update(entityList, grid);
     }
     buffer.UpdateConsole(grid, entityList);
 }

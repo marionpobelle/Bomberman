@@ -29,7 +29,7 @@ float NYTimer::getElapsedSeconds(bool restart) {
 	return elapsed;
 }
 
-void NYTimer::deltaTimeCalcul() {
+void NYTimer::deltaTimeCalcul() { //calcule à chaque frame la valeur de delta time dans l'update de Indecis.cpp
 	LARGE_INTEGER timeNow;
 	QueryPerformanceCounter(&timeNow);
 	LONGLONG elapsedLong = timeNow.QuadPart - lastUpdateTime.QuadPart;
