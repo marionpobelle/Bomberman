@@ -1,7 +1,7 @@
 #include "Bomb.h"
 
-Bomb::Bomb(float _x, float _y) //constructor
-    : Entity(_x, _y), timer(3000)
+Bomb::Bomb(float _x, float _y, char _charVisual) //constructor
+    : Entity(_x, _y, _charVisual), timer(3000)
 {}
 
 void Bomb::Update(std::vector<Entity*>& _entityList, Grid& grid) {

@@ -24,9 +24,6 @@ void Buffer::UpdateConsole(Grid grid, std::vector<Entity*>& _entityList) {
     ReadConsoleOutput(hOutput, (CHAR_INFO*)buffer, dwBufferSize,
     dwBufferCoord, &rcRegion);
 
-    
-    
-
     for (int i = 0; i < SCREEN_WIDTH; i++)
     {
         for (int j = 0; j < SCREEN_HEIGHT; j++)
@@ -51,7 +48,6 @@ void Buffer::UpdateConsole(Grid grid, std::vector<Entity*>& _entityList) {
             DrawBox(coordX, coordY);
         }
     }
-
 
     WriteConsoleOutput(hOutput, (CHAR_INFO*)buffer, dwBufferSize,
         dwBufferCoord, &rcRegion);

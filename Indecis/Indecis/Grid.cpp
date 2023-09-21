@@ -30,6 +30,6 @@ void Grid::ReadAndAddFileToGrid(std::string fileName) {
 }
 
 int Grid::GetGridCoordinates(int x, int y) {
-    int coordinates = x * m_gameGridWidth + y;
+    int coordinates = x * gameGridSize + y;
     return coordinates;
 }
