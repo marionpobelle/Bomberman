@@ -21,7 +21,7 @@ public:
 public:
     Player(float _x, float _y, UCHAR _leftVK, UCHAR _rightVK, UCHAR _upVK, UCHAR _downVK, UCHAR _bombVK);
 
-    void Update(std::vector<Entity*> &_entityList);
+    void Update(std::vector<Entity*> &_entityList, Grid& grid);
 
     void PlantBomb(std::vector<Entity*> &_entityList);
 

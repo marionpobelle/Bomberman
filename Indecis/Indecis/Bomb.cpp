@@ -4,7 +4,7 @@ Bomb::Bomb(float _x, float _y) //constructor
     : Entity(_x, _y), timer(3000)
 {}
 
-void Bomb::Update(std::vector<Entity*>& _entityList) {
+void Bomb::Update(std::vector<Entity*>& _entityList, Grid& grid) {
     timer -= NYTimer::deltaTime;
 
     if (timer <= 0) {

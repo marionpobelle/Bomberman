@@ -13,7 +13,7 @@ public:
 
     Entity(float _x, float _y);
 
-    virtual void Update(std::vector<Entity*> &_entityList);
+    virtual void Update(std::vector<Entity*> &_entityList, Grid& grid);
 
     virtual void Draw(Buffer& _buffer, int _x, int _y);
 };
