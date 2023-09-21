@@ -27,6 +27,7 @@ int main()
 
     while (true) {
         Update();
+        NYTimer::deltaTimeCalcul();
     }
     return 0;
 }

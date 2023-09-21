@@ -1,5 +1,5 @@
 #include "Player.h"
-float Player::SPEED = 0.1;
+float Player::SPEED = .05;
 
 Player::Player(float _x, float _y, UCHAR _leftVK, UCHAR _rightVK, UCHAR _upVK, UCHAR _downVK, UCHAR _bombVK) //constructor
     : Entity(_x, _y), leftVK(_leftVK), rightVK(_rightVK), upVK(_upVK), downVK(_downVK), bombVK(_bombVK), orientation(0)
@@ -8,25 +8,26 @@ Player::Player(float _x, float _y, UCHAR _leftVK, UCHAR _rightVK, UCHAR _upVK, U
 
 void Player::Update(std::vector<Entity*>& _entityList) {
     if (GetAsyncKeyState(downVK)) {
-        x += SPEED;
+        x += (SPEED * NYTimer::deltaTime);
         orientation = 1;
     }
     if (GetAsyncKeyState(upVK)) {
-        x -= SPEED;
+        x -= (SPEED * NYTimer::deltaTime);
         orientation = 3;
     }
     if (GetAsyncKeyState(rightVK)) {
-        y += SPEED;
+        y += (SPEED * NYTimer::deltaTime);
         orientation = 0;
     }
     if (GetAsyncKeyState(leftVK)) {
-        y -= SPEED;
+        y -= (SPEED * NYTimer::deltaTime);
         orientation = 2;
     }
     if (GetAsyncKeyState(bombVK)) {
         PlantBomb(_entityList);
     }
-    if (bombCooldown > 0) bombCooldown -= .1;
+
+    if (bombCooldown > 0) bombCooldown -= 0.005 * NYTimer::deltaTime;
 }
 
 void Player::PlantBomb(std::vector<Entity*>& _entityList) {

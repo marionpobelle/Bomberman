@@ -1,6 +1,7 @@
 #include "NYTimer.h"
  LARGE_INTEGER NYTimer::lastUpdateTime;
  LONGLONG NYTimer::freq;
+ float NYTimer::deltaTime;
 
 NYTimer::NYTimer() { //constructor
 	QueryPerformanceCounter(&lastUpdateTime);
@@ -26,6 +27,18 @@ float NYTimer::getElapsedSeconds(bool restart) {
 		lastUpdateTime = timeNow;
 
 	return elapsed;
+}
+
+void NYTimer::deltaTimeCalcul() {
+	LARGE_INTEGER timeNow;
+	QueryPerformanceCounter(&timeNow);
+	LONGLONG elapsedLong = timeNow.QuadPart - lastUpdateTime.QuadPart;
+
+	float elapsed = (float)((float)elapsedLong / (float)freq);
+
+	lastUpdateTime = timeNow;
+
+	deltaTime = elapsed;
 }
 
 unsigned long NYTimer::getElapsedMs(bool restart)

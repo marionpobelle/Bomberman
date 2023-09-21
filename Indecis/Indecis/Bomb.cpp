@@ -1,24 +1,23 @@
 #include "Bomb.h"
 
 Bomb::Bomb(float _x, float _y) //constructor
-    : Entity(_x, _y), timer(4)
+    : Entity(_x, _y), timer(3000)
 {}
 
 void Bomb::Update(std::vector<Entity*>& _entityList) {
-    timer -= NYTimer::getElapsedSeconds();
-    //std::cout << timer << std::endl;
+    timer -= NYTimer::deltaTime;
 
-    //if (timer <= 0) {
-    //    std::cout << "should explose" << std::endl;
-    //    std::vector<Entity*>::iterator ptr;
-    //    for (ptr = _entityList.begin(); ptr < _entityList.end(); ptr++) {
-    //        std::cout << *ptr << std::endl;
-    //        if (*ptr == this) {
-    //            _entityList.erase(ptr);
-    //        }
-    //    }
-    //    delete this;
-    //}
+    if (timer <= 0) {
+        //std::cout << "should explose" << std::endl;
+        std::vector<Entity*>::iterator ptr;
+        //for (ptr = _entityList.begin(); ptr < _entityList.end(); ptr++) {
+        //    std::cout << *ptr << std::endl;
+        //    if (*ptr == this) {
+        //        _entityList.erase(ptr);
+        //    }
+        //}
+        delete this;
+    }
 }
 
 void Bomb::Draw(Buffer& _buffer, int _x, int _y) {
