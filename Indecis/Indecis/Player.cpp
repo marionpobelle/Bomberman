@@ -1,65 +1,80 @@
 #include "Player.h"
-float Player::SPEED = 0.1;
+float Player::SPEED = .01;
 
-Player::Player(int _x, int _y, UCHAR _leftVK, UCHAR _rightVK, UCHAR _upVK, UCHAR _downVK, UCHAR _bombVK) //constructor
-    : Entity(_x, _y), leftVK(_leftVK), rightVK(_rightVK), upVK(_upVK), downVK(_downVK), bombVK(_bombVK)
+Player::Player(float _x, float _y, char _charVisual, UCHAR _leftVK, UCHAR _rightVK, UCHAR _upVK, UCHAR _downVK, UCHAR _bombVK) //constructor
+    : Entity(_x, _y, _charVisual), leftVK(_leftVK), rightVK(_rightVK), upVK(_upVK), downVK(_downVK), bombVK(_bombVK), orientation(0)
 {}
 
-
-void Player::Update(std::vector<Entity*>& _entityList) {
+void Player::Update(std::vector<Transform*> &_entityList, Grid &_grid) {
     if (GetAsyncKeyState(downVK)) {
-        x += SPEED;
-        orientation = 1;
+        int nextStep = _grid.GetGridCoordinates(floor(position.x), floor(position.y) + 1);
+        if (_grid.grid[nextStep] != 1) {
+        	position.y += (SPEED * NYTimer::deltaTime);
+            orientation = 0;
+        } else {
+            position.y = floor(position.y);
+        }
     }
     if (GetAsyncKeyState(upVK)) {
-        x -= SPEED;
-        orientation = 3;
+        int nextStep = _grid.GetGridCoordinates(floor(position.x), floor(position.y) - 1);
+        if (_grid.grid[nextStep] != 1) {
+        	position.y -= (SPEED * NYTimer::deltaTime);
+            orientation = 2;
+        } else {
+            position.y = floor(position.y);
+        }
     }
     if (GetAsyncKeyState(rightVK)) {
-        y += SPEED;
-        orientation = 0;
+        int nextStep = _grid.GetGridCoordinates(floor(position.x) + 1, floor(position.y));
+        if (_grid.grid[nextStep] != 1) {
+        	position.x += (SPEED * NYTimer::deltaTime);
+        	orientation = 1;
+        } else {
+            position.x = floor(position.x);
+        }
     }
     if (GetAsyncKeyState(leftVK)) {
-        y -= SPEED;
-        orientation = 2;
+        int nextStep = _grid.GetGridCoordinates(floor(position.x) - 1, floor(position.y));
+        if (_grid.grid[nextStep] != 1) {
+        	position.x -= (SPEED * NYTimer::deltaTime);
+        	orientation = 3;
+        } else {
+            position.x = floor(position.x);
+        }
     }
+
     if (GetAsyncKeyState(bombVK)) {
-        PlantBomb(_entityList);
+        PlantBomb(_entityList, _grid);
     }
-    if (bombCooldown > 0) bombCooldown -= .1;
+
+    if (bombCooldown > 0) bombCooldown -= NYTimer::deltaTime;
 }
 
-void Player::PlantBomb(std::vector<Entity*>& _entityList) {
+void Player::PlantBomb(std::vector<Transform*> &_entityList, Grid &_grid) {
     if (bombCooldown > 0) return;
-    bombCooldown = 3.0;
-    int bombX = x;
-    int bombY = y;
+    int bombX = position.x;
+    int bombY = position.y;
     switch (orientation)
     {
     case 0:
-        bombY = floor(y) + 2;
+        bombY = floor(position.y) + 1;
         break;
     case 1:
-        bombX = floor(x) + 1;
+        bombX = floor(position.x) + 1;
         break;
     case 2:
-        bombY = floor(y) - 2;
+        bombY = floor(position.y) - 1;
         break;
     case 3:
-        bombX = floor(x) - 1;
+        bombX = floor(position.x) - 1;
         break;
     default:
         break;
     }
-    _entityList.push_back(new Entity(bombX, bombY));
-}
+    int bombPosition = _grid.GetGridCoordinates(bombX, bombY);
 
-
-void Player::Draw(Buffer &_buffer, int _x, int _y){
-    _buffer.buffer[_x][_y] .Attributes = 0x0001 + 0x0020;
-    _buffer.buffer[_x][_y].Char.UnicodeChar = 0x2580;
-    if (_y >= 1) {
-        _buffer.buffer[_x][_y - 1].Attributes = 0x0001 + 0x0020;
-        _buffer.buffer[_x][_y - 1].Char.UnicodeChar = 0x2580;
+    if (_grid.grid[bombPosition] == 0) {
+        bombCooldown = 2000;
+        _entityList.push_back(new Bomb(bombX, bombY, 'B'));
     }
 }

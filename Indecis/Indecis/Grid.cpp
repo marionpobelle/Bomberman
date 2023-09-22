@@ -4,9 +4,9 @@
 #include "Definitions.h"
 #include "Grid.h"
 
-Grid::Grid(int gameGridWidth, int gameGridHeight) : m_gameGridWidth(gameGridWidth), m_gameGridHeight(gameGridHeight), m_gameGridSize(0) {
-    m_gameGridSize = m_gameGridWidth * m_gameGridHeight;
-    grid = new int[m_gameGridSize];
+Grid::Grid(int gameGridWidth, int gameGridHeight) : gameGridWidth(gameGridWidth), gameGridHeight(gameGridHeight), gameGridSize(0) {
+    gameGridSize = gameGridWidth * gameGridHeight;
+    grid = new int[gameGridSize];
 }
 
 void Grid::ReadAndAddFileToGrid(std::string fileName) {
@@ -16,8 +16,8 @@ void Grid::ReadAndAddFileToGrid(std::string fileName) {
     input.open(fileName);
     char value;
 
-    int gameGridWidth = m_gameGridWidth;
-    int gameGridHeight = m_gameGridHeight;
+    int Width = gameGridWidth;
+    int Height = gameGridHeight;
 
     for (int i = 0; i < gameGridHeight; i++) {
         for (int j = 0; j < gameGridWidth; j++) {
@@ -27,4 +27,9 @@ void Grid::ReadAndAddFileToGrid(std::string fileName) {
             grid[gridPos] = int(value - '0');
         }
     }
+}
+
+int Grid::GetGridCoordinates(int x, int y) {
+    int coordinates = y * gameGridWidth + x;
+    return coordinates;
 }

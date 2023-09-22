@@ -9,11 +9,12 @@ class Grid
 public:
 	Grid(int gameGridWidth, int gameGridHeight)	;
 	void ReadAndAddFileToGrid(std::string fileName);
+	int GetGridCoordinates(int x, int y);
 
 	int *grid;
-	int m_gameGridSize;
+	int gameGridSize;
 private:
-	const int m_gameGridWidth = 10;
-	const int m_gameGridHeight = 10;
+	const int gameGridWidth = 10;
+	const int gameGridHeight = 10;
 };
 

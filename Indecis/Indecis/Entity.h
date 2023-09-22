@@ -1,19 +1,13 @@
 #pragma once
-#include <iostream>
-#include <vector>
-#include "Buffer.h"
+#include "Transform.h";
 
-class Buffer;
-
-class Entity
+class Entity : public Transform
 {
+
 public:
-    float x;
-    float y;
+    Entity(float _x, float _y, char _charVisual);
 
-    Entity(float _x, float _y);
+    virtual void Update(std::vector<Transform*>& _entityList, Grid& grid);
 
-    virtual void Update(std::vector<Entity*> &_entityList);
-
-    virtual void Draw(Buffer& _buffer, int _x, int _y);
 };
+

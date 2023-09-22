@@ -21,7 +21,7 @@
     <ClCompile Include="Buffer.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Entity.cpp">
+    <ClCompile Include="Transform.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="NYTimer.cpp">
@@ -30,12 +30,16 @@
     <ClCompile Include="Player.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="Bomb.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
     <ClCompile Include="Grid.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="UIWindow.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="Entity.cpp">
     <ClCompile Include="WallTypes.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
@@ -47,7 +51,7 @@
     <ClInclude Include="Player.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Entity.h">
+    <ClInclude Include="Transform.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="NYTimer.h">
@@ -56,12 +60,16 @@
     <ClInclude Include="Definitions.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+    <ClInclude Include="Bomb.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
     <ClInclude Include="Grid.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="UIWindow.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+    <ClInclude Include="Entity.h">
     <ClInclude Include="WallTypes.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
