@@ -2,17 +2,17 @@
 #include <windows.h>
 #include <vector>
 #include "Grid.h"
-#include "Entity.h"
+#include "Transform.h"
 #include "Definitions.h"
 
-class Entity;
+class Transform;
 
 class Buffer
 {
 public:
 	Buffer(int _maxLineSize, int _screenGridRatio);
 	CHAR_INFO buffer[SCREEN_HEIGHT][SCREEN_WIDTH];
-	void UpdateConsole(Grid grid, std::vector<Entity*>& _entityList);
+	void UpdateConsole(Grid grid, std::vector<Transform*>& _entityList);
 
 	int maxSize;
 	const int screenGridRatio;

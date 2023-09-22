@@ -1,24 +1,13 @@
 #pragma once
-#include <iostream>
-#include <vector>
-#include "Buffer.h"
+#include "Transform.h";
 
-class Buffer;
-
-class Entity
+class Entity : public Transform
 {
+
 public:
-	struct Position {
-		float x = 0;
-		float y = 0;
-	};
-	Position position;
-
-	char charVisual;
-	std::string visual;
-
     Entity(float _x, float _y, char _charVisual);
 
-    virtual void Update(std::vector<Entity*> &_entityList, Grid& grid);
+    virtual void Update(std::vector<Transform*>& _entityList, Grid& grid);
 
 };
+

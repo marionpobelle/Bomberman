@@ -7,10 +7,10 @@
 #include "Grid.h"
 #include "Buffer.h"
 #include "NYTimer.h"
-#include "Entity.h"
+#include "Transform.h"
 #include "Player.h"
 
-std::vector<Entity*> entityList;
+std::vector<Transform*> entityList;
 Buffer buffer = Buffer(10, 2);
 Grid grid(10, 10);
 

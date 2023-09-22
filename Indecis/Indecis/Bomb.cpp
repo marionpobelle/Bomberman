@@ -1,14 +1,14 @@
 #include "Bomb.h"
 
 Bomb::Bomb(float _x, float _y, char _charVisual) //constructor
-    : Entity(_x, _y, _charVisual), timer(3000)
+    : Transform(_x, _y, _charVisual), timer(3000)
 {}
 
-void Bomb::Update(std::vector<Entity*>& _entityList, Grid& grid) {
+void Bomb::Update(std::vector<Transform*>& _entityList, Grid& grid) {
     timer -= NYTimer::deltaTime;
 
     if (timer <= 0) {
-        std::vector<Entity*>::iterator ptr;
+        std::vector<Transform*>::iterator ptr;
         for (ptr = _entityList.begin(); ptr < _entityList.end(); ptr++) {
             if (*ptr == this) {
                 _entityList.erase(ptr);

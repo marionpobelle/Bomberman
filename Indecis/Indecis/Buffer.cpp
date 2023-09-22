@@ -5,7 +5,7 @@
 #include <vector>;
 #include "Grid.h"
 #include "Buffer.h"
-#include "Entity.h"
+#include "Transform.h"
 
 using namespace std;
 
@@ -14,7 +14,7 @@ Buffer::Buffer(int _maxLineSize, int _screenGridRatio) : maxSize(_maxLineSize), 
 
 }
 
-void Buffer::UpdateConsole(Grid grid, std::vector<Entity*>& _entityList) {
+void Buffer::UpdateConsole(Grid grid, std::vector<Transform*>& _entityList) {
     HANDLE hOutput = (HANDLE)GetStdHandle(STD_OUTPUT_HANDLE);
 
     COORD dwBufferSize = { SCREEN_WIDTH,SCREEN_HEIGHT };

@@ -5,8 +5,7 @@ Player::Player(float _x, float _y, char _charVisual, UCHAR _leftVK, UCHAR _right
     : Entity(_x, _y, _charVisual), leftVK(_leftVK), rightVK(_rightVK), upVK(_upVK), downVK(_downVK), bombVK(_bombVK), orientation(0)
 {}
 
-
-void Player::Update(std::vector<Entity*> &_entityList, Grid &_grid) {
+void Player::Update(std::vector<Transform*> &_entityList, Grid &_grid) {
     if (GetAsyncKeyState(downVK)) {
         int nextStep = _grid.GetGridCoordinates(floor(position.x), floor(position.y) + 1);
         if (_grid.grid[nextStep] != 1) {
@@ -45,15 +44,14 @@ void Player::Update(std::vector<Entity*> &_entityList, Grid &_grid) {
     }
 
     if (GetAsyncKeyState(bombVK)) {
-        PlantBomb(_entityList);
+        PlantBomb(_entityList, _grid);
     }
 
-    if (bombCooldown > 0) bombCooldown -= 0.005 * NYTimer::deltaTime;
+    if (bombCooldown > 0) bombCooldown -= NYTimer::deltaTime;
 }
 
-void Player::PlantBomb(std::vector<Entity*>& _entityList) {
+void Player::PlantBomb(std::vector<Transform*> &_entityList, Grid &_grid) {
     if (bombCooldown > 0) return;
-    bombCooldown = 3.0;
     int bombX = position.x;
     int bombY = position.y;
     switch (orientation)
@@ -73,5 +71,10 @@ void Player::PlantBomb(std::vector<Entity*>& _entityList) {
     default:
         break;
     }
-    _entityList.push_back(new Bomb(bombX, bombY, 'B'));
+    int bombPosition = _grid.GetGridCoordinates(bombX, bombY);
+
+    if (_grid.grid[bombPosition] == 0) {
+        bombCooldown = 2000;
+        _entityList.push_back(new Bomb(bombX, bombY, 'B'));
+    }
 }

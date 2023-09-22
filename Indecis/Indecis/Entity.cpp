@@ -1,13 +1,9 @@
 #include "Entity.h"
 
-Entity::Entity(float _x, float _y, char _charVisual)
-{
-    position.x = _x;
-    position.y = _y;
-    charVisual = _charVisual;
+Entity::Entity(float _x, float _y, char _charVisual) : Transform(_x, _y, _charVisual) {
+
 }
 
-void Entity::Update(std::vector<Entity*>& _entityList, Grid& grid) //constructor
-{
+void Entity::Update(std::vector<Transform*>& _entityList, Grid& _grid) {
 
 }
