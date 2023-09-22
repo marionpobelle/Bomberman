@@ -1,8 +1,7 @@
 #pragma once
-/* Includes:
-#include <string>
+#include "Grid.h";
 
-*/
+class Transform;
 
 class Grid
 {
@@ -10,9 +9,12 @@ public:
 	Grid(int gameGridWidth, int gameGridHeight)	;
 	void ReadAndAddFileToGrid(std::string fileName);
 	int GetGridCoordinates(int x, int y);
+	bool HasTransformHere(int x, int y, std::vector<Transform*>& _entityList);
+	bool HasCollision(int _x, int _y, std::vector<Transform*>& _entityList);
 
 	int *grid;
 	int gameGridSize;
+
 private:
 	const int gameGridWidth = 10;
 	const int gameGridHeight = 10;

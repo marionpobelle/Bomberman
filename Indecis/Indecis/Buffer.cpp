@@ -40,8 +40,6 @@ void Buffer::UpdateConsole(Grid grid, std::vector<Transform*>& _entityList) {
     {
         for (int j = 0; j < SCREEN_HEIGHT; j++)
         {   
-            //buffer[i][j].Char.UnicodeChar = 0x2580;
-            //buffer[i][j].Attributes = 0x0001 + 0x0010;
             for (int e = 0; e < _entityList.size(); e++)
             {
                 int _entityX = floor(_entityList[e]->position.x);

@@ -7,8 +7,7 @@ Player::Player(float _x, float _y, char _charVisual, UCHAR _leftVK, UCHAR _right
 
 void Player::Update(std::vector<Transform*> &_entityList, Grid &_grid) {
     if (GetAsyncKeyState(downVK)) {
-        int nextStep = _grid.GetGridCoordinates(floor(position.x), floor(position.y) + 1);
-        if (_grid.grid[nextStep] != 1) {
+        if (!_grid.HasCollision(floor(position.x), floor(position.y) + 1, _entityList)) {
         	position.y += (SPEED * NYTimer::deltaTime);
             orientation = 0;
         } else {
@@ -16,8 +15,7 @@ void Player::Update(std::vector<Transform*> &_entityList, Grid &_grid) {
         }
     }
     if (GetAsyncKeyState(upVK)) {
-        int nextStep = _grid.GetGridCoordinates(floor(position.x), floor(position.y) - 1);
-        if (_grid.grid[nextStep] != 1) {
+        if (!_grid.HasCollision(floor(position.x), floor(position.y) - 1, _entityList)) {
         	position.y -= (SPEED * NYTimer::deltaTime);
             orientation = 2;
         } else {
@@ -25,8 +23,7 @@ void Player::Update(std::vector<Transform*> &_entityList, Grid &_grid) {
         }
     }
     if (GetAsyncKeyState(rightVK)) {
-        int nextStep = _grid.GetGridCoordinates(floor(position.x) + 1, floor(position.y));
-        if (_grid.grid[nextStep] != 1) {
+        if (!_grid.HasCollision(floor(position.x) + 1, floor(position.y), _entityList)) {
         	position.x += (SPEED * NYTimer::deltaTime);
         	orientation = 1;
         } else {
@@ -34,8 +31,7 @@ void Player::Update(std::vector<Transform*> &_entityList, Grid &_grid) {
         }
     }
     if (GetAsyncKeyState(leftVK)) {
-        int nextStep = _grid.GetGridCoordinates(floor(position.x) - 1, floor(position.y));
-        if (_grid.grid[nextStep] != 1) {
+        if (!_grid.HasCollision(floor(position.x) - 1, floor(position.y), _entityList)) {
         	position.x -= (SPEED * NYTimer::deltaTime);
         	orientation = 3;
         } else {
@@ -72,8 +68,7 @@ void Player::PlantBomb(std::vector<Transform*> &_entityList, Grid &_grid) {
         break;
     }
     int bombPosition = _grid.GetGridCoordinates(bombX, bombY);
-
-    if (_grid.grid[bombPosition] == 0) {
+    if(!_grid.HasCollision(bombX, bombY, _entityList)) {
         bombCooldown = 2000;
         _entityList.push_back(new Bomb(bombX, bombY, 'B'));
     }
