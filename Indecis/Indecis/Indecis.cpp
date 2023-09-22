@@ -3,11 +3,14 @@
 #include <windows.h>
 #include <vector>
 #include <string>
+#include <set>
+#include <map>
 #include "Grid.h"
 #include "Buffer.h"
 #include "NYTimer.h"
 #include "Entity.h"
 #include "Player.h"
+#include "WallTypes.h"
 
 std::vector<Entity*> entityList;
 Buffer buffer = Buffer(10, 2);
