@@ -15,8 +15,18 @@ void Bomb::Update(std::vector<Transform*>& _entityList, Grid& grid) {
                 break;
             }
         }
+        Explode(_entityList, grid);
         delete this;
     }
+}
+
+void Bomb::Explode(std::vector<Transform*>& _entityList, Grid& grid) {
+    Explosion *_firstExplosion = new Explosion(position.x, position.y, 'E');
+    _entityList.push_back(_firstExplosion);
+    _firstExplosion->ExplodeTowards(_entityList, grid, position.x - 1, position.y, 3); //left
+    _firstExplosion->ExplodeTowards(_entityList, grid, position.x + 1, position.y, 1); //right
+    _firstExplosion->ExplodeTowards(_entityList, grid, position.x, position.y + 1, 0); //up
+    _firstExplosion->ExplodeTowards(_entityList, grid, position.x, position.y - 1, 2); //down
 }
 
 void Bomb::Draw(Buffer& _buffer, int _x, int _y) {
