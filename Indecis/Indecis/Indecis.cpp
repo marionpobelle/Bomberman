@@ -3,12 +3,15 @@
 #include <windows.h>
 #include <vector>
 #include <string>
+#include <set>
+#include <map>
 #include "Definitions.h"
 #include "Grid.h"
 #include "Buffer.h"
 #include "NYTimer.h"
 #include "Transform.h"
 #include "Player.h"
+#include "WallTypes.h"
 
 std::vector<Transform*> entityList;
 Buffer buffer = Buffer(10, 2);
