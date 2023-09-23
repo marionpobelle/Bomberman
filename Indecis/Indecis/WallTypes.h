@@ -1,8 +1,16 @@
 #pragma once
+#include <array>
+#include <set>
+#include <map>
 
 class WallTypes
 {
 	private:
+		
+		WallTypes();		
+
+	public:
+
 		std::set<int> WALL_CORNER_UP_RIGHT;
 		std::set<int> WALL_CORNER_UP_LEFT;
 		std::set<int> WALL_HORIZONTAL;
@@ -12,15 +20,11 @@ class WallTypes
 		std::set<int> WALL_FULL;
 		std::set<int> WALL_TRASH;
 
-		std::set<int>wallTypesArray[8];
-		std::string wallTypeNamesArray[8];
+		std::array<std::set<int>,8> wallTypesArray;
+		std::array<std::string,8> wallTypeNamesArray;
 		std::map<std::string, int> characterCodes;
 
 		static WallTypes* wallTypesPointer;
-		WallTypes();
-		
-
-	public:
 
 		enum WALLS {
 			HAUT = 1,

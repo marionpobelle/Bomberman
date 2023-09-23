@@ -2,10 +2,11 @@
 #include <windows.h>
 #include <iostream>
 #include <string>
-#include <vector>;
+#include <vector>
 #include "Grid.h"
 #include "Buffer.h"
 #include "Transform.h"
+#include "WallTypes.h"
 
 using namespace std;
 
@@ -29,12 +30,16 @@ void Buffer::UpdateConsole(Grid grid, std::vector<Transform*>& _entityList) {
         int coordY = (int)ceil(i / maxSize);
         int coordX = i % maxSize;
         if (grid.grid[i] == 1) {
-            DrawBox(coordX, coordY);
+            //DrawBox(coordX, coordY);
+            FillTabWalls(coordX, coordY);
         }
         else {
-            DrawBackground(coordX, coordY, 'A');
+            //DrawBackground(coordX, coordY, 'A');
+            FillTabGround(coordX, coordY);
         }
     }
+    //On peint le buffer avec les caracteres
+    PaintCharactersInBuffer(charsTab);
 
     for (int i = 0; i < SCREEN_WIDTH; i++)
     {
@@ -55,7 +60,7 @@ void Buffer::UpdateConsole(Grid grid, std::vector<Transform*>& _entityList) {
         dwBufferCoord, &rcRegion);
 }
 
-void Buffer::DrawBox(int coordX, int coordY) {
+/*void Buffer::DrawBox(int coordX, int coordY) {
     //Ici on dessine une boite de la taille d'une case de grille
     for (int k = 0; k < screenGridRatio * 2; k++) {
         for (int l = 0; l < screenGridRatio; l++) {
@@ -65,6 +70,32 @@ void Buffer::DrawBox(int coordX, int coordY) {
             //ajout de char dans le buffer, a modifier plus tard pour l'adapter en fonction du character � afficher
             buffer[charCoordY][charCoordX].Char.AsciiChar = 'X';
             buffer[charCoordY][charCoordX].Attributes = 0x0A;
+        }
+    }
+}*/
+
+void Buffer::FillTabWalls(int coordX, int coordY) {
+    //Ici on dessine une boite de la taille d'une case de grille
+    for (int k = 0; k < screenGridRatio * 2; k++) {
+        for (int l = 0; l < screenGridRatio; l++) {
+            //avoir les coordonn�es 
+            int charCoordX = coordX * screenGridRatio * 2 + k;
+            int charCoordY = coordY * screenGridRatio + l;
+            //ajout de char dans le buffer, a modifier plus tard pour l'adapter en fonction du character � afficher
+            charsTab[charCoordY][charCoordX] = 1;
+        }
+    }
+}
+
+void Buffer::FillTabGround(int coordX, int coordY) {
+    //Ici on dessine une boite de la taille d'une case de grille
+    for (int k = 0; k < screenGridRatio * 2; k++) {
+        for (int l = 0; l < screenGridRatio; l++) {
+            //avoir les coordonn�es 
+            int charCoordX = coordX * screenGridRatio * 2 + k;
+            int charCoordY = coordY * screenGridRatio + l;
+            //ajout de char dans le buffer, a modifier plus tard pour l'adapter en fonction du character � afficher
+            charsTab[charCoordY][charCoordX] = 0;
         }
     }
 }
@@ -82,7 +113,7 @@ void Buffer::DrawCharVisual(int _x, int _y, char _charVisual) {
     }
 }
 
-void Buffer::DrawBackground(int _x, int _y, char _charVisual) {
+/*void Buffer::DrawBackground(int _x, int _y, char _charVisual) {
     for (int k = 0; k < screenGridRatio * 2; k++) {
         for (int l = 0; l < screenGridRatio; l++) {
             //avoir les coordonn�es 
@@ -91,6 +122,49 @@ void Buffer::DrawBackground(int _x, int _y, char _charVisual) {
             //ajout de char dans le buffer, a modifier plus tard pour l'adapter en fonction du character � afficher
             buffer[charCoordY][charCoordX].Char.UnicodeChar = 0x2580;
             buffer[charCoordY][charCoordX].Attributes = 0x0000 + 0x0000;
+        }
+    }
+}*/
+
+void Buffer::PaintCharactersInBuffer(int charsTab[SCREEN_HEIGHT][SCREEN_WIDTH]) {
+    //Pour chaque caractère dans le tableau charsTab (qui a la meme taille que le buffer),
+    //on regarde si c'est un mur (1) ou un sol (0)
+    for (int i = 0; i < SCREEN_HEIGHT; i++) {
+        for (int j = 0; j < SCREEN_WIDTH; j++) {
+            //Si case contient un mur
+            if (charsTab[i][j] == 1) {
+                //Si c'est un mur on check ses voisins pour savoir a quoi il ressemble
+                string neighborsType = "";
+                neighborsType += charsTab[i - 1][j];
+                neighborsType += charsTab[i][j + 1];
+                neighborsType += charsTab[i + 1][j];
+                neighborsType += charsTab[i][j - 1];
+                //On converti la string obtenue en int pour aller check dans les sets
+                int neighborsTypeInt = (neighborsType[0] * 2 * 2 * 2) + (neighborsType[1] * 2 * 2) + (neighborsType[2] * 2) + (neighborsType[3]);
+                //On check dans quel set le int se trouve
+                string wallTypeName = "";
+                int wallTypeIndex = 7;
+                for (int k = 0; k < WallTypes::GetWallTypes().wallTypesArray.size(); k++) {
+                    //On recupere l'index du set qui contient la bonne valeur
+                    if (WallTypes::GetWallTypes().wallTypesArray[k].count(neighborsTypeInt)) {
+                        wallTypeIndex = k;
+                        break;
+                    }
+
+                }
+                wallTypeName = WallTypes::GetWallTypes().wallTypeNamesArray[wallTypeIndex];
+                //On check dans la Map le code ASCII correspondant
+                int asciiCode = WallTypes::GetWallTypes().characterCodes.find(wallTypeName)->second;
+                //On le donne au Buffer
+                buffer[i][j].Char.AsciiChar = asciiCode;
+                buffer[i][j].Attributes = 0x0B;
+                //Si c'est un sol on peint du vide ou du sol si on veut un truc particulier
+                //ou on fait rien
+            }
+            else {
+                buffer[i][j].Char.UnicodeChar = 0x2580;
+                buffer[i][j].Attributes = 0x0000 + 0x0000;
+            }
         }
     }
 }
