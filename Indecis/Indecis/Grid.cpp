@@ -29,6 +29,7 @@ void Grid::ReadAndAddFileToGrid(std::string fileName) {
             grid[gridPos] = int(value - '0');
         }
     }
+    input.close();
 }
 
 int Grid::GetGridCoordinates(int x, int y) {
