@@ -26,7 +26,7 @@ private:
 	void FillTabWalls(int coordX, int coordY);
 	void FillTabGround(int coordX, int coordY);
 
-	void PaintCharactersInBuffer(int _charsTab[SCREEN_HEIGHT][SCREEN_WIDTH]);
+	void PaintCharactersInBuffer(int _charsTab[SCREEN_HEIGHT][SCREEN_WIDTH], Grid grid);
 
 
 };

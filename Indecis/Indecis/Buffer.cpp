@@ -39,7 +39,7 @@ void Buffer::UpdateConsole(Grid grid, std::vector<Transform*>& _entityList) {
         }
     }
     //On peint le buffer avec les caracteres
-    PaintCharactersInBuffer(charsTab);
+    PaintCharactersInBuffer(charsTab, grid);
 
     for (int i = 0; i < SCREEN_WIDTH; i++)
     {
@@ -55,7 +55,6 @@ void Buffer::UpdateConsole(Grid grid, std::vector<Transform*>& _entityList) {
             }
         }
     }
-
     WriteConsoleOutput(hOutput, (CHAR_INFO*)buffer, dwBufferSize,
         dwBufferCoord, &rcRegion);
 }
@@ -126,11 +125,30 @@ void Buffer::DrawCharVisual(int _x, int _y, char _charVisual) {
     }
 }*/
 
-void Buffer::PaintCharactersInBuffer(int charsTab[SCREEN_HEIGHT][SCREEN_WIDTH]) {
+void Buffer::PaintCharactersInBuffer(int charsTab[SCREEN_HEIGHT][SCREEN_WIDTH], Grid grid) {
+    //On commence par peindre les bords tu tableau charsTab
+    for (int j = 0; j < (grid.gameGridWidth * 4); j++) {
+        charsTab[0][j] = 1;
+        buffer[0][j].Char.UnicodeChar = 0x2588;
+        buffer[0][j].Attributes = 0x0B;
+
+        charsTab[(grid.gameGridHeight *2)-1][j] = 1;
+        buffer[(grid.gameGridHeight*2)-1][j].Char.UnicodeChar = 0x2588;
+        buffer[(grid.gameGridHeight*2)-1][j].Attributes = 0x0B;
+    }
+    for (int i = 0; i < grid.gameGridHeight*2; i++) {
+        charsTab[i][0] = 1;
+        buffer[i][0].Char.UnicodeChar = 0x2588;
+        buffer[i][0].Attributes = 0x0B;
+
+        charsTab[i][(grid.gameGridWidth * 4)-1] = 1;
+        buffer[i][(grid.gameGridWidth * 4)-1].Char.UnicodeChar = 0x2588;
+        buffer[i][(grid.gameGridWidth * 4)-1].Attributes = 0x0B;
+    }
     //Pour chaque caractère dans le tableau charsTab (qui a la meme taille que le buffer),
     //on regarde si c'est un mur (1) ou un sol (0)
-    for (int i = 0; i < SCREEN_HEIGHT; i++) {
-        for (int j = 0; j < SCREEN_WIDTH; j++) {
+    for (int i = 1; i < SCREEN_HEIGHT-1; i++) {
+        for (int j = 1; j < SCREEN_WIDTH-1; j++) {
             //Si case contient un mur
             if (charsTab[i][j] == 1) {
                 //Si c'est un mur on check ses voisins pour savoir a quoi il ressemble
@@ -140,10 +158,10 @@ void Buffer::PaintCharactersInBuffer(int charsTab[SCREEN_HEIGHT][SCREEN_WIDTH]) 
                 neighborsType += charsTab[i + 1][j];
                 neighborsType += charsTab[i][j - 1];
                 //On converti la string obtenue en int pour aller check dans les sets
-                int neighborsTypeInt = (neighborsType[0] * 2 * 2 * 2) + (neighborsType[1] * 2 * 2) + (neighborsType[2] * 2) + (neighborsType[3]);
+                int neighborsTypeInt = (neighborsType[1] * 2 * 2 * 2) | (neighborsType[2] * 2 * 2) | (neighborsType[3] * 2) | (neighborsType[0]);
                 //On check dans quel set le int se trouve
                 string wallTypeName = "";
-                int wallTypeIndex = 7;
+                int wallTypeIndex = 30;
                 for (int k = 0; k < WallTypes::GetWallTypes().wallTypesArray.size(); k++) {
                     //On recupere l'index du set qui contient la bonne valeur
                     if (WallTypes::GetWallTypes().wallTypesArray[k].count(neighborsTypeInt)) {
@@ -156,7 +174,7 @@ void Buffer::PaintCharactersInBuffer(int charsTab[SCREEN_HEIGHT][SCREEN_WIDTH]) 
                 //On check dans la Map le code ASCII correspondant
                 int asciiCode = WallTypes::GetWallTypes().characterCodes.find(wallTypeName)->second;
                 //On le donne au Buffer
-                buffer[i][j].Char.AsciiChar = asciiCode;
+                buffer[i][j].Char.UnicodeChar = asciiCode;
                 buffer[i][j].Attributes = 0x0B;
                 //Si c'est un sol on peint du vide ou du sol si on veut un truc particulier
                 //ou on fait rien

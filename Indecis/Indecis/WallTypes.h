@@ -13,15 +13,23 @@ class WallTypes
 
 		std::set<int> WALL_CORNER_UP_RIGHT;
 		std::set<int> WALL_CORNER_UP_LEFT;
-		std::set<int> WALL_HORIZONTAL;
+
+		//std::set<int> WALL_HORIZONTAL;
+		std::set<int> WALL_TOP;
+		std::set<int> WALL_BOTTOM;
+
 		std::set<int> WALL_CORNER_BOTTOM_RIGHT;
 		std::set<int> WALL_CORNER_BOTTOM_LEFT;
-		std::set<int> WALL_VERTICAL;
+
+		//std::set<int> WALL_VERTICAL;
+		std::set<int> WALL_LEFT;
+		std::set<int> WALL_RIGHT;
+
 		std::set<int> WALL_FULL;
 		std::set<int> WALL_TRASH;
 
-		std::array<std::set<int>,8> wallTypesArray;
-		std::array<std::string,8> wallTypeNamesArray;
+		std::array<std::set<int>,10> wallTypesArray;
+		std::array<std::string,10> wallTypeNamesArray;
 		std::map<std::string, int> characterCodes;
 
 		static WallTypes* wallTypesPointer;

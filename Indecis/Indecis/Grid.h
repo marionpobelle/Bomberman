@@ -15,8 +15,11 @@ public:
 	int *grid;
 	int gameGridSize;
 
-private:
+	//were private before
 	const int gameGridWidth = 10;
 	const int gameGridHeight = 10;
+
+private:
+	
 };
 

@@ -12,6 +12,8 @@
 #include "Transform.h"
 #include "Player.h"
 #include "WallTypes.h"
+#include <io.h>
+#include <fcntl.h>
 
 std::vector<Transform*> entityList;
 Buffer buffer = Buffer(10, 2);
@@ -28,8 +30,8 @@ void Update() {
 
 int main()
 {
-    grid.ReadAndAddFileToGrid("maps/map.txt");
 
+    grid.ReadAndAddFileToGrid("maps/map.txt");
     buffer.UpdateConsole(grid, entityList);
     NYTimer deltaTime = NYTimer();
     entityList.push_back(new Player(1, 1, 'P', VK_LEFT, VK_RIGHT, VK_UP, VK_DOWN, VK_SHIFT));
