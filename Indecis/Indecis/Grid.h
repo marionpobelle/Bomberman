@@ -13,6 +13,8 @@ public:
 	bool HasTransformHere(int x, int y, std::vector<Transform*>& _entityList);
 	bool HasCollision(int _x, int _y, std::vector<Transform*>& _entityList);
 	bool HasCollisionWallOnly(int _x, int _y);
+	int GetXFromGridApprox(int gridCoord);
+	int GetYFromGridApprox(int gridCoord);
 
 	int *grid;
 	int gameGridSize;
