@@ -16,7 +16,7 @@
 #include <fcntl.h>
 
 std::vector<Transform*> entityList;
-Buffer buffer = Buffer(10, 2);
+Buffer buffer = Buffer(10, GRID_RATIO);
 Grid grid(10, 10);
 
 
@@ -30,7 +30,6 @@ void Update() {
 
 int main()
 {
-
     grid.ReadAndAddFileToGrid("maps/map.txt");
     buffer.UpdateConsole(grid, entityList);
     NYTimer deltaTime = NYTimer();

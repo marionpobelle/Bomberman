@@ -126,24 +126,24 @@ void Buffer::DrawCharVisual(int _x, int _y, char _charVisual) {
 }*/
 
 void Buffer::PaintCharactersInBuffer(int charsTab[SCREEN_HEIGHT][SCREEN_WIDTH], Grid grid) {
-    //On commence par peindre les bords tu tableau charsTab
-    for (int j = 0; j < (grid.gameGridWidth * 4); j++) {
+    //On commence par peindre les bords du tableau charsTab
+    for (int j = 0; j < (grid.gameGridWidth * 2 * GRID_RATIO); j++) {
         charsTab[0][j] = 1;
         buffer[0][j].Char.UnicodeChar = 0x2588;
         buffer[0][j].Attributes = 0x0B;
 
-        charsTab[(grid.gameGridHeight *2)-1][j] = 1;
-        buffer[(grid.gameGridHeight*2)-1][j].Char.UnicodeChar = 0x2588;
-        buffer[(grid.gameGridHeight*2)-1][j].Attributes = 0x0B;
+        charsTab[(grid.gameGridHeight * GRID_RATIO)-1][j] = 1;
+        buffer[(grid.gameGridHeight * GRID_RATIO)-1][j].Char.UnicodeChar = 0x2588;
+        buffer[(grid.gameGridHeight * GRID_RATIO)-1][j].Attributes = 0x0B;
     }
-    for (int i = 0; i < grid.gameGridHeight*2; i++) {
+    for (int i = 0; i < grid.gameGridHeight * GRID_RATIO; i++) {
         charsTab[i][0] = 1;
         buffer[i][0].Char.UnicodeChar = 0x2588;
         buffer[i][0].Attributes = 0x0B;
 
-        charsTab[i][(grid.gameGridWidth * 4)-1] = 1;
-        buffer[i][(grid.gameGridWidth * 4)-1].Char.UnicodeChar = 0x2588;
-        buffer[i][(grid.gameGridWidth * 4)-1].Attributes = 0x0B;
+        charsTab[i][(grid.gameGridWidth * 2 * GRID_RATIO)-1] = 1;
+        buffer[i][(grid.gameGridWidth * 2 * GRID_RATIO)-1].Char.UnicodeChar = 0x2588;
+        buffer[i][(grid.gameGridWidth * 2 * GRID_RATIO)-1].Attributes = 0x0B;
     }
     //Pour chaque caractère dans le tableau charsTab (qui a la meme taille que le buffer),
     //on regarde si c'est un mur (1) ou un sol (0)
