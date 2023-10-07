@@ -14,14 +14,12 @@ class WallTypes
 		std::set<int> WALL_CORNER_UP_RIGHT;
 		std::set<int> WALL_CORNER_UP_LEFT;
 
-		//std::set<int> WALL_HORIZONTAL;
 		std::set<int> WALL_TOP;
 		std::set<int> WALL_BOTTOM;
 
 		std::set<int> WALL_CORNER_BOTTOM_RIGHT;
 		std::set<int> WALL_CORNER_BOTTOM_LEFT;
 
-		//std::set<int> WALL_VERTICAL;
 		std::set<int> WALL_LEFT;
 		std::set<int> WALL_RIGHT;
 

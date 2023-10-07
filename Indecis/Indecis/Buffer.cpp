@@ -40,7 +40,7 @@ void Buffer::UpdateConsole(Grid grid, std::vector<Transform*>& _entityList) {
     }
     //On peint le buffer avec les caracteres
     PaintCharactersInBuffer(charsTab, grid);
-
+    //On peint les entites
     for (int i = 0; i < SCREEN_WIDTH; i++)
     {
         for (int j = 0; j < SCREEN_HEIGHT; j++)
