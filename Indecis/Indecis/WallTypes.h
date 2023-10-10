@@ -24,7 +24,7 @@ class WallTypes
 		std::set<int> WALL_T_BOTTOM;
 
 		std::set<int> WALL_FULL;
-		std::set<int> WALL_TRASH;
+		std::set<int> WALL_ALONE;
 		std::set<int> WALL_HORIZONTAL;
 		std::set<int> WALL_VERTICAL;
 		std::set<int> WALL_END_BOTTOM;
