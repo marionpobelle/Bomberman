@@ -14,10 +14,9 @@ public:
 	};
 	Position position;
 
-	char charVisual;
-	std::string visual;
+	std::string spriteName;
 
-    Transform(float _x, float _y, char _charVisual);
+    Transform(float _x, float _y, std::string _spriteName);
 
     virtual void Update(std::vector<Transform*> &_entityList, Grid& grid);
 };

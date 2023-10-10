@@ -1,8 +1,8 @@
 #include "Player.h"
 float Player::SPEED = .01;
 
-Player::Player(float _x, float _y, char _charVisual, UCHAR _leftVK, UCHAR _rightVK, UCHAR _upVK, UCHAR _downVK, UCHAR _bombVK) //constructor
-    : Entity(_x, _y, _charVisual), leftVK(_leftVK), rightVK(_rightVK), upVK(_upVK), downVK(_downVK), bombVK(_bombVK), orientation(0)
+Player::Player(float _x, float _y, std::string _spriteName, UCHAR _leftVK, UCHAR _rightVK, UCHAR _upVK, UCHAR _downVK, UCHAR _bombVK) //constructor
+    : Entity(_x, _y, _spriteName), leftVK(_leftVK), rightVK(_rightVK), upVK(_upVK), downVK(_downVK), bombVK(_bombVK), orientation(0)
 {}
 
 void Player::Update(std::vector<Transform*> &_entityList, Grid &_grid) {
@@ -70,6 +70,6 @@ void Player::PlantBomb(std::vector<Transform*> &_entityList, Grid &_grid) {
     int bombPosition = _grid.GetGridCoordinates(bombX, bombY);
     if(!_grid.HasCollision(bombX, bombY, _entityList)) {
         bombCooldown = 2000;
-        _entityList.push_back(new Bomb(bombX, bombY, 'B'));
+        _entityList.push_back(new Bomb(bombX, bombY, "BOMB"));
     }
 }

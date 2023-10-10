@@ -1,6 +1,6 @@
 #include "Explosion.h"
 
-Explosion::Explosion(float _x, float _y, char _charVisual) : Transform(_x, _y, _charVisual), timer(500) {
+Explosion::Explosion(float _x, float _y, std::string _spriteName) : Transform(_x, _y, _spriteName), timer(500) {
 
 }
 
@@ -45,7 +45,7 @@ void Explosion::ExplodeTowards(std::vector<Transform*>& _entityList, Grid& _grid
 
     }
     else { //Si pas de collision continuer
-        Explosion *_nextExplosion = new Explosion(nextCaseX, nextCaseY, 'E');
+        Explosion *_nextExplosion = new Explosion(nextCaseX, nextCaseY, "EXPLOSION");
         _entityList.push_back(_nextExplosion);
         _nextExplosion->ExplodeTowards(_entityList, _grid, _x, _y, _orientation);
     }

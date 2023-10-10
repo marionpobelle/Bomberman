@@ -35,8 +35,8 @@ int main()
     NYTimer deltaTime = NYTimer();
     SpriteReader spriteReader = SpriteReader();
     buffer.DrawFixedMap(grid);
-    entityList.push_back(new Player(1, 1, 'P', VK_LEFT, VK_RIGHT, VK_UP, VK_DOWN, VK_SHIFT));
-    entityList.push_back(new Player(grid.gameGridWidth - 2, grid.gameGridHeight - 2, 'P', 0x51, 0x44, 0x5A, 0x53, 0x45));
+    entityList.push_back(new Player(1, 1, "PLAYER", VK_LEFT, VK_RIGHT, VK_UP, VK_DOWN, VK_SHIFT));
+    entityList.push_back(new Player(grid.gameGridWidth - 2, grid.gameGridHeight - 2, "PLAYER", 0x51, 0x44, 0x5A, 0x53, 0x45));
 
     while (true) {
         Update();

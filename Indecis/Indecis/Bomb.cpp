@@ -1,7 +1,7 @@
 #include "Bomb.h"
 
-Bomb::Bomb(float _x, float _y, char _charVisual) //constructor
-    : Transform(_x, _y, _charVisual), timer(3000)
+Bomb::Bomb(float _x, float _y, std::string _spriteName) //constructor
+    : Transform(_x, _y, _spriteName), timer(3000)
 {}
 
 void Bomb::Update(std::vector<Transform*>& _entityList, Grid& grid) {
@@ -21,7 +21,7 @@ void Bomb::Update(std::vector<Transform*>& _entityList, Grid& grid) {
 }
 
 void Bomb::Explode(std::vector<Transform*>& _entityList, Grid& grid) {
-    Explosion *_firstExplosion = new Explosion(position.x, position.y, 'E');
+    Explosion *_firstExplosion = new Explosion(position.x, position.y, "EXPLOSION");
     _entityList.push_back(_firstExplosion);
     _firstExplosion->ExplodeTowards(_entityList, grid, position.x - 1, position.y, 3); //left
     _firstExplosion->ExplodeTowards(_entityList, grid, position.x + 1, position.y, 1); //right

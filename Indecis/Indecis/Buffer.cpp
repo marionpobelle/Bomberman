@@ -44,7 +44,7 @@ void Buffer::UpdateConsole(Grid grid, std::vector<Transform*>& _entityList) {
                 int _entityX = floor(_entityList[e]->position.x);
                 int _entityY = floor(_entityList[e]->position.y);
                 if (_entityX == i && _entityY == j) {
-                    PaintSpriteInBuffer(_entityX, _entityY, SpriteReader::CallSprite("PLAYER"), grid);
+                    PaintSpriteInBuffer(_entityX, _entityY, SpriteReader::CallSprite(_entityList[e]->spriteName), grid);
                 }
             }
         }
