@@ -5,7 +5,6 @@
 #include "Transform.h"
 #include "Definitions.h"
 
-
 class Transform;
 
 class Buffer
@@ -14,6 +13,7 @@ public:
 	Buffer(int _maxLineSize, int _screenGridRatio);
 	CHAR_INFO buffer[SCREEN_HEIGHT][SCREEN_WIDTH];
 	void UpdateConsole(Grid grid, std::vector<Transform*>& _entityList);
+	void DrawFixedMap(Grid grid);
 
 	int maxSize;
 	const int screenGridRatio;
@@ -23,11 +23,10 @@ private:
 	void DrawBox(int coordX, int coordY);
 	void DrawCharVisual(int _x, int _y, char _charVisual);
 	void DrawBackground(int _x, int _y, char _charVisual);
-	void FillTabWalls(int coordX, int coordY);
+	void FillTabWalls(int coordX, int coordY, Grid& grid);
 	void FillTabGround(int coordX, int coordY);
 
 	void PaintCharactersInBuffer(int _charsTab[SCREEN_HEIGHT][SCREEN_WIDTH], Grid grid);
-
-
+	void PaintSpriteInBuffer(int coordX, int coordY, std::string sprite, Grid& grid);
 };
 
