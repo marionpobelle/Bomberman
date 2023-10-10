@@ -17,7 +17,7 @@
 #include "SpriteReader.h"
 
 std::vector<Transform*> entityList;
-Buffer buffer = Buffer(10, GRID_RATIO);
+Buffer buffer = Buffer(10);
 Grid grid(10, 10);
 
 void Update() {

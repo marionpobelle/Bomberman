@@ -13,8 +13,9 @@ public:
 		float y = 0;
 	};
 	Position position;
-
 	std::string spriteName;
+	int animFrame;
+
 
     Transform(float _x, float _y, std::string _spriteName);
 

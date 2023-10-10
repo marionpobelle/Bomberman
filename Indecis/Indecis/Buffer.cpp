@@ -11,7 +11,7 @@
 
 using namespace std;
 
-Buffer::Buffer(int _maxLineSize, int _screenGridRatio) : maxSize(_maxLineSize), screenGridRatio(_screenGridRatio)
+Buffer::Buffer(int _maxLineSize) : maxSize(_maxLineSize)
 {
 
 }
@@ -44,7 +44,10 @@ void Buffer::UpdateConsole(Grid grid, std::vector<Transform*>& _entityList) {
                 int _entityX = floor(_entityList[e]->position.x);
                 int _entityY = floor(_entityList[e]->position.y);
                 if (_entityX == i && _entityY == j) {
-                    PaintSpriteInBuffer(_entityX, _entityY, SpriteReader::CallSprite(_entityList[e]->spriteName), grid);
+                    string _sprite = "";
+                    if (_entityList[e]->animFrame > 0) _sprite = _entityList[e]->spriteName + to_string(_entityList[e]->animFrame);
+                    else _sprite = _entityList[e]->spriteName;
+                    PaintSpriteInBuffer(_entityX, _entityY, SpriteReader::CallSprite(_sprite), grid);
                 }
             }
         }
@@ -123,11 +126,11 @@ void Buffer::PaintSpriteInBuffer(int coordX, int coordY, string sprite, Grid& gr
 
 void Buffer::FillTabGround(int coordX, int coordY) {
     //Ici on dessine une boite de la taille d'une case de grille
-    for (int k = 0; k < screenGridRatio * 2; k++) {
-        for (int l = 0; l < screenGridRatio; l++) {
+    for (int k = 0; k < GRID_RATIO * 2; k++) {
+        for (int l = 0; l < GRID_RATIO; l++) {
             //avoir les coordonn�es 
-            int charCoordX = coordX * screenGridRatio * 2 + k;
-            int charCoordY = coordY * screenGridRatio + l;
+            int charCoordX = coordX * GRID_RATIO * 2 + k;
+            int charCoordY = coordY * GRID_RATIO + l;
             //ajout de char dans le buffer, a modifier plus tard pour l'adapter en fonction du character � afficher
             buffer[charCoordY][charCoordX].Attributes = 0x0000;
         }

@@ -10,13 +10,12 @@ class Transform;
 class Buffer
 {
 public:
-	Buffer(int _maxLineSize, int _screenGridRatio);
+	Buffer(int _maxLineSize);
 	CHAR_INFO buffer[SCREEN_HEIGHT][SCREEN_WIDTH];
 	void UpdateConsole(Grid grid, std::vector<Transform*>& _entityList);
 	void DrawFixedMap(Grid grid);
 
 	int maxSize;
-	const int screenGridRatio;
 	int charsTab[SCREEN_HEIGHT][SCREEN_WIDTH];
 
 private:

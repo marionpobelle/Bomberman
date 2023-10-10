@@ -7,6 +7,9 @@ Explosion::Explosion(float _x, float _y, std::string _spriteName) : Transform(_x
 void Explosion::Update(std::vector<Transform*>& _entityList, Grid& grid) {
     timer -= NYTimer::deltaTime;
 
+    if (timer <= 250 && animFrame == 0) {
+        animFrame++;
+    }
     if (timer <= 0) {
         std::vector<Transform*>::iterator ptr;
         for (ptr = _entityList.begin(); ptr < _entityList.end(); ptr++) {
