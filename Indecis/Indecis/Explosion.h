@@ -1,6 +1,7 @@
 #pragma once
 #include "Transform.h";
 #include "NYTimer.h"
+#include "Player.h"
 
 class Explosion : public Transform
 {

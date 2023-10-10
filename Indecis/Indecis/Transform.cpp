@@ -12,3 +12,7 @@ void Transform::Update(std::vector<Transform*>& _entityList, Grid& grid) //const
 {
 
 }
+
+void Transform::ExplosionReaction(std::vector<Transform*>& _entityList) {
+    std::cout << "EXPLOSION DETECTED IN TRANSFORM" << std::endl;
+}

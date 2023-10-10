@@ -82,6 +82,16 @@ bool Grid::HasCollision(int _x, int _y, std::vector<Transform*>& _entityList) {
         return true;
 }
 
+Transform* Grid::GetTransformHere(int _x, int _y, std::vector<Transform*>& _entityList) {
+    for (int i = 0; i < _entityList.size(); i++)
+    {
+        if (_entityList[i]->position.x == _x && _entityList[i]->position.y == _y) {
+            return _entityList[i];
+        }
+    }
+    return nullptr;
+}
+
 bool Grid::HasCollisionWallOnly(int _x, int _y) {
     int nextStep = GetGridCoordinates(_x, _y);
     if (grid[nextStep] == 1) {

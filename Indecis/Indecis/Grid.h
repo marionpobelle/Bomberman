@@ -15,6 +15,8 @@ public:
 	bool HasCollisionWallOnly(int _x, int _y);
 	int GetXFromGridApprox(int gridCoord);
 	int GetYFromGridApprox(int gridCoord);
+	Transform* GetTransformHere(int _x, int _y, std::vector<Transform*>& _entityList);
+
 
 	int *grid;
 	int gameGridSize;
