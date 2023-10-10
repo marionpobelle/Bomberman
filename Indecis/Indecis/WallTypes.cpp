@@ -16,7 +16,7 @@ WallTypes::WallTypes() {
 	WALL_CORNER_UP_RIGHT.insert(HAUT|DROITE); //3
 
 	WALL_T_LEFT.insert(HAUT|BAS|GAUCHE); //13
-	WALL_T_LEFT.insert(HAUT|DROITE|BAS); //7
+	WALL_T_RIGHT.insert(HAUT|DROITE|BAS); //7
 
 	//WALL_FULL.insert(HAUT|DROITE|BAS|GAUCHE); //15
 	WALL_END_RIGHT.insert(GAUCHE); //8
@@ -32,7 +32,7 @@ WallTypes::WallTypes() {
 
 	wallTypesArray[2] = WALL_T_LEFT;
 	wallTypesArray[3] = WALL_T_UP;
-	wallTypesArray[4] = WALL_LEFT;
+	wallTypesArray[4] = WALL_T_RIGHT;
 	wallTypesArray[5] = WALL_T_BOTTOM;
 
 	wallTypesArray[6] = WALL_CORNER_BOTTOM_RIGHT;
@@ -56,7 +56,7 @@ WallTypes::WallTypes() {
 	wallTypeNamesArray[2] = "WALL_T_LEFT";
 	wallTypeNamesArray[3] = "WALL_T_UP";
 
-	wallTypeNamesArray[4] = "WALL_LEFT";
+	wallTypeNamesArray[4] = "WALL_T_RIGHT";
 	wallTypeNamesArray[5] = "WALL_T_BOTTOM";
 
 	wallTypeNamesArray[6] = "WALL_CORNER_BOTTOM_RIGHT";
@@ -78,7 +78,7 @@ WallTypes::WallTypes() {
 	characterCodes.insert(std::make_pair("WALL_T_LEFT", 0x2588)); //Coherent : 0x2584
 	characterCodes.insert(std::make_pair("WALL_T_UP", 0x2588)); //Coherent : 0x2580
 
-	characterCodes.insert(std::make_pair("WALL_LEFT", 0x2588)); //Coherent : 0x258C
+	characterCodes.insert(std::make_pair("WALL_T_RIGHT", 0x2588)); //Coherent : 0x258C
 	characterCodes.insert(std::make_pair("WALL_T_BOTTOM", 0x2588)); //Coherent : 0x2590
 
 	characterCodes.insert(std::make_pair("WALL_CORNER_BOTTOM_RIGHT", 0x2588));

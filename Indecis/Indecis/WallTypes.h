@@ -20,7 +20,7 @@ class WallTypes
 		std::set<int> WALL_CORNER_BOTTOM_RIGHT;
 		std::set<int> WALL_CORNER_BOTTOM_LEFT;
 
-		std::set<int> WALL_LEFT;
+		std::set<int> WALL_T_RIGHT;
 		std::set<int> WALL_T_BOTTOM;
 
 		std::set<int> WALL_FULL;
