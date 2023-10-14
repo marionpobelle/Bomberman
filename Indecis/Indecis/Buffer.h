@@ -13,7 +13,7 @@ class Buffer
 public:
 	Buffer(int _maxLineSize, int _screenGridRatio);
 	CHAR_INFO buffer[SCREEN_HEIGHT][SCREEN_WIDTH];
-	void UpdateConsole(Grid grid, std::vector<Transform*>& _entityList);
+	void UpdateConsole(Grid grid, std::vector<Transform*>& _entityList, UISystem uiSystem);
 
 	int maxSize;
 	const int screenGridRatio;
@@ -28,6 +28,8 @@ private:
 
 	void PaintCharactersInBuffer(int _charsTab[SCREEN_HEIGHT][SCREEN_WIDTH]);
 
+	void DrawUI(UISystem uiSystem);
+	void DrawWindow(UIWindow& window);
 
 };
 

@@ -2,8 +2,12 @@
 #include <windows.h>
 #include <iostream>
 #include <string>
+#include <cmath>
 #include <vector>
+#include <algorithm> 
 #include "Grid.h"
+#include "UIWindow.h"
+#include "UISystem.h"
 #include "Buffer.h"
 #include "Transform.h"
 #include "WallTypes.h"
@@ -15,7 +19,7 @@ Buffer::Buffer(int _maxLineSize, int _screenGridRatio) : maxSize(_maxLineSize), 
 
 }
 
-void Buffer::UpdateConsole(Grid grid, std::vector<Transform*>& _entityList) {
+void Buffer::UpdateConsole(Grid grid, std::vector<Transform*>& _entityList, UISystem uiSystem) {
     HANDLE hOutput = (HANDLE)GetStdHandle(STD_OUTPUT_HANDLE);
 
     COORD dwBufferSize = { SCREEN_WIDTH,SCREEN_HEIGHT };
@@ -55,6 +59,19 @@ void Buffer::UpdateConsole(Grid grid, std::vector<Transform*>& _entityList) {
             }
         }
     }
+    for (int i = 0; i < SCREEN_HEIGHT; i++)
+    {
+        for (int j = 0; j < SCREEN_WIDTH; j++)
+        {
+            if (i == 0 || i == SCREEN_HEIGHT - 1 || j == 0 || j == SCREEN_WIDTH - 1) {
+                buffer[i][j].Char.UnicodeChar = 0x0000;
+                buffer[i][j].Attributes = 0x0007 + 0x0000;
+                buffer[i][j].Char.AsciiChar = '*';
+            }
+        }
+    }
+    //calls the function that will draw the game UI 
+    DrawUI(uiSystem);
 
     WriteConsoleOutput(hOutput, (CHAR_INFO*)buffer, dwBufferSize,
         dwBufferCoord, &rcRegion);
@@ -164,6 +181,48 @@ void Buffer::PaintCharactersInBuffer(int charsTab[SCREEN_HEIGHT][SCREEN_WIDTH]) 
             else {
                 buffer[i][j].Char.UnicodeChar = 0x2580;
                 buffer[i][j].Attributes = 0x0000 + 0x0000;
+            }
+        }
+    }
+}
+
+void Buffer::DrawUI(UISystem uiSystem) {
+    // first we get the UISystem's windows and then iterate through them
+    std::vector<UIWindow*>::iterator iterator = uiSystem.UIWindows.begin();
+    std::vector<UIWindow*>::iterator end = uiSystem.UIWindows.end();
+
+    for (;iterator != end; ++iterator)
+    {
+        UIWindow& window = **iterator;
+        if (window.isOpened) {
+            DrawWindow(window);
+        }
+    }
+}
+
+void Buffer::DrawWindow(UIWindow& window) {
+    int xWindowCharSize = window.size.xScale * SCREEN_WIDTH + window.size.xPx;
+    int yWindowCharSize = window.size.yScale * SCREEN_HEIGHT + window.size.yPx;
+    std::string charTable = window.DisplayWindow();
+
+    for (int i = 0; i <  yWindowCharSize; i++)
+    {
+        for (int j = 0; j < xWindowCharSize; j++)
+        {
+            
+            int charCoordX = window.position.xScale * SCREEN_WIDTH + window.position.xPx + j;
+            charCoordX = charCoordX - window.xWindowSub * xWindowCharSize;
+            charCoordX = std::fmaxf(xWindowCharSize/2, std::fminf(charCoordX, SCREEN_WIDTH - xWindowCharSize/2));
+            int charCoordY = window.position.yScale * SCREEN_HEIGHT + window.position.yPx + i;
+            charCoordY = charCoordY - window.yWindowSub * yWindowCharSize;
+            charCoordY = std::fmaxf(yWindowCharSize / 2, std::fminf(charCoordY, SCREEN_HEIGHT - yWindowCharSize / 2));
+            buffer[charCoordY][charCoordX].Char.UnicodeChar = 0x0000;
+            buffer[charCoordY][charCoordX].Attributes = 0x0007 + 0x0000;
+            if (i * xWindowCharSize + j < charTable.size()) {
+                buffer[charCoordY][charCoordX].Char.AsciiChar = charTable[i * xWindowCharSize + j];
+            }
+            if (i == 0 || i == yWindowCharSize -1 || j == 0 || j == xWindowCharSize-1){
+                buffer[charCoordY][charCoordX].Char.AsciiChar = '*';
             }
         }
     }
