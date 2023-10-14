@@ -13,11 +13,12 @@ public:
 		float y = 0;
 	};
 	Position position;
+	std::string spriteName;
+	int animFrame;
 
-	char charVisual;
-	std::string visual;
 
-    Transform(float _x, float _y, char _charVisual);
+    Transform(float _x, float _y, std::string _spriteName);
 
     virtual void Update(std::vector<Transform*> &_entityList, Grid& grid);
+	virtual void ExplosionReaction(std::vector<Transform*>& _entityList);
 };

@@ -37,6 +37,30 @@ int Grid::GetGridCoordinates(int x, int y) {
     return coordinates;
 }
 
+int Grid::GetRandomFloorCoordinates() {
+    int coordinates;
+    int x;
+    int y;
+    do {
+        x = rand() % gameGridHeight;
+        y = rand() % gameGridWidth;
+        coordinates = y * gameGridWidth + x;
+    } while (HasCollisionWallOnly(x,y));
+    return coordinates;
+}
+
+int Grid::GetXFromGridApprox(int gridCoord) {
+    int x;
+    x = gridCoord - gameGridWidth;
+    return x;
+}
+
+int Grid::GetYFromGridApprox(int gridCoord) {
+    int y;
+    y = gridCoord / gameGridWidth;
+    return y;
+}
+
 bool Grid::HasTransformHere(int _x, int _y, std::vector<Transform*>& _entityList) {
     for (int i = 0; i < _entityList.size(); i++)
     {
@@ -56,4 +80,24 @@ bool Grid::HasCollision(int _x, int _y, std::vector<Transform*>& _entityList) {
     }
     else // si il y a un mur
         return true;
+}
+
+Transform* Grid::GetTransformHere(int _x, int _y, std::vector<Transform*>& _entityList) {
+    for (int i = 0; i < _entityList.size(); i++)
+    {
+        if (_entityList[i]->position.x == _x && _entityList[i]->position.y == _y) {
+            return _entityList[i];
+        }
+    }
+    return nullptr;
+}
+
+bool Grid::HasCollisionWallOnly(int _x, int _y) {
+    int nextStep = GetGridCoordinates(_x, _y);
+    if (grid[nextStep] == 1) {
+        return true;
+    }
+    else {
+        return false;
+    }
 }

@@ -12,11 +12,13 @@
 #include "Transform.h"
 #include "Player.h"
 #include "WallTypes.h"
+#include <io.h>
+#include <fcntl.h>
+#include "SpriteReader.h"
 
 std::vector<Transform*> entityList;
-Buffer buffer = Buffer(10, 2);
+Buffer buffer = Buffer(10);
 Grid grid(10, 10);
-
 
 void Update() {
     for (int i = 0; i < entityList.size(); i++)
@@ -29,11 +31,12 @@ void Update() {
 int main()
 {
     grid.ReadAndAddFileToGrid("maps/map.txt");
-
-    buffer.UpdateConsole(grid, entityList);
+    //buffer.UpdateConsole(grid, entityList);
     NYTimer deltaTime = NYTimer();
-    entityList.push_back(new Player(1, 1, 'P', VK_LEFT, VK_RIGHT, VK_UP, VK_DOWN, VK_SHIFT));
-    entityList.push_back(new Player(2, 2, 'P', 0x51, 0x44, 0x5A, 0x53, 0x45));
+    SpriteReader spriteReader = SpriteReader();
+    buffer.DrawFixedMap(grid);
+    entityList.push_back(new Player(1, 1, "PLAYER", VK_LEFT, VK_RIGHT, VK_UP, VK_DOWN, VK_SHIFT));
+    entityList.push_back(new Player(grid.gameGridWidth - 2, grid.gameGridHeight - 2, "PLAYER", 0x51, 0x44, 0x5A, 0x53, 0x45));
 
     while (true) {
         Update();
