@@ -1,9 +1,10 @@
 #pragma once
 #include <iostream>
 #include <vector>
+#include "UIWindow.h"
+#include "UISystem.h"
 #include "Buffer.h"
 
-class Buffer;
 
 class Transform
 {

@@ -3,7 +3,6 @@
 #include <windows.h>
 #include <vector>
 #include "Entity.h";
-#include "Buffer.h";
 #include "Bomb.h"
 
 class Player : public Entity

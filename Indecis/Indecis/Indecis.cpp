@@ -7,6 +7,8 @@
 #include <map>
 #include "Definitions.h"
 #include "Grid.h"
+#include "UIWindow.h"
+#include "UISystem.h"
 #include "Buffer.h"
 #include "NYTimer.h"
 #include "Transform.h"
@@ -19,19 +21,35 @@
 std::vector<Transform*> entityList;
 Buffer buffer = Buffer(10);
 Grid grid(10, 10);
+UISystem uiSystem;
 
 void Update() {
     for (int i = 0; i < entityList.size(); i++)
     {
         entityList[i]->Update(entityList, grid);
     }
-    buffer.UpdateConsole(grid, entityList);
+    buffer.UpdateConsole(grid, entityList, uiSystem);
 }
 
 int main()
 {
+    ShowWindow(GetConsoleWindow(), SW_MAXIMIZE);
+    float Size = 0.5;
+    UIWindow* window = new UIWindow(0.9f, 0.5f, 0.2f, 0.2f, 2);
+    window->SetTextHorAlignment(UIWindow::HoriAlignment::HMiddle);
+    window->SetTextVerAlignment(UIWindow::VertAlignment::VMiddle);
+    window->SetWindowHorAlignment(UIWindow::HoriAlignment::HMiddle);
+    window->SetWindowVerAlignment(UIWindow::VertAlignment::VMiddle);
+    window->maxCharByLines = 20;
+    window->SetText("YOOO qu'est-ce que tu fais �a va trkl tu t'emmerdes pas trop ?");
+    window->isOpened = true;
+
+
+    uiSystem.UIWindows.push_back(window);
+
     grid.ReadAndAddFileToGrid("maps/map.txt");
-    //buffer.UpdateConsole(grid, entityList);
+
+    //buffer.UpdateConsole(grid, entityList, uiSystem);
     NYTimer deltaTime = NYTimer();
     SpriteReader spriteReader = SpriteReader();
     buffer.DrawFixedMap(grid);

@@ -151,6 +151,7 @@
     <ClCompile Include="Indecis.cpp" />
     <ClCompile Include="NYTimer.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="UISystem.cpp" />
     <ClCompile Include="UIWindow.cpp" />
     <ClCompile Include="WallTypes.cpp" />
   </ItemGroup>
@@ -166,6 +167,7 @@
     <ClInclude Include="Grid.h" />
     <ClInclude Include="NYTimer.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="UISystem.h" />
     <ClInclude Include="UIWindow.h" />
     <ClInclude Include="WallTypes.h" />
   </ItemGroup>
