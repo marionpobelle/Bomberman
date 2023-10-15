@@ -18,6 +18,9 @@
 #include <io.h>
 #include <fcntl.h>
 #include "SpriteReader.h"
+//For sound
+#include <mmsystem.h>
+#pragma comment(lib, "winmm.lib")
 
 std::vector<Transform*> entityList;
 Buffer buffer = Buffer(10);
@@ -50,6 +53,8 @@ int main()
     uiSystem.UIWindows.push_back(window);
 
     grid.ReadAndAddFileToGrid("maps/map.txt");
+    //For sound
+    PlaySound(TEXT("music\\An Adventure in the Future.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
 
     //buffer.UpdateConsole(grid, entityList, uiSystem);
     NYTimer deltaTime = NYTimer();

@@ -5,7 +5,6 @@ DummyWall::DummyWall(float _x, float _y, std::string _spriteName) //constructor
 {}
 
 void DummyWall::ExplosionReaction(std::vector<Transform*>& _entityList) {
-    std::cout << "DUMMY WALL DESTROYED" << std::endl;
     std::vector<Transform*>::iterator ptr;
     for (ptr = _entityList.begin(); ptr < _entityList.end(); ptr++) {
         if (*ptr == this) {
