@@ -1,33 +1,100 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="Bomb.cpp" />
-    <ClCompile Include="Buffer.cpp" />
-    <ClCompile Include="Entity.cpp" />
-    <ClCompile Include="Explosion.cpp" />
-    <ClCompile Include="Transform.cpp" />
-    <ClCompile Include="Grid.cpp" />
-    <ClCompile Include="Indecis.cpp" />
-    <ClCompile Include="NYTimer.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="UIWindow.cpp" />
-    <ClCompile Include="WallTypes.cpp" />
     <ClCompile Include="SpriteReader.cpp" />
     <ClCompile Include="Sprite.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Bomb.h" />
-    <ClInclude Include="Buffer.h" />
-    <ClInclude Include="Definitions.h" />
-    <ClInclude Include="Entity.h" />
-    <ClInclude Include="Explosion.h" />
-    <ClInclude Include="Transform.h" />
-    <ClInclude Include="Grid.h" />
-    <ClInclude Include="NYTimer.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="UIWindow.h" />
-    <ClInclude Include="WallTypes.h" />
     <ClInclude Include="SpriteReader.h" />
     <ClInclude Include="Sprite.h" />
+    <ClCompile Include="Indecis.cpp" />
+    <ClCompile Include="UISystem.cpp">
+      <Filter>System\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Grid.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="Explosion.cpp">
+      <Filter>Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="NYTimer.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="Transform.cpp">
+      <Filter>Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="UIWindow.cpp">
+      <Filter>System\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="WallTypes.cpp">
+      <Filter>System\Display</Filter>
+    </ClCompile>
+    <ClCompile Include="Buffer.cpp">
+      <Filter>System\Display</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Gameplay\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Bomb.cpp">
+      <Filter>Gameplay\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="DummyWall.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="UISystem.h">
+      <Filter>System\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Grid.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="Definitions.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="Explosion.h">
+      <Filter>Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="NYTimer.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="UIWindow.h">
+      <Filter>System\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="WallTypes.h">
+      <Filter>System\Display</Filter>
+    </ClInclude>
+    <ClInclude Include="Buffer.h">
+      <Filter>System\Display</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Gameplay\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Bomb.h">
+      <Filter>Gameplay\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="DummyWall.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="System">
+      <UniqueIdentifier>{f1777c65-f6a5-444e-ba6c-b5e8bcff2e94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gameplay">
+      <UniqueIdentifier>{e2b59d0a-efc7-46e0-92fa-41c17ea2323d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\UI">
+      <UniqueIdentifier>{311d8a9c-2bfc-4a3d-8846-2afd5c47d3d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Display">
+      <UniqueIdentifier>{19bce3d2-6aee-4470-ba14-b2956006ab8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gameplay\Player">
+      <UniqueIdentifier>{f40ea104-26ba-4be3-adf4-52de4cd53eb2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

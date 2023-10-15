@@ -12,7 +12,7 @@ class Buffer
 public:
 	Buffer(int _maxLineSize);
 	CHAR_INFO buffer[SCREEN_HEIGHT][SCREEN_WIDTH];
-	void UpdateConsole(Grid grid, std::vector<Transform*>& _entityList);
+	void UpdateConsole(Grid grid, std::vector<Transform*>& _entityList, UISystem uiSystem);
 	void DrawFixedMap(Grid grid);
 
 	int maxSize;
@@ -24,6 +24,9 @@ private:
 	void DrawBackground(int _x, int _y, char _charVisual);
 	void FillTabWalls(int coordX, int coordY, Grid& grid);
 	void FillTabGround(int coordX, int coordY);
+
+	void DrawUI(UISystem uiSystem);
+	void DrawWindow(UIWindow& window);
 
 	void PaintCharactersInBuffer(int _charsTab[SCREEN_HEIGHT][SCREEN_WIDTH], Grid grid);
 	void PaintSpriteInBuffer(int coordX, int coordY, std::string sprite, Grid& grid);

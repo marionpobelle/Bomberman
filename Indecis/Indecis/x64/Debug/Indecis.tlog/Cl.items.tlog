@@ -1,11 +1,15 @@
 C:\Users\Marion\Git\indecis\Indecis\Indecis\Bomb.cpp;C:\Users\Marion\Git\indecis\Indecis\Indecis\x64\Debug\Bomb.obj
 C:\Users\Marion\Git\indecis\Indecis\Indecis\Buffer.cpp;C:\Users\Marion\Git\indecis\Indecis\Indecis\x64\Debug\Buffer.obj
+C:\Users\Marion\Git\indecis\Indecis\Indecis\DummyWall.cpp;C:\Users\Marion\Git\indecis\Indecis\Indecis\x64\Debug\DummyWall.obj
 C:\Users\Marion\Git\indecis\Indecis\Indecis\Entity.cpp;C:\Users\Marion\Git\indecis\Indecis\Indecis\x64\Debug\Entity.obj
 C:\Users\Marion\Git\indecis\Indecis\Indecis\Explosion.cpp;C:\Users\Marion\Git\indecis\Indecis\Indecis\x64\Debug\Explosion.obj
+C:\Users\Marion\Git\indecis\Indecis\Indecis\Sprite.cpp;C:\Users\Marion\Git\indecis\Indecis\Indecis\x64\Debug\Sprite.obj
+C:\Users\Marion\Git\indecis\Indecis\Indecis\SpriteReader.cpp;C:\Users\Marion\Git\indecis\Indecis\Indecis\x64\Debug\SpriteReader.obj
 C:\Users\Marion\Git\indecis\Indecis\Indecis\Transform.cpp;C:\Users\Marion\Git\indecis\Indecis\Indecis\x64\Debug\Transform.obj
 C:\Users\Marion\Git\indecis\Indecis\Indecis\Grid.cpp;C:\Users\Marion\Git\indecis\Indecis\Indecis\x64\Debug\Grid.obj
 C:\Users\Marion\Git\indecis\Indecis\Indecis\Indecis.cpp;C:\Users\Marion\Git\indecis\Indecis\Indecis\x64\Debug\Indecis.obj
 C:\Users\Marion\Git\indecis\Indecis\Indecis\NYTimer.cpp;C:\Users\Marion\Git\indecis\Indecis\Indecis\x64\Debug\NYTimer.obj
 C:\Users\Marion\Git\indecis\Indecis\Indecis\Player.cpp;C:\Users\Marion\Git\indecis\Indecis\Indecis\x64\Debug\Player.obj
+C:\Users\Marion\Git\indecis\Indecis\Indecis\UISystem.cpp;C:\Users\Marion\Git\indecis\Indecis\Indecis\x64\Debug\UISystem.obj
 C:\Users\Marion\Git\indecis\Indecis\Indecis\UIWindow.cpp;C:\Users\Marion\Git\indecis\Indecis\Indecis\x64\Debug\UIWindow.obj
 C:\Users\Marion\Git\indecis\Indecis\Indecis\WallTypes.cpp;C:\Users\Marion\Git\indecis\Indecis\Indecis\x64\Debug\WallTypes.obj

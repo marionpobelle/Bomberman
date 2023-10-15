@@ -9,7 +9,8 @@ public:
 	Grid(int gameGridWidth, int gameGridHeight)	;
 	void ReadAndAddFileToGrid(std::string fileName);
 	int GetGridCoordinates(int x, int y);
-	int GetRandomFloorCoordinates();
+	int GetRandomFloorCoordinates(std::vector<Transform*>& _entityList);
+	void GetRandomFloorCoordinatesRefs(float& x, float& y, std::vector<Transform*>& _entityList);
 	bool HasTransformHere(int x, int y, std::vector<Transform*>& _entityList);
 	bool HasCollision(int _x, int _y, std::vector<Transform*>& _entityList);
 	bool HasCollisionWallOnly(int _x, int _y);
