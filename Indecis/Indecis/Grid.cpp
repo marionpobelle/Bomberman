@@ -37,7 +37,7 @@ int Grid::GetGridCoordinates(int x, int y) {
     return coordinates;
 }
 
-int Grid::GetRandomFloorCoordinates() {
+int Grid::GetRandomFloorCoordinates(std::vector<Transform*>& _entityList) {
     int coordinates;
     int x;
     int y;
@@ -45,8 +45,16 @@ int Grid::GetRandomFloorCoordinates() {
         x = rand() % gameGridHeight;
         y = rand() % gameGridWidth;
         coordinates = y * gameGridWidth + x;
-    } while (HasCollisionWallOnly(x,y));
+    } while (HasCollision(x, y, _entityList));
     return coordinates;
+}
+
+void Grid::GetRandomFloorCoordinatesRefs(float& x, float& y, std::vector<Transform*>& _entityList) {
+    srand(time(0));
+    do {
+        x = rand() % gameGridHeight;
+        y = rand() % gameGridWidth;
+    } while (HasCollision(x, y, _entityList));
 }
 
 int Grid::GetXFromGridApprox(int gridCoord) {

@@ -39,6 +39,7 @@
     <ClCompile Include="Bomb.cpp">
       <Filter>Gameplay\Player</Filter>
     </ClCompile>
+    <ClCompile Include="DummyWall.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="UISystem.h">
@@ -77,6 +78,7 @@
     <ClInclude Include="Bomb.h">
       <Filter>Gameplay\Player</Filter>
     </ClInclude>
+    <ClInclude Include="DummyWall.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="System">

@@ -13,6 +13,7 @@
 #include "NYTimer.h"
 #include "Transform.h"
 #include "Player.h"
+#include "DummyWall.h"
 #include "WallTypes.h"
 #include <io.h>
 #include <fcntl.h>
@@ -21,6 +22,7 @@
 std::vector<Transform*> entityList;
 Buffer buffer = Buffer(10);
 Grid grid(10, 10);
+int amountOfDummyWalls = 8;
 UISystem uiSystem;
 
 void Update() {
@@ -55,6 +57,12 @@ int main()
     buffer.DrawFixedMap(grid);
     entityList.push_back(new Player(1, 1, "PLAYER", VK_LEFT, VK_RIGHT, VK_UP, VK_DOWN, VK_SHIFT));
     entityList.push_back(new Player(grid.gameGridWidth - 2, grid.gameGridHeight - 2, "PLAYER", 0x51, 0x44, 0x5A, 0x53, 0x45));
+    float xDummy;
+    float yDummy;
+    for (int i = 0; i < amountOfDummyWalls; i++) {
+        grid.GetRandomFloorCoordinatesRefs(xDummy, yDummy, entityList);
+        entityList.push_back(new DummyWall(xDummy, yDummy, "WALL_DUMMY"));
+    }
 
     while (true) {
         Update();
