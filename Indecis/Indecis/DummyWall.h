@@ -1,5 +1,6 @@
 #pragma once
 #include "Entity.h";
+#include "Explosion.h";
 
 class DummyWall : public Entity
 {
