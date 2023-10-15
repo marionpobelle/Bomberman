@@ -39,6 +39,7 @@ void Player::Update(std::vector<Transform*> &_entityList, Grid &_grid) {
         }
     }
 
+    
     if (GetAsyncKeyState(bombVK)) {
         PlantBomb(_entityList, _grid);
     }
@@ -77,6 +78,8 @@ void Player::PlantBomb(std::vector<Transform*> &_entityList, Grid &_grid) {
 void Player::ExplosionReaction(std::vector<Transform*>& _entityList) {
     std::cout << "PLAYER EXPLODED - GAME OVER" << std::endl;
     std::vector<Transform*>::iterator ptr;
+    Explosion* _nextExplosion = new Explosion(position.x, position.y, "EXPLOSION");
+    _entityList.push_back(_nextExplosion);
     for (ptr = _entityList.begin(); ptr < _entityList.end(); ptr++) {
         if (*ptr == this) {
             _entityList.erase(ptr);

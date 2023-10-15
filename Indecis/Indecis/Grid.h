@@ -25,7 +25,7 @@ public:
 	const int gameGridWidth = 10;
 	const int gameGridHeight = 10;
 
-private:
+//private:
 	
 };
 

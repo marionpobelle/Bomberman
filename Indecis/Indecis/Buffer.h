@@ -1,9 +1,9 @@
 #pragma once
 #include <windows.h>
 #include <vector>
-#include "Grid.h"
 #include "Transform.h"
 #include "Definitions.h"
+#include "Grid.h"
 
 class Transform;
 

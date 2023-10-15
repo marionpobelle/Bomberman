@@ -64,7 +64,7 @@ int Grid::GetYFromGridApprox(int gridCoord) {
 bool Grid::HasTransformHere(int _x, int _y, std::vector<Transform*>& _entityList) {
     for (int i = 0; i < _entityList.size(); i++)
     {
-        if (_entityList[i]->position.x == _x && _entityList[i]->position.y == _y) {
+        if (floor(_entityList[i]->position.x) == _x && floor(_entityList[i]->position.y) == _y) {
             return true;
         }
     }
