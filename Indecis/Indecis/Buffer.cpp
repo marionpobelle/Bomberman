@@ -30,7 +30,7 @@ void Buffer::UpdateConsole( Grid _grid, std::vector<Transform*>& _entityList, UI
     ReadConsoleOutput( hOutput, ( CHAR_INFO* )buffer, dwBufferSize,
     dwBufferCoord, &rcRegion );
 
-    //On peint le background uniquement
+    //Painting the background
     for ( int i = 0; i < _grid.gameGridSize; ++i ) {
         int coordY = ( int )ceil( i / maxSize );
         int coordX = i % maxSize;
@@ -38,7 +38,7 @@ void Buffer::UpdateConsole( Grid _grid, std::vector<Transform*>& _entityList, UI
             FillTabGround( coordX, coordY );
         }
     }
-    //On peint les entites
+    //Painting the entities
     for ( int i = 0; i < SCREEN_WIDTH; i++ )
     {
         for ( int j = 0; j < SCREEN_HEIGHT; j++ )
@@ -67,7 +67,7 @@ void Buffer::UpdateConsole( Grid _grid, std::vector<Transform*>& _entityList, UI
             }
         }
     }
-    //calls the function that will draw the game UI 
+    //Painting the game UI
     DrawUI( _uiSystem );
     WriteConsoleOutput( hOutput, ( CHAR_INFO* )buffer, dwBufferSize,
         dwBufferCoord, &rcRegion );
@@ -83,7 +83,7 @@ void Buffer::DrawFixedMap( Grid _grid ) {
     ReadConsoleOutput( hOutput, ( CHAR_INFO* )buffer, dwBufferSize,
         dwBufferCoord, &rcRegion );
 
-    //Lecture de la grid vers le buffer
+    //Reading from grid to buffer
     for ( int i = 0; i < _grid.gameGridSize; ++i ) {
         int coordY = ( int )ceil( i / maxSize );
         int coordX = i % maxSize;
@@ -110,7 +110,7 @@ void Buffer::FillTabWalls( int coordX, int coordY, Grid& _grid ) {
     string wallTypeName = "";
     int wallTypeIndex = 30;
     for ( int k = 0; k < WallTypes::GetWallTypes().wallTypesArray.size(); k++ ) {
-        //On recupere l'index du set qui contient la bonne valeur
+        //We get the index of the set that holds the right value
         if ( WallTypes::GetWallTypes().wallTypesArray[k].count( neighborsTypeInt ) ) {
             wallTypeIndex = k;
             break;
@@ -127,12 +127,12 @@ void Buffer::PaintSpriteInBuffer( int coordX, int coordY, string sprite, Grid& _
     int height = GRID_RATIO;
     for ( int k = 0; k < width; k++ ) {
         for ( int l = 0; l < height; l++ ) {
-            //avoir les coordonnées 
+            //We get the coordinates
             int charCoordX = coordX * GRID_RATIO * 2 + k;
             int charCoordY = coordY * GRID_RATIO + l;
             buffer[charCoordY][charCoordX].Char.UnicodeChar = 0x2580;
             if ( sprite.size() > width * height ) { 
-                //on interprète les chiffres présents dans le sprite pour en faire des couleurs de background et foreground
+                //We interpret each number as colors for the backgorund and foreground
                 string text = "0x00" + string( 1, sprite[k + width + ( l * 2 * width )] ) + string( 1, sprite[k + ( l * 2 * width )] );
                 WORD word = static_cast<WORD>( std::stoul( text, nullptr, 16 ) );
                 buffer[charCoordY][charCoordX].Attributes = word;
@@ -142,20 +142,19 @@ void Buffer::PaintSpriteInBuffer( int coordX, int coordY, string sprite, Grid& _
 }
 
 void Buffer::FillTabGround( int coordX, int coordY ) {
-    //Ici on dessine une boite de la taille d'une case de grille
+    //We draw a box that is the size of one grid slot.
     for ( int k = 0; k < GRID_RATIO * 2; k++ ) {
         for ( int l = 0; l < GRID_RATIO; l++ ) {
-            //avoir les coordonn�es 
+            //We get the coordinates
             int charCoordX = coordX * GRID_RATIO * 2 + k;
             int charCoordY = coordY * GRID_RATIO + l;
-            //ajout de char dans le buffer, a modifier plus tard pour l'adapter en fonction du character � afficher
             buffer[charCoordY][charCoordX].Attributes = 0x0000;
         }
     }
 }
 
 void Buffer::DrawUI( UISystem _uiSystem ) {
-    // first we get the UISystem's windows and then iterate through them
+    //We get the UISystem's windows and then iterate through them
     std::vector<UIWindow*>::iterator iterator = _uiSystem.UIWindows.begin();
     std::vector<UIWindow*>::iterator end = _uiSystem.UIWindows.end();
 

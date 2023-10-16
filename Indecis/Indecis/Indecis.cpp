@@ -23,53 +23,53 @@
 #pragma comment(lib, "winmm.lib")
 
 std::vector<Transform*> entityList;
-Buffer buffer = Buffer(10);
-Grid grid(10, 10);
+Buffer buffer = Buffer( 10 );
+Grid grid( 10, 10 );
 int amountOfDummyWalls = 8;
 UISystem uiSystem;
 
 void Update() {
-    for (int i = 0; i < entityList.size(); i++)
+    for ( int i = 0; i < entityList.size(); i++ )
     {
-        entityList[i]->Update(entityList, grid);
+        entityList[i]->Update( entityList, grid );
     }
-    buffer.UpdateConsole(grid, entityList, uiSystem);
+    buffer.UpdateConsole( grid, entityList, uiSystem );
 }
 
 int main()
 {
-    ShowWindow(GetConsoleWindow(), SW_MAXIMIZE);
+    ShowWindow( GetConsoleWindow(), SW_MAXIMIZE );
     float Size = 0.5;
-    UIWindow* window = new UIWindow(0.9f, 0.5f, 0.2f, 0.2f, 2);
-    window->SetTextHorAlignment(UIWindow::HoriAlignment::HMiddle);
-    window->SetTextVerAlignment(UIWindow::VertAlignment::VMiddle);
-    window->SetWindowHorAlignment(UIWindow::HoriAlignment::HMiddle);
-    window->SetWindowVerAlignment(UIWindow::VertAlignment::VMiddle);
+    UIWindow* window = new UIWindow( 0.9f, 0.5f, 0.2f, 0.2f, 2 );
+    window->SetTextHorAlignment( UIWindow::HoriAlignment::HMiddle );
+    window->SetTextVerAlignment( UIWindow::VertAlignment::VMiddle );
+    window->SetWindowHorAlignment( UIWindow::HoriAlignment::HMiddle );
+    window->SetWindowVerAlignment( UIWindow::VertAlignment::VMiddle );
     window->maxCharByLines = 20;
-    window->SetText("YOOO qu'est-ce que tu fais �a va trkl tu t'emmerdes pas trop ?");
+    window->SetText( "YOOO qu'est-ce que tu fais �a va trkl tu t'emmerdes pas trop ?" );
     window->isOpened = true;
 
 
-    uiSystem.UIWindows.push_back(window);
+    uiSystem.UIWindows.push_back( window );
 
-    grid.ReadAndAddFileToGrid("maps/map.txt");
+    grid.ReadAndAddFileToGrid( "maps/map.txt" );
     //For sound
-    PlaySound(TEXT("music\\An Adventure in the Future.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
+    PlaySound( TEXT( "music\\An Adventure in the Future.wav" ), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP );
 
     //buffer.UpdateConsole(grid, entityList, uiSystem);
     NYTimer deltaTime = NYTimer();
     SpriteReader spriteReader = SpriteReader();
-    buffer.DrawFixedMap(grid);
-    entityList.push_back(new Player(1, 1, "PLAYER", VK_LEFT, VK_RIGHT, VK_UP, VK_DOWN, VK_SHIFT));
-    entityList.push_back(new Player(grid.gameGridWidth - 2, grid.gameGridHeight - 2, "PLAYER", 0x51, 0x44, 0x5A, 0x53, 0x45));
+    buffer.DrawFixedMap( grid );
+    entityList.push_back( new Player( 1, 1, "PLAYER", VK_LEFT, VK_RIGHT, VK_UP, VK_DOWN, VK_SHIFT ) );
+    entityList.push_back( new Player( grid.gameGridWidth - 2, grid.gameGridHeight - 2, "PLAYER", 0x51, 0x44, 0x5A, 0x53, 0x45 ) );
     float xDummy;
     float yDummy;
-    for (int i = 0; i < amountOfDummyWalls; i++) {
-        grid.GetRandomFloorCoordinatesRefs(xDummy, yDummy, entityList);
-        entityList.push_back(new DummyWall(xDummy, yDummy, "WALL_DUMMY"));
+    for ( int i = 0; i < amountOfDummyWalls; i++ ) {
+        grid.GetRandomFloorCoordinatesRefs( xDummy, yDummy, entityList );
+        entityList.push_back(new DummyWall( xDummy, yDummy, "WALL_DUMMY" ) );
     }
 
-    while (true) {
+    while ( true ) {
         Update();
         NYTimer::deltaTimeCalcul();
     }
