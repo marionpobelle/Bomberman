@@ -15,8 +15,8 @@ public:
 	static float deltaTime;
 
 	NYTimer(); //constructor
-	static void Start(void);
-	static float getElapsedSeconds(bool restart = false);
+	static void Start( void );
+	static float getElapsedSeconds( bool restart = false );
 	static void deltaTimeCalcul();
-	static unsigned long getElapsedMs(bool restart = false);
+	static unsigned long getElapsedMs( bool restart = false );
 };

@@ -28,7 +28,7 @@ public:
 		@param gameGridHeight : Height for the game grid.
 	====================
 	*/
-	Grid(int gameGridWidth, int gameGridHeight)	;
+	Grid( int gameGridWidth, int gameGridHeight )	;
 
 	/*
 	====================
@@ -37,7 +37,7 @@ public:
 		@param fileName : String that contains the name of the file to read.
 	====================
 	*/
-	void ReadAndAddFileToGrid(std::string fileName);
+	void ReadAndAddFileToGrid( std::string fileName );
 
 	/*
 	====================
@@ -48,7 +48,7 @@ public:
 		@return : Int, the coordinates (x,y) in the grid represented as a 1 dimensional table.
 	====================
 	*/
-	int GetGridCoordinates(int x, int y);
+	int GetGridCoordinates( int x, int y );
 
 	/*
 	====================
@@ -59,7 +59,7 @@ public:
 		@param _entityList : Container which includes the list of all the entities present in the game.
 	====================
 	*/
-	void GetRandomFloorCoordinatesRefs(float& x, float& y, std::vector<Transform*>& _entityList);
+	void GetRandomFloorCoordinatesRefs( float& x, float& y, std::vector<Transform*>& _entityList );
 
 	/*
 	====================
@@ -71,7 +71,7 @@ public:
 		@return : Boolean, true if there is an entity at these coordinates, false otherwise.
 	====================
 	*/
-	bool HasTransformHere(int x, int y, std::vector<Transform*>& _entityList);
+	bool HasTransformHere( int x, int y, std::vector<Transform*>& _entityList );
 
 	/*
 	====================
@@ -83,7 +83,7 @@ public:
 		@return : Boolean, true if there is an entity or a wall at these coordinates, false otherwise.
 	====================
 	*/
-	bool HasCollision(int _x, int _y, std::vector<Transform*>& _entityList);
+	bool HasCollision( int _x, int _y, std::vector<Transform*>& _entityList );
 
 	/*
 	====================
@@ -95,6 +95,6 @@ public:
 		@return : Pointer towards a Transform, the transform of an entity if there is one at these coordinates, the null pointer otherwise.
 	====================
 	*/
-	Transform* GetTransformHere(int _x, int _y, std::vector<Transform*>& _entityList);
+	Transform* GetTransformHere( int _x, int _y, std::vector<Transform*>& _entityList );
 };
 
