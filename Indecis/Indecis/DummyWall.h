@@ -20,7 +20,7 @@ public:
 		@param _spriteName : String that represents the name of the sprite for destructible walls.
 	====================
 	*/
-    DummyWall(float _x, float _y, std::string _spriteName);
+    DummyWall( float _x, float _y, std::string _spriteName );
 
 	/*
 	====================
@@ -29,6 +29,6 @@ public:
 		@param entityList : Container whose values are the transforms of all the entities of the game.
 	====================
 	*/
-    void ExplosionReaction(std::vector<Transform*>& _entityList);
+    void ExplosionReaction( std::vector<Transform*>& _entityList );
 };
 
