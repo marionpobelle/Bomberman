@@ -11,6 +11,15 @@ The Grid class represents the game grid.
 class Grid
 {
 public:
+	//Pointer towards the elements of the grid.
+	int* grid;
+	//Game fgrid size as a 1 dimensional table.
+	int gameGridSize;
+	//Game grid width.
+	const int gameGridWidth = 10;
+	//Game grid height.
+	const int gameGridHeight = 10;
+
 	/*
 	====================
 	Grid()
@@ -87,14 +96,5 @@ public:
 	====================
 	*/
 	Transform* GetTransformHere(int _x, int _y, std::vector<Transform*>& _entityList);
-
-	//Pointer towards the elements of the grid.
-	int *grid;
-	//Game fgrid size as a 1 dimensional table.
-	int gameGridSize;
-	//Game grid width.
-	const int gameGridWidth = 10;
-	//Game grid height.
-	const int gameGridHeight = 10;
 };
 
