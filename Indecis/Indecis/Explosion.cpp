@@ -22,7 +22,7 @@ void Explosion::Update(std::vector<Transform*>& _entityList, Grid& grid) {
     }
 }
 
-void Explosion::ExplodeTowards(std::vector<Transform*>& _entityList, Grid& _grid, int _x, int _y, int _orientation, int currentCase) {
+void Explosion::ExplodeTowards_r(std::vector<Transform*>& _entityList, Grid& _grid, int _x, int _y, int _orientation, int currentCase) {
     int maxCase = 1;
 
     int nextCaseX = _x;
@@ -59,7 +59,7 @@ void Explosion::ExplodeTowards(std::vector<Transform*>& _entityList, Grid& _grid
         Explosion *_nextExplosion = new Explosion(nextCaseX, nextCaseY, "EXPLOSION");
         _entityList.push_back(_nextExplosion);
         if (currentCase < maxCase) {
-            _nextExplosion->ExplodeTowards(_entityList, _grid, _x, _y, _orientation, currentCase+1);
+            _nextExplosion->ExplodeTowards_r(_entityList, _grid, _x, _y, _orientation, currentCase+1);
         }
         else {
             return;

@@ -31,7 +31,7 @@ public:
         @param _bombVK : Key used by this player to plant bombs.
     ====================
     */
-    Player(float _x, float _y, std::string _spriteName, UCHAR _leftVK, UCHAR _rightVK, UCHAR _upVK, UCHAR _downVK, UCHAR _bombVK);
+    Player( float _x, float _y, std::string _spriteName, UCHAR _leftVK, UCHAR _rightVK, UCHAR _upVK, UCHAR _downVK, UCHAR _bombVK );
 
     /*
     ====================
@@ -41,7 +41,7 @@ public:
         @param _grid : Reference to the grid.
     ====================
     */
-    void Update(std::vector<Transform*> &_entityList, Grid &_grid);
+    void Update( std::vector<Transform*> &_entityList, Grid &_grid );
 
     /*
     ====================
@@ -51,7 +51,7 @@ public:
         @param _grid : Reference to the grid.
     ====================
     */
-    void PlantBomb(std::vector<Transform*> &_entityList, Grid &_grid);
+    void PlantBomb( std::vector<Transform*> &_entityList, Grid &_grid );
 
     /*
     ====================
@@ -60,6 +60,6 @@ public:
         @param _entityList : Container which includes the list of all the entities present in the game.
     ====================
     */
-    void ExplosionReaction(std::vector<Transform*>& _entityList);
+    void ExplosionReaction( std::vector<Transform*>& _entityList );
 };
 
