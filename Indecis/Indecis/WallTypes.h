@@ -10,15 +10,6 @@ The WallTypes class contains all the variables that define what a wall looks lik
 */
 class WallTypes
 {
-	private:
-		/*
-		====================
-		WallTypes()
-			Constructor for the WallTypes object. Unused.
-		====================
-		*/
-		WallTypes();		
-
 	public:
 		//All the set<int> below contains the binary codes that correspond to the type of wall that names the set.
 		std::set<int> WALL_CORNER_UP_RIGHT;
@@ -66,6 +57,15 @@ class WallTypes
 		====================
 		*/
 		static WallTypes GetWallTypes();
+
+	private:
+		/*
+		====================
+		WallTypes()
+			Constructor for the WallTypes object. Unused.
+		====================
+		*/
+		WallTypes();
 		
 };
 

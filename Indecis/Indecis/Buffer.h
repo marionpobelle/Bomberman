@@ -16,6 +16,12 @@ functions used to paint characters on the Windows console.
 class Buffer
 {
 public:
+	//See CHAR_INFO online documentation.
+	CHAR_INFO buffer[SCREEN_HEIGHT][SCREEN_WIDTH];
+
+	//Maximum size of the buffer.
+	int maxSize;
+
 	/*
 	====================
 	Buffer()
@@ -24,9 +30,6 @@ public:
 	====================
 	*/
 	Buffer( int _maxLineSize );
-
-	//See CHAR_INFO online documentation.
-	CHAR_INFO buffer[SCREEN_HEIGHT][SCREEN_WIDTH];
 
 	/*
 	====================
@@ -47,9 +50,6 @@ public:
 	====================
 	*/
 	void DrawFixedMap( Grid _grid );
-
-	//Maximum size of the buffer.
-	int maxSize;
 
 private:
 	/*
