@@ -17,7 +17,6 @@ public:
     static float SPEED;
     float bombCooldown;
 
-public:
     /*
     ====================
     Player()
