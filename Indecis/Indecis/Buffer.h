@@ -7,28 +7,100 @@
 
 class Transform;
 
+/*
+===============================================================================
+The Buffer class contains variables that characterize the buffer and
+functions used to paint characters on the Windows console.
+===============================================================================
+*/
 class Buffer
 {
 public:
-	Buffer(int _maxLineSize);
-	CHAR_INFO buffer[SCREEN_HEIGHT][SCREEN_WIDTH];
-	void UpdateConsole(Grid grid, std::vector<Transform*>& _entityList, UISystem uiSystem);
-	void DrawFixedMap(Grid grid);
+	/*
+	====================
+	Buffer()
+		Constructor for the Buffer object.
+		@param _maxLineSize : Maximum size of the buffer.
+	====================
+	*/
+	Buffer( int _maxLineSize );
 
+	//See CHAR_INFO online documentation.
+	CHAR_INFO buffer[SCREEN_HEIGHT][SCREEN_WIDTH];
+
+	/*
+	====================
+	UpdateConsole()
+		Paint the background, entities, map and UI in the buffer to display in the Windows Console.
+		@param grid : Grid which contains the map for the game, made out of multiple buffer slots.
+		@param entityList : Container whose values are the transforms of all the entities of the game.
+		@param uiSystem : UISystem which contains all UI elements to put in the buffer to display on the Windows Console.
+	====================
+	*/
+	void UpdateConsole( Grid _grid, std::vector<Transform*>& _entityList, UISystem _uiSystem );
+	
+	/*
+	====================
+	DrawFixedMap()
+		Draw the game map contained in grid in the buffer.
+		@param grid : Grid which contains the map for the game, made out of multiple buffer slots.
+	====================
+	*/
+	void DrawFixedMap( Grid _grid );
+
+	//Maximum size of the buffer.
 	int maxSize;
-	int charsTab[SCREEN_HEIGHT][SCREEN_WIDTH];
 
 private:
-	void DrawBox(int coordX, int coordY);
-	void DrawCharVisual(int _x, int _y, char _charVisual);
-	void DrawBackground(int _x, int _y, char _charVisual);
-	void FillTabWalls(int coordX, int coordY, Grid& grid);
-	void FillTabGround(int coordX, int coordY);
+	/*
+	====================
+	FillTabWalls()
+		Draw the game map walls contained in grid at the coordX,coordY coordinates in the buffer.
+		@param coordX : Integer representing the x coordinate on the game grid.
+		@param coordY : Integer representing the y coordinate on the game grid.
+		@param grid : Grid which contains the map for the game, made out of multiple buffer slots.
+	====================
+	*/
+	void FillTabWalls( int coordX, int coordY, Grid& _grid );
 
-	void DrawUI(UISystem uiSystem);
-	void DrawWindow(UIWindow& window);
+	/*
+	====================
+	FillTabGround()
+		Draw the game map ground everywhere in the buffer.
+		@param coordX : Integer representing the x coordinate on the game grid.
+		@param coordY : Integer representing the y coordinate on the game grid.
+	====================
+	*/
+	void FillTabGround( int coordX, int coordY );
 
-	void PaintCharactersInBuffer(int _charsTab[SCREEN_HEIGHT][SCREEN_WIDTH], Grid grid);
-	void PaintSpriteInBuffer(int coordX, int coordY, std::string sprite, Grid& grid);
+	/*
+	====================
+	DrawUI()
+		Description Draws the UI elements as well as the UI window.
+		@param uiSystem : UISystem which contains all UI elements to put in the buffer to display on the Windows Console.
+	====================
+	*/
+	void DrawUI( UISystem _uiSystem );
+
+	/*
+	====================
+	DrawWindow()
+		Draws the UI window in the buffer to display on the Windows Console.
+		@param window : UIWindow which represent the UI window to display on the Windows Console.
+	====================
+	*/
+	void DrawWindow( UIWindow& window );
+
+	/*
+	====================
+	PaintSpriteInBuffer()
+		Description Paint the sprite of the entity at the coordinates coordX,coordY on the game grid in the buffer.
+		@param coordX : Integer representing the x coordinate on the game grid.
+		@param coordY : Integer representing the y coordinate on the game grid.
+		@param sprite : Container whose value form the sprite of the element to paint.
+		@param grid : Grid which contains the map for the game, made out of multiple buffer slots.
+	====================
+	*/
+	void PaintSpriteInBuffer( int coordX, int coordY, std::string sprite, Grid& _grid );
 };
 
