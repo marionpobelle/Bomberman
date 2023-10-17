@@ -18,9 +18,7 @@
 #include <io.h>
 #include <fcntl.h>
 #include "SpriteReader.h"
-//For sound
-#include <mmsystem.h>
-#pragma comment(lib, "winmm.lib")
+#include "AudioEngine.h"
 
 std::vector<Transform*> entityList;
 Buffer buffer = Buffer( 10 );
@@ -54,7 +52,8 @@ int main()
 
     grid.ReadAndAddFileToGrid( "maps/map.txt" );
     //For sound
-    PlaySound( TEXT( "music\\An Adventure in the Future.wav" ), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP );
+    AudioEngine::Init();
+    AudioEngine::PlayLoop("music\\AnAdventureintheFuture.ogg");
 
     //buffer.UpdateConsole(grid, entityList, uiSystem);
     NYTimer deltaTime = NYTimer();

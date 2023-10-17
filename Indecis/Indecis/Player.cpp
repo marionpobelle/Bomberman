@@ -48,6 +48,8 @@ void Player::Update( std::vector<Transform*> &_entityList, Grid &_grid ) {
 
 void Player::PlantBomb( std::vector<Transform*> &_entityList, Grid &_grid ) {
     if ( bombCooldown > 0 ) return;
+    AudioEngine::Init();
+    AudioEngine::PlayOneShot("music\\DropBomb.wav");
     int bombX = position.x;
     int bombY = position.y;
     switch ( orientation )

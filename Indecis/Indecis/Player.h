@@ -4,6 +4,7 @@
 #include <vector>
 #include "Entity.h";
 #include "Bomb.h"
+#include "AudioEngine.h"
 
 class Player : public Entity
 {
