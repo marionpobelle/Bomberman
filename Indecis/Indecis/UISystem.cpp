@@ -2,6 +2,7 @@
 #include <cmath>
 #include "UIWindow.h"
 #include "UISystem.h"
+#include "Definitions.h"
 
 UISystem* UISystem::UISystemPointer = nullptr;
 
@@ -39,7 +40,7 @@ UIWindow* UISystem::MakeHeartUI(UIWindow* _parent, int _heartNum, int _spacing) 
 }
 
 UISystem::PlayerUI UISystem::MakePlayerUI(float _posX, float _posY, int _playerNum) {
-    UIWindow* player = new UIWindow(_posX, _posY, 0.35f, 1.f, 5);
+    UIWindow* player = new UIWindow(_posX, _posY, 0.25f, 1.f, 5);
     player->SetText("Player " + std::to_string(_playerNum));
     player->SetTextHorAlignment(UIWindow::HoriAlignment::HMiddle);
     player->SetTextVerAlignment(UIWindow::VertAlignment::Top);
@@ -52,10 +53,10 @@ UISystem::PlayerUI UISystem::MakePlayerUI(float _posX, float _posY, int _playerN
     HealthBar->SetWindowVerAlignment(UIWindow::VertAlignment::VMiddle);
     HealthBar->isOpened = false;
     
-    UIWindow* Heart1 = MakeHeartUI(HealthBar, 1, 8);
-    UIWindow* Heart2 = MakeHeartUI(HealthBar, 2, 8);
-    UIWindow* Heart3 = MakeHeartUI(HealthBar, 3, 8);
-    UIWindow* Heart4 = MakeHeartUI(HealthBar, 4, 8);
+    UIWindow* Heart1 = MakeHeartUI(HealthBar, 1, 0);
+    UIWindow* Heart2 = MakeHeartUI(HealthBar, 2, GRID_RATIO + 1);
+    UIWindow* Heart3 = MakeHeartUI(HealthBar, 3, (GRID_RATIO + 1) * 2);
+    UIWindow* Heart4 = MakeHeartUI(HealthBar, 4, GRID_RATIO + 1);
 
 
     UIWindow* ControlTips = new UIWindow(0.5f, 0.75f, 1.f, 0.45f, 5);

@@ -154,7 +154,7 @@ void Buffer::FillTabGround( int coordX, int coordY ) {
     for ( int k = 0; k < GRID_RATIO * 2; k++ ) {
         for ( int l = 0; l < GRID_RATIO; l++ ) {
             //We get the coordinates
-            int charCoordX = coordX * GRID_RATIO * 2+ xGameWindowPosition + k;
+            int charCoordX = coordX * GRID_RATIO * 2 + xGameWindowPosition + k;
             int charCoordY = coordY * GRID_RATIO + yGameWindowPosition + l;
             buffer[charCoordY][charCoordX].Attributes = 0x0000;
         }

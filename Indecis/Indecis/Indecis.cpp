@@ -23,7 +23,7 @@
 std::vector<Transform*> entityList;
 Buffer buffer = Buffer(10);
 Grid grid(10, 10);
-UISystem uiSystem = UISystem::GetUISystem(0.4f, 0.25f, 7);
+UISystem uiSystem = UISystem::GetUISystem(0.34f, 0.25f, GRID_RATIO * 2 + 2);
 bool uiHasToUpdate = false;
 int amountOfDummyWalls = 8;
 
