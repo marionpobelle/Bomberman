@@ -43,20 +43,21 @@ void Grid::GetRandomFloorCoordinatesRefs( float &_x, float &_y, std::vector<Tran
     } while ( HasCollision( _x, _y, _entityList ) );
 }
 
-bool Grid::HasTransformHere( int _x, int _y, std::vector<Transform*> &_entityList ) {
+Transform* Grid::HasTransformHere( int _x, int _y, std::vector<Transform*> &_entityList ) {
     for ( int i = 0; i < _entityList.size(); i++ )
     {
         if ( floor( _entityList[i]->position.x ) == _x && floor( _entityList[i]->position.y ) == _y ) {
-            return true;
+            return _entityList[i];
         }
     }
-    return false;
+    return nullptr;
 }
 
 bool Grid::HasCollision( int _x, int _y, std::vector<Transform*> &_entityList ) {
     int nextStep = GetGridCoordinates( _x, _y );
     if ( grid[nextStep] == 0 ) { 
-        if ( HasTransformHere( _x, _y, _entityList ) )
+        Transform* transf = HasTransformHere(_x, _y, _entityList);
+        if ( transf )
             return true;
         else return false;
     }
@@ -64,13 +65,4 @@ bool Grid::HasCollision( int _x, int _y, std::vector<Transform*> &_entityList ) 
         return true;
 }
 
-Transform* Grid::GetTransformHere( int _x, int _y, std::vector<Transform*> &_entityList ) {
-    for ( int i = 0; i < _entityList.size(); i++ )
-    {
-        if ( _entityList[i]->position.x == _x && _entityList[i]->position.y == _y ) {
-            return _entityList[i];
-        }
-    }
-    return nullptr;
-}
 

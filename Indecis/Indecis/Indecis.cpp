@@ -73,7 +73,6 @@ int main()
         grid.GetRandomFloorCoordinatesRefs( xDummy, yDummy, entityList );
         entityList.push_back(new DummyWall( xDummy, yDummy, "WALL_DUMMY" ) );
     }
-    
     while ( true ) {
         Update();
         NYTimer::deltaTimeCalcul();

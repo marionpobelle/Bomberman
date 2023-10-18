@@ -68,10 +68,10 @@ public:
 		@param _x : Int the coordinate on the X axis.
 		@param _y : Int the coordinate on the Y axis.
 		@param _entityList : Container which includes the list of all the entities present in the game.
-		@return : Boolean, true if there is an entity at these coordinates, false otherwise.
+		@return : Transform of the coordinates.
 	====================
 	*/
-	bool HasTransformHere( int _x, int _y, std::vector<Transform*> &_entityList );
+	Transform* HasTransformHere( int x, int y, std::vector<Transform*> &_entityList );
 
 	/*
 	====================
@@ -85,16 +85,5 @@ public:
 	*/
 	bool HasCollision( int _x, int _y, std::vector<Transform*> &_entityList );
 
-	/*
-	====================
-	GetTransformHere()
-		Get the transform of an entity at the grid coordinates specified by the parameters x, y if there is one.
-		@param _x : Int the coordinate on the X axis.
-		@param _y : Int the coordinate on the Y axis.
-		@param _entityList : Container which includes the list of all the entities present in the game.
-		@return : Pointer towards a Transform, the transform of an entity if there is one at these coordinates, the null pointer otherwise.
-	====================
-	*/
-	Transform* GetTransformHere( int _x, int _y, std::vector<Transform*> &_entityList );
 };
 

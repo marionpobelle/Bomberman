@@ -1,18 +1,126 @@
-﻿  Indecis.cpp
-C:\Users\alvin\Documents\video-game-projects\enjmin-cpp\Indecis\Indecis\Definitions.h(2,1): warning C4005: '_WIN32_WINNT' : redéfinition de macro
+﻿  Bomb.cpp
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Definitions.h(2,1): warning C4005: '_WIN32_WINNT' : redéfinition de macro
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\sdkddkver.h(224,1): message : voir la définition précédente de '_WIN32_WINNT'
-C:\Users\alvin\Documents\video-game-projects\enjmin-cpp\Indecis\Indecis\Grid.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
-C:\Users\alvin\Documents\video-game-projects\enjmin-cpp\Indecis\Indecis\Player.h(5,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
-C:\Users\alvin\Documents\video-game-projects\enjmin-cpp\Indecis\Indecis\Entity.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
-C:\Users\alvin\Documents\video-game-projects\enjmin-cpp\Indecis\Indecis\Explosion.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
-C:\Users\alvin\Documents\video-game-projects\enjmin-cpp\Indecis\Indecis\DummyWall.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
-C:\Users\alvin\Documents\video-game-projects\enjmin-cpp\Indecis\Indecis\DummyWall.h(3,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
-C:\Users\alvin\Documents\video-game-projects\enjmin-cpp\Indecis\Indecis\Indecis.cpp(61,78): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\alvin\Documents\video-game-projects\enjmin-cpp\Indecis\Indecis\Indecis.cpp(61,53): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Grid.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Explosion.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Player.h(5,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Entity.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Bomb.cpp(28,84): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Bomb.cpp(28,71): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Bomb.cpp(29,84): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Bomb.cpp(29,71): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Bomb.cpp(30,83): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Bomb.cpp(30,68): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Bomb.cpp(31,83): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Bomb.cpp(31,68): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+  Buffer.cpp
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Grid.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Buffer.cpp(48,30): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Buffer.cpp(49,30): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
+  DummyWall.cpp
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\DummyWall.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Entity.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Definitions.h(2,1): warning C4005: '_WIN32_WINNT' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\sdkddkver.h(224,1): message : voir la définition précédente de '_WIN32_WINNT'
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Grid.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\DummyWall.h(3,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Explosion.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Player.h(5,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+  Entity.cpp
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Entity.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Definitions.h(2,1): warning C4005: '_WIN32_WINNT' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\sdkddkver.h(224,1): message : voir la définition précédente de '_WIN32_WINNT'
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Grid.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+  Explosion.cpp
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Explosion.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Definitions.h(2,1): warning C4005: '_WIN32_WINNT' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\sdkddkver.h(224,1): message : voir la définition précédente de '_WIN32_WINNT'
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Grid.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Player.h(5,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Entity.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Explosion.cpp(33,41): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Explosion.cpp(36,41): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Explosion.cpp(39,41): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Explosion.cpp(42,41): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Explosion.cpp(54,62): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Explosion.cpp(54,51): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+  Grid.cpp
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Grid.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Grid.cpp(39,16): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Grid.cpp(41,21): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Grid.cpp(42,21): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Grid.cpp(43,33): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Grid.cpp(43,29): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+  Indecis.cpp
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Definitions.h(2,1): warning C4005: '_WIN32_WINNT' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\sdkddkver.h(224,1): message : voir la définition précédente de '_WIN32_WINNT'
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Grid.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Player.h(5,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Entity.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Explosion.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\DummyWall.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\DummyWall.h(3,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Indecis.cpp(61,78): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Indecis.cpp(61,53): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+  Player.cpp
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Player.h(5,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Entity.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Definitions.h(2,1): warning C4005: '_WIN32_WINNT' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\sdkddkver.h(224,1): message : voir la définition précédente de '_WIN32_WINNT'
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Grid.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Explosion.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Player.cpp(3,21): warning C4305: 'initialisation' : troncation de 'double' à 'float'
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Player.cpp(11,76): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Player.cpp(11,40): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Player.cpp(19,76): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Player.cpp(19,40): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Player.cpp(27,64): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Player.cpp(27,54): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Player.cpp(35,65): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Player.cpp(35,55): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Player.cpp(54,15): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Player.cpp(55,15): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Player.cpp(59,37): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Player.cpp(62,37): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Player.cpp(65,37): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Player.cpp(68,37): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Player.cpp(76,49): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Player.cpp(76,42): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+  Transform.cpp
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Definitions.h(2,1): warning C4005: '_WIN32_WINNT' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\sdkddkver.h(224,1): message : voir la définition précédente de '_WIN32_WINNT'
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Grid.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+  UISystem.cpp
+  UIWindow.cpp
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Definitions.h(2,1): warning C4005: '_WIN32_WINNT' : redéfinition de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\sdkddkver.h(224,1): message : voir la définition précédente de '_WIN32_WINNT'
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\UIWindow.cpp(44,77): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\UIWindow.cpp(44,62): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\UIWindow.cpp(44,23): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\UIWindow.cpp(69,17): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\UIWindow.cpp(70,15): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\UIWindow.cpp(224,64): warning C4244: 'return' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\UIWindow.cpp(226,44): warning C4244: 'return' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\UIWindow.cpp(235,64): warning C4244: 'return' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\UIWindow.cpp(237,45): warning C4244: 'return' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\UIWindow.cpp(245,12): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\UIWindow.cpp(247,54): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\UIWindow.cpp(247,35): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\UIWindow.cpp(247,20): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\UIWindow.cpp(250,11): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\UIWindow.cpp(252,53): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\UIWindow.cpp(252,34): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\UIWindow.cpp(252,19): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\UIWindow.cpp(261,12): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\UIWindow.cpp(263,35): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\UIWindow.cpp(263,20): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\UIWindow.cpp(266,11): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\UIWindow.cpp(268,34): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\UIWindow.cpp(268,19): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
   Génération de code en cours
-  8 of 1144 functions ( 0.7%) were compiled, the rest were copied from previous compilation.
+  16 of 1149 functions ( 1.4%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    46 functions had inline decision re-evaluated but remain unchanged
   Fin de la génération du code
-  Indecis.vcxproj -> C:\Users\alvin\Documents\video-game-projects\enjmin-cpp\Indecis\x64\Release\Indecis.exe
+  Indecis.vcxproj -> D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\x64\Release\Indecis.exe
           1 fichier(s) copié(s).

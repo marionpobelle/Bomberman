@@ -1,5 +1,2 @@
-﻿  AudioEngine.cpp
-C:\Users\Marion\Git\indecis\Indecis\Indecis\AudioEngine.cpp(25,32): warning C4305: 'argument': truncation from 'double' to 'irrklang::ik_f32'
-C:\Users\Marion\Git\indecis\Indecis\Indecis\AudioEngine.cpp(32,33): warning C4305: 'argument': truncation from 'double' to 'irrklang::ik_f32'
-  Indecis.vcxproj -> C:\Users\Marion\Git\indecis\Indecis\x64\Debug\Indecis.exe
-          1 file(s) copied.
+﻿  Indecis.vcxproj -> D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\x64\Debug\Indecis.exe
+          1 fichier(s) copié(s).

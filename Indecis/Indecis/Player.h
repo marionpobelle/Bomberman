@@ -76,10 +76,10 @@ public:
 private:
     /*
     ====================
-    UpdateHeartUI()
+    UpdateHearts()
         Updates the UI life indicator of the player.
     ====================
     */
-    void UpdateHeartUI();
+    void UpdateHearts();
 };
 

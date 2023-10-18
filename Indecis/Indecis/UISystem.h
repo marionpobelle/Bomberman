@@ -14,7 +14,9 @@ public:
 	static UISystem GetUISystem(float _leftTitlePosition, float _topTitlePosition, int _titleSpacing);
 	void UpdateUIInput();
 	static void OpenMainMenu();
+	static void OpenEndMenu();
 	static void CloseMainMenu();
+	static void QuitGame();
 	PlayerUI GetPlayerUI(int _playerIndex);
 
 	//Table of all UiWindows currently in game.
@@ -24,15 +26,17 @@ public:
 	UIWindow* selectedWindow;
 
 	UIWindow* mainMenu;
+	UIWindow* endMenu;
 	float leftTitlePosition;
 	float topTitlePosition;
 	int titleSpacing;
 private:
 
 	void MakeMainMenu();
+	void MakeEndMenu();
 	void MakeInGameUI();
 	UIWindow* MakeHeartUI(UIWindow* _parent, int _heartNum, int _spacing);
-	UIWindow* MakeTitleLetter(char _letter, int _letterNum);
+	UIWindow* MakeTitleLetter(char _letter, int _letterNum, bool _isOpened);
 	PlayerUI MakePlayerUI(float _posX, float _posY, int _playerNum);
 
 	UIWindow* GetNextSelect(int _dir);

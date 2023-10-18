@@ -22,6 +22,11 @@ UIWindow::UIWindow(int _xPos, int _yPos, int _xSize, int _ySize, int _zPosition)
 
 
 int UIWindow::GetLastSpaceOfLine(int pos, int charCount) {
+	int nextLine = (int)text.find_first_of('^', pos);
+	if (nextLine != -1) {
+		text.erase(nextLine, 1);
+		return nextLine;
+	}
 	int nextSpace = (int)text.find_first_of(' ', pos);
 	if (nextSpace == -1 || (nextSpace - charCount > maxCharByLines-1)) {
 		return pos;
@@ -30,7 +35,13 @@ int UIWindow::GetLastSpaceOfLine(int pos, int charCount) {
 }
 
 void UIWindow::FormatText() {
-	int linesMax = floor(text.length() / maxCharByLines)+1;
+	int linesMax;
+	int enterCount = 0;
+	for (size_t i = 0; i < text.length(); i++)
+	{
+		enterCount += text[i] == '^' ? 1:0;
+	}
+	linesMax = std::fmaxf(floor(text.length() / maxCharByLines) + 1, enterCount+1);
 	int cursorPos = 0;
 	for (int i = 0; i < linesMax; i++)
 	{
