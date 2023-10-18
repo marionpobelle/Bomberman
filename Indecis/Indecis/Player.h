@@ -82,14 +82,6 @@ private:
     */
     void UpdateHearts();
 
-    /*
-    ====================
-    DamageBlink()
-        Changes the player's color to show that damage was inflicted.
-    ====================
-    */
-    void DamageBlink();
-
     float damageBlinkTimer = 0;
 };
 
