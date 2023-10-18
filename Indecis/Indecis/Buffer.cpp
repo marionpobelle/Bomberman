@@ -175,7 +175,7 @@ void Buffer::DrawUI(UISystem _uiSystem, Grid& grid) {
     };
     std::sort(_uiSystem.UIWindows.begin(), _uiSystem.UIWindows.end(), InFront());
 
-    for ( ;iterator != end; ++iterator )
+    for (iterator; iterator != end; ++iterator )
     {
         UIWindow& window = **iterator;
         if (!window.isOpened) {
@@ -214,14 +214,14 @@ void Buffer::DrawWindow(UIWindow& window) {
                 buffer[charCoordY][charCoordX].Attributes = window.selectedColor;
             }
 
-            //if we're not over the chartable size then we wright the char of the position
+            //if we're not over the chartable size then we write the char of the position
             if (i * xWindowCharSize + j < charTable.size()) {
-                buffer[charCoordY][charCoordX].Char.AsciiChar = charTable[i * xWindowCharSize + j];
+                buffer[charCoordY][charCoordX].Char.UnicodeChar = charTable[i * xWindowCharSize + j];
             }
             //draw borders
             if (i == 0 || i == yWindowCharSize -1 || j == 0 || j == xWindowCharSize-1){
                 buffer[charCoordY][charCoordX].Attributes = window.normalColor;
-                buffer[charCoordY][charCoordX].Char.AsciiChar = '*';
+                buffer[charCoordY][charCoordX].Char.UnicodeChar = '*';
             }
         }
     }
