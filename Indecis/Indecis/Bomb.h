@@ -3,6 +3,11 @@
 #include "NYTimer.h"
 #include "Explosion.h"
 
+/*
+===============================================================================
+The Bomb class represents the object bomb.
+===============================================================================
+*/
 class Bomb : public Transform
 {
 public:
