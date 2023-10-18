@@ -1,13 +1,5 @@
-﻿  Indecis.cpp
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Definitions.h(2,1): warning C4005: '_WIN32_WINNT': macro redefinition
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\sdkddkver.h(224,1): message : see previous definition of '_WIN32_WINNT'
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Grid.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Player.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Entity.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Explosion.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Marion\Git\indecis\Indecis\Indecis\DummyWall.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Marion\Git\indecis\Indecis\Indecis\DummyWall.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Indecis.cpp(62,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Indecis.cpp(62,53): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+﻿  AudioEngine.cpp
+C:\Users\Marion\Git\indecis\Indecis\Indecis\AudioEngine.cpp(25,32): warning C4305: 'argument': truncation from 'double' to 'irrklang::ik_f32'
+C:\Users\Marion\Git\indecis\Indecis\Indecis\AudioEngine.cpp(32,33): warning C4305: 'argument': truncation from 'double' to 'irrklang::ik_f32'
   Indecis.vcxproj -> C:\Users\Marion\Git\indecis\Indecis\x64\Debug\Indecis.exe
           1 file(s) copied.
