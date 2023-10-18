@@ -69,7 +69,6 @@ private:
 	//ui's methods
 	
 	void DrawUI(UISystem _uiSystem, Grid& grid);
-	void DrawWindow(UIWindow& _window);
 	void PaintUISpriteInBuffer(int coordX, int coordY, std::string sprite, Grid& grid);
 
 	/*
