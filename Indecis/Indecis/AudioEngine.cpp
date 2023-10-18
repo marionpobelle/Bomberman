@@ -22,7 +22,7 @@ void AudioEngine::PlayOneShot( const char* path )
 {
 	if ( !m_isInitialized ) return;
 	m_soundEngine->play2D( path, false );
-	m_soundEngine->setSoundVolume( 0.05 );
+	m_soundEngine->setSoundVolume(0.2);
 }
 
 void AudioEngine::PlayLoop( const char* path )
