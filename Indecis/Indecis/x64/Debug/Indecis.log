@@ -1,57 +1,4 @@
-﻿  Bomb.cpp
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Definitions.h(2,1): warning C4005: '_WIN32_WINNT': macro redefinition
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\sdkddkver.h(224,1): message : see previous definition of '_WIN32_WINNT'
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Grid.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Explosion.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Player.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Entity.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Bomb.cpp(28,84): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Bomb.cpp(28,71): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Bomb.cpp(29,84): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Bomb.cpp(29,71): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Bomb.cpp(30,83): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Bomb.cpp(30,68): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Bomb.cpp(31,83): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Bomb.cpp(31,68): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  Buffer.cpp
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Grid.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Buffer.cpp(48,30): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Buffer.cpp(49,30): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-  DummyWall.cpp
-C:\Users\Marion\Git\indecis\Indecis\Indecis\DummyWall.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Entity.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Definitions.h(2,1): warning C4005: '_WIN32_WINNT': macro redefinition
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\sdkddkver.h(224,1): message : see previous definition of '_WIN32_WINNT'
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Grid.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Marion\Git\indecis\Indecis\Indecis\DummyWall.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Explosion.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Player.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  Entity.cpp
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Entity.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Definitions.h(2,1): warning C4005: '_WIN32_WINNT': macro redefinition
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\sdkddkver.h(224,1): message : see previous definition of '_WIN32_WINNT'
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Grid.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  Explosion.cpp
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Explosion.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Definitions.h(2,1): warning C4005: '_WIN32_WINNT': macro redefinition
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\sdkddkver.h(224,1): message : see previous definition of '_WIN32_WINNT'
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Grid.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Player.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Entity.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Explosion.cpp(33,39): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Explosion.cpp(36,39): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Explosion.cpp(39,39): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Explosion.cpp(42,39): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Explosion.cpp(59,62): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Explosion.cpp(59,51): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  Grid.cpp
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Grid.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Grid.cpp(39,16): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Grid.cpp(41,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Grid.cpp(42,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Grid.cpp(43,33): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Grid.cpp(43,29): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  Indecis.cpp
+﻿  Indecis.cpp
 C:\Users\Marion\Git\indecis\Indecis\Indecis\Definitions.h(2,1): warning C4005: '_WIN32_WINNT': macro redefinition
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\sdkddkver.h(224,1): message : see previous definition of '_WIN32_WINNT'
 C:\Users\Marion\Git\indecis\Indecis\Indecis\Grid.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
@@ -62,36 +9,5 @@ C:\Users\Marion\Git\indecis\Indecis\Indecis\DummyWall.h(2,10): warning C4067: un
 C:\Users\Marion\Git\indecis\Indecis\Indecis\DummyWall.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 C:\Users\Marion\Git\indecis\Indecis\Indecis\Indecis.cpp(62,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\Marion\Git\indecis\Indecis\Indecis\Indecis.cpp(62,53): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  Player.cpp
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Player.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Entity.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Definitions.h(2,1): warning C4005: '_WIN32_WINNT': macro redefinition
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\sdkddkver.h(224,1): message : see previous definition of '_WIN32_WINNT'
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Grid.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Explosion.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Player.cpp(2,21): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Player.cpp(10,76): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Player.cpp(10,40): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Player.cpp(18,76): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Player.cpp(18,40): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Player.cpp(26,64): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Player.cpp(26,54): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Player.cpp(34,65): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Player.cpp(34,55): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Player.cpp(53,15): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Player.cpp(54,15): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Player.cpp(58,37): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Player.cpp(61,37): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Player.cpp(64,37): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Player.cpp(67,37): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Player.cpp(75,49): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Player.cpp(75,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  Transform.cpp
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Definitions.h(2,1): warning C4005: '_WIN32_WINNT': macro redefinition
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\sdkddkver.h(224,1): message : see previous definition of '_WIN32_WINNT'
-C:\Users\Marion\Git\indecis\Indecis\Indecis\Grid.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  UISystem.cpp
-  Generating Code...
-  LINK : C:\Users\Marion\Git\indecis\Indecis\x64\Debug\Indecis.exe not found or not built by the last incremental link; performing full link
   Indecis.vcxproj -> C:\Users\Marion\Git\indecis\Indecis\x64\Debug\Indecis.exe
           1 file(s) copied.
