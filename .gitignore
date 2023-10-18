@@ -26,6 +26,14 @@
 *.a
 *.lib
 
+# Exclude specific DLL files from being ignored
+!**/ikpFlac.dll
+!**/ikpMP3.dll
+!**/irrKlang.dll
+
+# Exclude irrKlang lib files from being ignored
+!**/irrKlang.lib
+
 # Executables
 *.exe
 *.out

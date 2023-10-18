@@ -1,10 +1,2 @@
-﻿  Indecis.cpp
-D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Definitions.h(2,1): warning C4005: '_WIN32_WINNT' : redéfinition de macro
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\sdkddkver.h(224,1): message : voir la définition précédente de '_WIN32_WINNT'
-D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Grid.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
-D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Player.h(5,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
-D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Entity.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
-D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Explosion.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
-D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Indecis.cpp(56,78): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\Indecis\Indecis.cpp(56,53): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-  Indecis.vcxproj -> D:\00_Files\_Cours\Cnam\2023-2024\C++\ProjetASCII\Git\indecis\Indecis\x64\Debug\Indecis.exe
+﻿  Indecis.vcxproj -> C:\Users\Marion\Git\indecis\Indecis\x64\Debug\Indecis.exe
+          1 file(s) copied.
