@@ -40,6 +40,7 @@
       <Filter>Gameplay\Player</Filter>
     </ClCompile>
     <ClCompile Include="DummyWall.cpp" />
+    <ClCompile Include="AudioEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="UISystem.h">
@@ -79,6 +80,7 @@
       <Filter>Gameplay\Player</Filter>
     </ClInclude>
     <ClInclude Include="DummyWall.h" />
+    <ClInclude Include="AudioEngine.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="System">
@@ -96,5 +98,9 @@
     <Filter Include="Gameplay\Player">
       <UniqueIdentifier>{f40ea104-26ba-4be3-adf4-52de4cd53eb2}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
 </Project>

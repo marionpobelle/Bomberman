@@ -21,6 +21,9 @@ public:
 
 	//Maximum size of the buffer.
 	int maxSize;
+	int charsTab[SCREEN_HEIGHT][SCREEN_WIDTH];
+	int xGameWindowPosition = 0;
+	int yGameWindowPosition = 0;
 
 	/*
 	====================
@@ -62,6 +65,11 @@ private:
 	====================
 	*/
 	void FillTabWalls( int coordX, int coordY, Grid& _grid );
+
+	//ui's methods
+	
+	void DrawUI(UISystem _uiSystem, Grid& grid);
+	void PaintUISpriteInBuffer(int coordX, int coordY, std::string sprite, Grid& grid);
 
 	/*
 	====================

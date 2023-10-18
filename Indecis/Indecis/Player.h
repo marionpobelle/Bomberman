@@ -4,10 +4,12 @@
 #include <vector>
 #include "Entity.h";
 #include "Bomb.h"
+#include "AudioEngine.h"
 
 class Player : public Entity
 {
 public:
+    int life = 4;
     int orientation;
     UCHAR leftVK;
     UCHAR rightVK;
@@ -16,6 +18,7 @@ public:
     UCHAR bombVK;
     static float SPEED;
     float bombCooldown;
+    UISystem::PlayerUI playerUI;
 
     /*
     ====================
@@ -53,6 +56,8 @@ public:
     */
     void PlantBomb( std::vector<Transform*> &_entityList, Grid &_grid );
 
+    void Draw(Buffer &_buffer, int _x, int _y);
+
     /*
     ====================
     ExplosionReaction()
@@ -61,5 +66,10 @@ public:
     ====================
     */
     void ExplosionReaction( std::vector<Transform*>& _entityList );
+
+private:
+
+    void UpdateHeartUI();
+    
 };
 

@@ -1,3 +1,6 @@
+#include <iostream>
+#include <string>
+#include <vector>
 #include "SpriteReader.h"
 
 std::vector<Sprite*> SpriteReader::spriteList;

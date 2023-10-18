@@ -1,4 +1,5 @@
 #pragma once
+#include <windows.h>
 #include <string>
 
 class UIWindow
@@ -32,10 +33,11 @@ public:
 	UIWindow(int _xPos, int _yPos, int _xSize, int _ySize, int _zPosition);
 	void FormatText();
 	std::string DisplayWindow();
-	UIWindow MoveWindow();
-	UIWindow ReSizeWindow();
-	UIWindow AddButton();
-	UIWindow CloseWindow();
+	UIWindow* MoveWindow();
+	UIWindow* ReSizeWindow();
+	UIWindow* AddWindowChild(UIWindow* _window);
+	UIWindow* CloseWindow();
+	UIWindow* OpenWindow();
 	int Destroy();
 
 	//	Getters/Setters
@@ -51,13 +53,28 @@ public:
 
 	void SetText(std::string _text);
 	
+	int GetXWindowPosition(UIWindow& _window);
+	int GetYWindowPosition(UIWindow& _window);
+	int GetXWindowSize(UIWindow& _window);
+	int GetYWindowSize(UIWindow& _window);
 
 	//Member Variables
 
 	UIDim position;
 	UIDim size;
+	int xCurrentSize = 0;
+	int yCurrentSize = 0;
 	int zPosition = 0;
-	int maxCharByLines = 0;
+	bool isImage = false;
+	std::string spriteName;
+	
+	int maxCharByLines = 20;
+
+	HoriAlignment textHoriAlignment;
+	VertAlignment textVertAlignment;
+	HoriAlignment WindowHoriAlignment;
+	VertAlignment WindowVertAlignment;
+
 	//part of the line's size to sub to the x position of a line
 	float xSubOffset = 0;
 	//number of space to add before a line to take border into account
@@ -66,11 +83,7 @@ public:
 	float ySubOffset = 0;
 	//number of space to add before a paragraph to take border into account
 	float yLineOffset = 0;
-	HoriAlignment textHoriAlignment;
-	VertAlignment textVertAlignment;
-	HoriAlignment WindowHoriAlignment;
-	VertAlignment WindowVertAlignment;
-
+	
 	//part of the window's size to sub to x position
 	float xWindowSub = 0;
 	//part of the window's size to sub to y position
@@ -78,11 +91,19 @@ public:
 
 	//the text that will be displayed by the window
 	std::vector<std::string> lines;
+	std::vector<UIWindow*> windowChilds;
+	UIWindow* parent;
 
 
 	//Is the window visible
 	bool isOpened = false;
+	bool isSelectable = false;
+	bool isSelected = false;
+
+	void (*CallBack)();
 	
+	WORD normalColor = 0x0007 + 0x0000;
+	WORD selectedColor = 0x0000 + 0x0070;
 
 private:
 	

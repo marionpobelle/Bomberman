@@ -2,6 +2,7 @@
 #include "Transform.h"
 #include "NYTimer.h"
 #include "Explosion.h"
+#include "AudioEngine.h"
 
 /*
 ===============================================================================

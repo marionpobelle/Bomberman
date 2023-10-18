@@ -48,6 +48,8 @@ void Player::Update( std::vector<Transform*> &_entityList, Grid &_grid ) {
 
 void Player::PlantBomb( std::vector<Transform*> &_entityList, Grid &_grid ) {
     if ( bombCooldown > 0 ) return;
+    AudioEngine::Init();
+    AudioEngine::PlayOneShot("music\\DropBomb.wav");
     int bombX = position.x;
     int bombY = position.y;
     switch ( orientation )
@@ -76,6 +78,12 @@ void Player::PlantBomb( std::vector<Transform*> &_entityList, Grid &_grid ) {
 
 void Player::ExplosionReaction( std::vector<Transform*>& _entityList ) {
     std::cout << "PLAYER EXPLODED - GAME OVER" << std::endl;
+
+    life -= 1;
+    UpdateHeartUI();
+    if (life > 0) {
+        return;
+    }
     std::vector<Transform*>::iterator ptr;
     Explosion* _nextExplosion = new Explosion( position.x, position.y, "EXPLOSION" );
     _entityList.push_back( _nextExplosion );
@@ -86,4 +94,12 @@ void Player::ExplosionReaction( std::vector<Transform*>& _entityList ) {
         }
     }
     delete this;
+}
+
+void Player::UpdateHeartUI() {
+    for (auto i = playerUI.Hearts.begin(); i < playerUI.Hearts.end(); ++i)
+    {
+        UIWindow* heart = *i;
+        heart->spriteName = (i - playerUI.Hearts.begin()) > life ? "HEART1" : "HEART";
+    }
 }

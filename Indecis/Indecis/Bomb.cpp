@@ -20,7 +20,9 @@ void Bomb::Update( std::vector<Transform*> &_entityList, Grid &_grid ) {
     }
 }
 
-void Bomb::Explode( std::vector<Transform*> &_entityList, Grid &_grid ) {
+void Bomb::Explode( std::vector<Transform*>& _entityList, Grid& _grid ) {
+    AudioEngine::Init();
+    AudioEngine::PlayOneShot("music\\ExploBomb.wav");
     Explosion *_firstExplosion = new Explosion( position.x, position.y, "EXPLOSION" );
     _entityList.push_back( _firstExplosion );
     _firstExplosion->ExplodeTowards_r( _entityList, _grid, position.x - 1, position.y, 3 ); //left
