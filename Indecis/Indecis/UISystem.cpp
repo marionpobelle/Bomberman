@@ -60,6 +60,9 @@ UISystem::PlayerUI UISystem::MakePlayerUI(float _posX, float _posY, int _playerN
 
 
     UIWindow* ControlTips = new UIWindow(0.5f, 0.75f, 1.f, 0.45f, 5);
+    player->SetText("Player " + std::to_string(_playerNum));
+    player->SetTextHorAlignment(UIWindow::HoriAlignment::HMiddle);
+    player->SetTextVerAlignment(UIWindow::VertAlignment::VMiddle);
     ControlTips->SetWindowHorAlignment(UIWindow::HoriAlignment::HMiddle);
     ControlTips->SetWindowVerAlignment(UIWindow::VertAlignment::VMiddle);
     ControlTips->isOpened = false;
@@ -140,6 +143,7 @@ void UISystem::MakeMainMenu() {
     QuitButton->SetTextHorAlignment(UIWindow::HoriAlignment::HMiddle);
     QuitButton->SetTextVerAlignment(UIWindow::VertAlignment::VMiddle);
     QuitButton->isSelectable = true;
+    QuitButton->CallBack = QuitGame;
     QuitButton->isOpened = true;
 
     MainMenu->AddWindowChild(PlayButton);
@@ -179,6 +183,9 @@ void UISystem::OpenMainMenu() {
         UIWindow* gameWindow = *i;
         gameWindow->isOpened = false;
     }
+}
+void UISystem::QuitGame() {
+    PostMessage(GetConsoleWindow(), WM_CLOSE, 0, 0);
 }
 
 

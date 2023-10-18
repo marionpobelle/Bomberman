@@ -3,5 +3,4 @@
 Sprite::Sprite(std::string _name, std::string _sprite) {
 	Sprite::name = _name;
 	Sprite::sprite = _sprite;
-	//std::cout << name << std::endl;
 }

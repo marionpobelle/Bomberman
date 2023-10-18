@@ -44,9 +44,11 @@ void Explosion::ExplodeTowards_r(std::vector<Transform*>& _entityList, Grid& _gr
     default:
         break;
     }
-    if (_grid.HasCollision(nextCaseX, nextCaseY, _entityList)) { //si collision vérifier si c'est un joueur
-        Transform* _transform = _grid.GetTransformHere(nextCaseX, nextCaseY, _entityList);
-        if (_transform != nullptr) _transform->ExplosionReaction(_entityList);
+    if (_grid.HasCollision(nextCaseX, nextCaseY, _entityList)) { //si collision vérifier si c'est une entity
+        Transform* _transform = _grid.HasTransformHere(nextCaseX, nextCaseY, _entityList);
+        if (_transform != nullptr) {
+            _transform->ExplosionReaction(_entityList);
+        }
         //if PLAYER OR BREAKABLE WALL, EXPLODE IN ITS PLACE
         //Explosion* _nextExplosion = new Explosion(nextCaseX, nextCaseY, "EXPLOSION");
         //_entityList.push_back(_nextExplosion);

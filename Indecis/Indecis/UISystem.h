@@ -15,6 +15,7 @@ public:
 	void UpdateUIInput();
 	static void OpenMainMenu();
 	static void CloseMainMenu();
+	static void QuitGame();
 	PlayerUI GetPlayerUI(int _playerIndex);
 
 	//Table of all UiWindows currently in game.

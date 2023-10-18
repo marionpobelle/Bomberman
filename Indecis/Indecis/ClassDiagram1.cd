@@ -3,14 +3,14 @@
   <Class Name="Bomb">
     <Position X="8.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAoAAAAAAAAgAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <HashCode>AAQAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Bomb.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Buffer">
     <Position X="15.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIBAAAAAAAAAhAAAQAAAAAAAAACAACgAABFAAAAUBE=</HashCode>
+      <HashCode>AAAAAAAAAAAAAhAAAQAAAAACAAADAACgAABBAAAAUAE=</HashCode>
       <FileName>Buffer.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -24,14 +24,14 @@
   <Class Name="Explosion">
     <Position X="12.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAEAAAAEAAAAAAAAAAAAAA=</HashCode>
       <FileName>Explosion.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Grid">
     <Position X="17" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAmAAAAIEARAAAAACAAQBAAoAAAQAAAAAACAAAAA=</HashCode>
+      <HashCode>AAAAAiAAAAIEARAAAAACAAABAAoAAAAAAAAAAAAAAgA=</HashCode>
       <FileName>Grid.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -43,21 +43,21 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Player">
-    <Position X="10.5" Y="5.75" Width="1.5" />
+    <Position X="11.5" Y="6.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABQDAAAAIBAAAgAAAAAAAAAAAAEQAAAAAAAACQAAAIA=</HashCode>
+      <HashCode>ABUHAAAAIBAAAgAAAAAAAAAAAAEQAAAAAAAACQAABIA=</HashCode>
       <FileName>Player.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sprite">
-    <Position X="15.25" Y="4.75" Width="1.5" />
+    <Position X="15.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAABAEAAAQAAAAAAAAAAA=</HashCode>
       <FileName>Sprite.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SpriteReader">
-    <Position X="17" Y="4.75" Width="1.5" />
+    <Position X="15.25" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAIAEAAAAAgAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>SpriteReader.h</FileName>
@@ -78,9 +78,16 @@
     </TypeIdentifier>
   </Class>
   <Class Name="UISystem">
-    <Position X="15.25" Y="7" Width="1.5" />
+    <Position X="17" Y="4" Width="1.5" />
+    <NestedTypes>
+      <Struct Name="UISystem::PlayerUI" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>UISystem.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <HashCode>ARAEAAAAAAAABAAAQBAAAEUBDIAAMACAAAAAAAQAUEA=</HashCode>
       <FileName>UISystem.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -104,22 +111,44 @@
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>EUAAIACAAgzIACFAAIABIIAQsoJQgEDYAFAEAIIAQAA=</HashCode>
+      <HashCode>MUAQIACQAgzIAGFAAIABIYAQsoJQgETYBFAEAIIAQAA=</HashCode>
       <FileName>UIWindow.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="WallTypes">
     <Position X="18.75" Y="3.5" Width="1.5" />
     <NestedTypes>
-      <Enum Name="WallTypes::WALLS" Collapsed="true">
+      <Enum Name="WallTypes::WALLS_t" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>WallTypes.h</NewMemberFileName>
         </TypeIdentifier>
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAABAAAAEAACFACIAQAgoAEgAACAAMBEgCQAAQAAAA=</HashCode>
+      <HashCode>AAAABAAAAEAACFACIAQAgoAEgAACAAEBEgCQAAQAAAA=</HashCode>
       <FileName>WallTypes.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AudioEngine">
+    <Position X="15.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAAAAAEAAAgCAAAQAAA=</HashCode>
+      <FileName>AudioEngine.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DummyWall">
+    <Position X="9.75" Y="6.25" Width="1.5" />
+    <InheritanceLine Type="Entity" FixedToPoint="true">
+      <Path>
+        <Point X="11.25" Y="5.367" />
+        <Point X="11.25" Y="5.875" />
+        <Point X="10.5" Y="5.875" />
+        <Point X="10.5" Y="6.25" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>DummyWall.h</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

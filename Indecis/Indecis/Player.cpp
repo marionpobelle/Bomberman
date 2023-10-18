@@ -1,3 +1,4 @@
+#include <algorithm>
 #include "Player.h"
 float Player::SPEED = .01;
 
@@ -77,10 +78,8 @@ void Player::PlantBomb( std::vector<Transform*> &_entityList, Grid &_grid ) {
 }
 
 void Player::ExplosionReaction( std::vector<Transform*>& _entityList ) {
-    std::cout << "PLAYER EXPLODED - GAME OVER" << std::endl;
-
     life -= 1;
-    UpdateHeartUI();
+    UpdateHearts();
     if (life > 0) {
         return;
     }
@@ -96,10 +95,11 @@ void Player::ExplosionReaction( std::vector<Transform*>& _entityList ) {
     delete this;
 }
 
-void Player::UpdateHeartUI() {
+void Player::UpdateHearts() {
     for (auto i = playerUI.Hearts.begin(); i < playerUI.Hearts.end(); ++i)
     {
         UIWindow* heart = *i;
-        heart->spriteName = (i - playerUI.Hearts.begin()) > life ? "HEART1" : "HEART";
+        heart->spriteName = (std::distance(playerUI.Hearts.begin(), i)) >= life ? "HEART1" : "HEART";
+        std::string damnDaniel = heart->spriteName;
     }
 }

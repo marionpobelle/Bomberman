@@ -37,9 +37,7 @@ std::string SpriteReader::CallSprite(std::string spriteName) {
     {
         std::string path = "sprites\\" + spriteName + ".txt";
         if (SpriteReader::spriteList[i]->name == path) {
-            //std::cout << SpriteReader::spriteList[i]->name << std::endl;
             returnValue = SpriteReader::spriteList[i]->sprite;
-            //std::cout << returnValue << std::endl;
         }
     }
     return returnValue;
