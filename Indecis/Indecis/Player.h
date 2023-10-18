@@ -6,6 +6,12 @@
 #include "Bomb.h"
 #include "AudioEngine.h"
 
+/*
+===============================================================================
+The Player class represents the object player and inherits the class Entity. 
+It's where the input are detected for each player.
+===============================================================================
+*/
 class Player : public Entity
 {
 public:
@@ -68,8 +74,12 @@ public:
     void ExplosionReaction( std::vector<Transform*>& _entityList );
 
 private:
-
+    /*
+    ====================
+    UpdateHeartUI()
+        Updates the UI life indicator of the player.
+    ====================
+    */
     void UpdateHeartUI();
-    
 };
 
