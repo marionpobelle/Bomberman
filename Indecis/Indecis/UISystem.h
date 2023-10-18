@@ -25,12 +25,14 @@ public:
 	UIWindow* selectedWindow;
 
 	UIWindow* mainMenu;
+	UIWindow* endMenu;
 	float leftTitlePosition;
 	float topTitlePosition;
 	int titleSpacing;
 private:
 
 	void MakeMainMenu();
+	void MakeEndMenu();
 	void MakeInGameUI();
 	UIWindow* MakeHeartUI(UIWindow* _parent, int _heartNum, int _spacing);
 	UIWindow* MakeTitleLetter(char _letter, int _letterNum);

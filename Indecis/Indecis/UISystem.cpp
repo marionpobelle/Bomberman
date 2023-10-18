@@ -57,13 +57,19 @@ UISystem::PlayerUI UISystem::MakePlayerUI(float _posX, float _posY, int _playerN
     UIWindow* Heart3 = MakeHeartUI(HealthBar, 3, 8);
     UIWindow* Heart4 = MakeHeartUI(HealthBar, 4, 8);
 
+    std::string up = _playerNum == 1 ? "Z" : "up Arr";
+    std::string right = _playerNum == 1 ? "D" : "right Arr";
+    std::string down = _playerNum == 1 ? "S" : "down Arr";
+    std::string left = _playerNum == 1 ? "Q" : "left Arr";
+    std::string attack = _playerNum == 1 ? "E" : "Space";
 
     UIWindow* ControlTips = new UIWindow(0.5f, 0.75f, 1.f, 0.45f, 5);
-    player->SetText("Player " + std::to_string(_playerNum));
-    player->SetTextHorAlignment(UIWindow::HoriAlignment::HMiddle);
-    player->SetTextVerAlignment(UIWindow::VertAlignment::VMiddle);
+    ControlTips->SetText("Player " + std::to_string(_playerNum) + " :^ Up : "+ up +";^ Right : "+ right +";^  Down : "+ down +";^ Left : "+ left +";^ Attack : "+ attack);
+    ControlTips->SetTextHorAlignment(UIWindow::HoriAlignment::HMiddle);
+    ControlTips->SetTextVerAlignment(UIWindow::VertAlignment::VMiddle);
     ControlTips->SetWindowHorAlignment(UIWindow::HoriAlignment::HMiddle);
     ControlTips->SetWindowVerAlignment(UIWindow::VertAlignment::VMiddle);
+    ControlTips->maxCharByLines = 50;
     ControlTips->isOpened = false;
 
     player->AddWindowChild(HealthBar);
@@ -164,6 +170,59 @@ void UISystem::MakeMainMenu() {
     UIWindows.push_back(E);
     UIWindows.push_back(R);
     mainMenu = MainMenu;
+}
+
+
+void UISystem::MakeEndMenu() {
+    UIWindow* EndMenu = new UIWindow(0.5f, 0.5f, 1.f, 1.f, 5);
+    EndMenu->SetWindowHorAlignment(UIWindow::HoriAlignment::HMiddle);
+    EndMenu->SetWindowVerAlignment(UIWindow::VertAlignment::VMiddle);
+    EndMenu->isOpened = true;
+
+
+    //MAKING THE TITLE
+    UIWindow* B = MakeTitleLetter('B', 1);
+    UIWindow* O = MakeTitleLetter('O', 2);
+    UIWindow* M = MakeTitleLetter('M', 3);
+    UIWindow* B1 = MakeTitleLetter('B', 4);
+    UIWindow* E = MakeTitleLetter('E', 5);
+    UIWindow* R = MakeTitleLetter('R', 6);
+
+    UIWindow* Info = new UIWindow(0.5f, 0.4f, 0.25f, 0.15f, 5);
+    Info->SetWindowHorAlignment(UIWindow::HoriAlignment::HMiddle);
+    Info->SetWindowVerAlignment(UIWindow::VertAlignment::VMiddle);
+    Info->SetText("Player Won !");
+    Info->SetTextHorAlignment(UIWindow::HoriAlignment::HMiddle);
+    Info->SetTextVerAlignment(UIWindow::VertAlignment::VMiddle);
+    Info->isOpened = true;
+
+    UIWindow* QuitButton = new UIWindow(0.5f, 0.55f, 0.2f, 0.1f, 5);
+    QuitButton->SetWindowHorAlignment(UIWindow::HoriAlignment::HMiddle);
+    QuitButton->SetWindowVerAlignment(UIWindow::VertAlignment::VMiddle);
+    QuitButton->SetText("QUIT");
+    QuitButton->SetTextHorAlignment(UIWindow::HoriAlignment::HMiddle);
+    QuitButton->SetTextVerAlignment(UIWindow::VertAlignment::VMiddle);
+    QuitButton->isSelectable = true;
+    QuitButton->CallBack = QuitGame;
+    QuitButton->isOpened = true;
+
+    EndMenu->AddWindowChild(QuitButton);
+    EndMenu->AddWindowChild(B);
+    EndMenu->AddWindowChild(O);
+    EndMenu->AddWindowChild(M);
+    EndMenu->AddWindowChild(B1);
+    EndMenu->AddWindowChild(E);
+    EndMenu->AddWindowChild(R);
+
+    UIWindows.push_back(EndMenu);
+    UIWindows.push_back(QuitButton);
+    UIWindows.push_back(B);
+    UIWindows.push_back(O);
+    UIWindows.push_back(M);
+    UIWindows.push_back(B1);
+    UIWindows.push_back(E);
+    UIWindows.push_back(R);
+    endMenu = EndMenu;
 }
 
 void UISystem::CloseMainMenu() {
