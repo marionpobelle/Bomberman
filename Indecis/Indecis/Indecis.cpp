@@ -57,7 +57,7 @@ int main()
     NYTimer deltaTime = NYTimer();
     SpriteReader spriteReader = SpriteReader();
     buffer.DrawFixedMap(grid);
-    Player* player1 = new Player(1, 1, "PLAYER", VK_LEFT, VK_RIGHT, VK_UP, VK_DOWN, VK_SHIFT);
+    Player* player1 = new Player(1, 1, "PLAYERBLUE", VK_LEFT, VK_RIGHT, VK_UP, VK_DOWN, VK_SHIFT);
     Player* player2 = new Player(grid.gameGridWidth - 2, grid.gameGridHeight - 2, "PLAYERGREEN", 0x51, 0x44, 0x5A, 0x53, 0x45);
 
     UISystem::PlayerUI player1UI = uiSystem.GetPlayerUI(0);

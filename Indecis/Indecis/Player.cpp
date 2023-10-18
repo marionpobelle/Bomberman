@@ -45,6 +45,15 @@ void Player::Update( std::vector<Transform*> &_entityList, Grid &_grid ) {
     }
 
     if ( bombCooldown > 0 ) bombCooldown -= NYTimer::deltaTime;
+    if (damageBlinkTimer > 0) {
+        damageBlinkTimer -= NYTimer::deltaTime;
+        if (damageBlinkTimer <= 0) {
+            std::string s = "-DAMAGE";
+            std::string::size_type j = spriteName.find(s);
+            if (j != std::string::npos)
+                spriteName.erase(j, s.length());
+        }
+    }
 }
 
 void Player::PlantBomb( std::vector<Transform*> &_entityList, Grid &_grid ) {
@@ -103,4 +112,6 @@ void Player::UpdateHearts() {
         heart->spriteName = (std::distance(playerUI.Hearts.begin(), i)) >= life ? "HEART1" : "HEART";
         std::string damnDaniel = heart->spriteName;
     }
+    spriteName = spriteName + "-DAMAGE";
+    damageBlinkTimer = 300;
 }
