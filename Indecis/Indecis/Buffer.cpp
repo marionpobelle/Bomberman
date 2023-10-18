@@ -29,7 +29,6 @@ void Buffer::UpdateConsole(Grid grid, std::vector<Transform*>& _entityList, UISy
 
     ReadConsoleOutput(hOutput, (CHAR_INFO*)buffer, dwBufferSize,
     dwBufferCoord, &rcRegion);
-
     //On peint le background uniquement
     for (int i = 0; i < grid.gameGridSize; ++i) {
         int coordY = (int)ceil(i / maxSize);
@@ -68,7 +67,7 @@ void Buffer::UpdateConsole(Grid grid, std::vector<Transform*>& _entityList, UISy
         }
     }
     //calls the function that will draw the game UI 
-    DrawUI(uiSystem);
+    DrawUI(uiSystem, grid);
     WriteConsoleOutput(hOutput, (CHAR_INFO*)buffer, dwBufferSize,
         dwBufferCoord, &rcRegion);
 }
@@ -83,6 +82,14 @@ void Buffer::DrawFixedMap(Grid grid) {
     ReadConsoleOutput(hOutput, (CHAR_INFO*)buffer, dwBufferSize,
         dwBufferCoord, &rcRegion);
 
+    for (int i = 0; i < SCREEN_HEIGHT; ++i) {
+        for (int j = 0; j < SCREEN_WIDTH; j++)
+        {
+            int coordY = SCREEN_HEIGHT;
+            int coordX = SCREEN_WIDTH;
+            buffer[coordY][coordX].Attributes = 0x0000;
+        }
+    }
     //Lecture de la grid vers le buffer
     for (int i = 0; i < grid.gameGridSize; ++i) {
         int coordY = (int)ceil(i / maxSize);
@@ -128,8 +135,8 @@ void Buffer::PaintSpriteInBuffer(int coordX, int coordY, string sprite, Grid& gr
     for (int k = 0; k < width; k++) {
         for (int l = 0; l < height; l++) {
             //avoir les coordonnées 
-            int charCoordX = coordX * GRID_RATIO * 2 + k;
-            int charCoordY = coordY * GRID_RATIO + l;
+            int charCoordX = coordX * GRID_RATIO * 2 + xGameWindowPosition + k;
+            int charCoordY = coordY * GRID_RATIO + yGameWindowPosition +l;
             buffer[charCoordY][charCoordX].Char.UnicodeChar = 0x2580;
             if (sprite.size() > width * height) { 
                 //on interprète les chiffres présents dans le sprite pour en faire des couleurs de background et foreground
@@ -146,51 +153,97 @@ void Buffer::FillTabGround(int coordX, int coordY) {
     for (int k = 0; k < GRID_RATIO * 2; k++) {
         for (int l = 0; l < GRID_RATIO; l++) {
             //avoir les coordonn�es 
-            int charCoordX = coordX * GRID_RATIO * 2 + k;
-            int charCoordY = coordY * GRID_RATIO + l;
+            int charCoordX = coordX * GRID_RATIO * 2 + xGameWindowPosition + k;
+            int charCoordY = coordY * GRID_RATIO + yGameWindowPosition + l;
             //ajout de char dans le buffer, a modifier plus tard pour l'adapter en fonction du character � afficher
             buffer[charCoordY][charCoordX].Attributes = 0x0000;
         }
     }
 }
 
-void Buffer::DrawUI(UISystem uiSystem) {
+void Buffer::DrawUI(UISystem _uiSystem, Grid& grid) {
     // first we get the UISystem's windows and then iterate through them
-    std::vector<UIWindow*>::iterator iterator = uiSystem.UIWindows.begin();
-    std::vector<UIWindow*>::iterator end = uiSystem.UIWindows.end();
+    std::vector<UIWindow*>::iterator iterator = _uiSystem.UIWindows.begin();
+    std::vector<UIWindow*>::iterator end = _uiSystem.UIWindows.end();
+
+    struct InFront
+    {
+        inline bool operator() (const UIWindow* struct1, const UIWindow* struct2)
+        {
+            return (struct1->zPosition < struct2->zPosition);
+        }
+    };
+    std::sort(_uiSystem.UIWindows.begin(), _uiSystem.UIWindows.end(), InFront());
+
+
+
 
     for (;iterator != end; ++iterator)
     {
         UIWindow& window = **iterator;
-        if (window.isOpened) {
-            DrawWindow(window);
+        if (!window.isOpened) {
+            continue;
         }
+        if (window.isImage) {
+            int windowXPosition = window.GetXWindowPosition(window);
+            int windowYPosition = window.GetYWindowPosition(window);
+            PaintUISpriteInBuffer(windowXPosition, windowYPosition, SpriteReader::CallSprite(window.spriteName), grid);
+            continue;
+        }
+        DrawWindow(window);
     }
 }
 
-void Buffer::DrawWindow(UIWindow& window) {
-    int xWindowCharSize = window.size.xScale * SCREEN_WIDTH + window.size.xPx;
-    int yWindowCharSize = window.size.yScale * SCREEN_HEIGHT + window.size.yPx;
-    std::string charTable = window.DisplayWindow();
+void Buffer::DrawWindow(UIWindow& _window) {
+    int xWindowCharSize = _window.GetXWindowSize(_window);
+    int yWindowCharSize = _window.GetYWindowSize(_window);
+    std::string charTable = _window.DisplayWindow();
+
+    int windowXPosition = _window.GetXWindowPosition(_window);
+    int windowYPosition = _window.GetYWindowPosition(_window);
 
     for (int i = 0; i <  yWindowCharSize; i++)
     {
         for (int j = 0; j < xWindowCharSize; j++)
         {
+            //calculate position x and y of the current char
+            int charCoordX = windowXPosition + j;
+            int charCoordY = windowYPosition + i;
             
-            int charCoordX = window.position.xScale * SCREEN_WIDTH + window.position.xPx + j;
-            charCoordX = charCoordX - window.xWindowSub * xWindowCharSize;
-            charCoordX = std::fmaxf(xWindowCharSize/2, std::fminf(charCoordX, SCREEN_WIDTH - xWindowCharSize/2));
-            int charCoordY = window.position.yScale * SCREEN_HEIGHT + window.position.yPx + i;
-            charCoordY = charCoordY - window.yWindowSub * yWindowCharSize;
-            charCoordY = std::fmaxf(yWindowCharSize / 2, std::fminf(charCoordY, SCREEN_HEIGHT - yWindowCharSize / 2));
+            //draw background of the window
             buffer[charCoordY][charCoordX].Char.UnicodeChar = 0x0000;
-            buffer[charCoordY][charCoordX].Attributes = 0x0007 + 0x0000;
+            buffer[charCoordY][charCoordX].Attributes = _window.normalColor;
+            if (_window.isSelectable && _window.isSelected) {
+                buffer[charCoordY][charCoordX].Attributes = _window.selectedColor;
+            }
+
+            //if we're not over the chartable size then we wright the char of the position
             if (i * xWindowCharSize + j < charTable.size()) {
                 buffer[charCoordY][charCoordX].Char.AsciiChar = charTable[i * xWindowCharSize + j];
             }
+            //draw borders
             if (i == 0 || i == yWindowCharSize -1 || j == 0 || j == xWindowCharSize-1){
+                buffer[charCoordY][charCoordX].Attributes = _window.normalColor;
                 buffer[charCoordY][charCoordX].Char.AsciiChar = '*';
+            }
+        }
+    }
+}
+
+void Buffer::PaintUISpriteInBuffer(int coordX, int coordY, string sprite, Grid& grid) {
+    int width = GRID_RATIO * 2;
+    int height = GRID_RATIO;
+    for (int k = 0; k < width; k++) {
+        for (int l = 0; l < height; l++) {
+            //avoir les coordonnées 
+            int charCoordX = coordX + k;
+            int charCoordY = coordY + l;
+            buffer[charCoordY][charCoordX].Char.UnicodeChar = 0x2580;
+            if (sprite.size() > width * height) {
+                //on interprète les chiffres présents dans le sprite pour en faire des couleurs de background et foreground
+                string text = "0x00" + string(1, sprite[k + width + (l * 2 * width)]) + string(1, sprite[k + (l * 2 * width)]);
+                WORD word = static_cast<WORD>(std::stoul(text, nullptr, 16));
+                buffer[charCoordY][charCoordX].Attributes = word;
             }
         }
     }

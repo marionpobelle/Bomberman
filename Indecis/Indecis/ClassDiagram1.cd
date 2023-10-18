@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Bomb">
+    <Position X="8.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAoAAAAAAAAgAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Bomb.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Buffer">
+    <Position X="15.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIBAAAAAAAAAhAAAQAAAAAAAAACAACgAABFAAAAUBE=</HashCode>
+      <FileName>Buffer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entity">
+    <Position X="10.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Entity.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Explosion">
+    <Position X="12.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Explosion.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Grid">
+    <Position X="17" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAmAAAAIEARAAAAACAAQBAAoAAAQAAAAAACAAAAA=</HashCode>
+      <FileName>Grid.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NYTimer">
+    <Position X="18.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAACEAAAAAAAAAEAAAAAAAAEgAIAAAAAAQAAA=</HashCode>
+      <FileName>NYTimer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Player">
+    <Position X="10.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABQDAAAAIBAAAgAAAAAAAAAAAAEQAAAAAAAACQAAAIA=</HashCode>
+      <FileName>Player.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sprite">
+    <Position X="15.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAABAEAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Sprite.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SpriteReader">
+    <Position X="17" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAEAAAAAgAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>SpriteReader.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Transform">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Struct Name="Transform::Position" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Transform.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAUQAAAAAAAAAAAAAAAAIAQAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Transform.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UISystem">
+    <Position X="15.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>UISystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIWindow">
+    <Position X="20.5" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Struct Name="UIWindow::UIDim" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>UIWindow.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Enum Name="UIWindow::HoriAlignment" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>UIWindow.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="UIWindow::VertAlignment" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>UIWindow.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>EUAAIACAAgzIACFAAIABIIAQsoJQgEDYAFAEAIIAQAA=</HashCode>
+      <FileName>UIWindow.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WallTypes">
+    <Position X="18.75" Y="3.5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="WallTypes::WALLS" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>WallTypes.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAEAACFACIAQAgoAEgAACAAMBEgCQAAQAAAA=</HashCode>
+      <FileName>WallTypes.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

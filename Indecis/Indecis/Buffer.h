@@ -17,6 +17,8 @@ public:
 
 	int maxSize;
 	int charsTab[SCREEN_HEIGHT][SCREEN_WIDTH];
+	int xGameWindowPosition = 0;
+	int yGameWindowPosition = 0;
 
 private:
 	void DrawBox(int coordX, int coordY);
@@ -25,8 +27,11 @@ private:
 	void FillTabWalls(int coordX, int coordY, Grid& grid);
 	void FillTabGround(int coordX, int coordY);
 
-	void DrawUI(UISystem uiSystem);
-	void DrawWindow(UIWindow& window);
+	//ui's methods
+	void DrawUI(UISystem _uiSystem, Grid& grid);
+	void DrawWindow(UIWindow& _window);
+	void PaintUISpriteInBuffer(int coordX, int coordY, std::string sprite, Grid& grid);
+
 
 	void PaintCharactersInBuffer(int _charsTab[SCREEN_HEIGHT][SCREEN_WIDTH], Grid grid);
 	void PaintSpriteInBuffer(int coordX, int coordY, std::string sprite, Grid& grid);

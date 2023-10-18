@@ -76,6 +76,12 @@ void Player::PlantBomb(std::vector<Transform*> &_entityList, Grid &_grid) {
 
 void Player::ExplosionReaction(std::vector<Transform*>& _entityList) {
     std::cout << "PLAYER EXPLODED - GAME OVER" << std::endl;
+
+    life -= 1;
+    UpdateHeartUI();
+    if (life > 0) {
+        return;
+    }
     std::vector<Transform*>::iterator ptr;
     for (ptr = _entityList.begin(); ptr < _entityList.end(); ptr++) {
         if (*ptr == this) {
@@ -84,4 +90,12 @@ void Player::ExplosionReaction(std::vector<Transform*>& _entityList) {
         }
     }
     delete this;
+}
+
+void Player::UpdateHeartUI() {
+    for (auto i = playerUI.Hearts.begin(); i < playerUI.Hearts.end(); ++i)
+    {
+        UIWindow* heart = *i;
+        heart->spriteName = (i - playerUI.Hearts.begin()) > life ? "HEART1" : "HEART";
+    }
 }

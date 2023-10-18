@@ -8,6 +8,7 @@
 class Player : public Entity
 {
 public:
+    int life = 4;
     int orientation;
     UCHAR leftVK;
     UCHAR rightVK;
@@ -16,6 +17,7 @@ public:
     UCHAR bombVK;
     static float SPEED;
     float bombCooldown;
+    UISystem::PlayerUI playerUI;
 
 public:
     Player(float _x, float _y, std::string _spriteName, UCHAR _leftVK, UCHAR _rightVK, UCHAR _upVK, UCHAR _downVK, UCHAR _bombVK);
@@ -27,5 +29,9 @@ public:
     void Draw(Buffer &_buffer, int _x, int _y);
 
     void ExplosionReaction(std::vector<Transform*>& _entityList);
+
+private:
+
+    void UpdateHeartUI();
 };
 
