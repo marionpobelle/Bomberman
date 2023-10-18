@@ -4,6 +4,11 @@
 #include "Explosion.h"
 #include "AudioEngine.h"
 
+/*
+===============================================================================
+The Bomb class represents the object bomb.
+===============================================================================
+*/
 class Bomb : public Transform
 {
 public:

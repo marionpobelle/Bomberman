@@ -48,7 +48,6 @@ int main()
     ShowWindow(GetConsoleWindow(), SW_MAXIMIZE);
     buffer.xGameWindowPosition = SCREEN_WIDTH / 2 - 10 * GRID_RATIO;
     buffer.yGameWindowPosition = SCREEN_HEIGHT / 2 - 10 * GRID_RATIO/2;
-    float Size = 0.5;
     grid.ReadAndAddFileToGrid("maps/map.txt");
     //For sound
     AudioEngine::Init();
@@ -59,7 +58,7 @@ int main()
     SpriteReader spriteReader = SpriteReader();
     buffer.DrawFixedMap(grid);
     Player* player1 = new Player(1, 1, "PLAYER", VK_LEFT, VK_RIGHT, VK_UP, VK_DOWN, VK_SHIFT);
-    Player* player2 = new Player(grid.gameGridWidth - 2, grid.gameGridHeight - 2, "PLAYER", 0x51, 0x44, 0x5A, 0x53, 0x45);
+    Player* player2 = new Player(grid.gameGridWidth - 2, grid.gameGridHeight - 2, "PLAYERGREEN", 0x51, 0x44, 0x5A, 0x53, 0x45);
 
     UISystem::PlayerUI player1UI = uiSystem.GetPlayerUI(0);
     UISystem::PlayerUI player2UI = uiSystem.GetPlayerUI(1);
@@ -67,6 +66,7 @@ int main()
     player2->playerUI = player2UI;
     entityList.push_back(player1);
     entityList.push_back(player2);
+
     float xDummy;
     float yDummy;
     for ( int i = 0; i < amountOfDummyWalls; i++ ) {

@@ -17,7 +17,7 @@ public:
 		Constructor for the DummyWall object.
 		@param _x : Float that represents the position on the X axis.
 		@param _y : Float that represents the position on the Y axis.
-		@param _spriteName : String that represents the name of the sprite for destructible walls.
+		@param _spriteName : String keyword that's used to find the matching sprite.
 	====================
 	*/
     DummyWall( float _x, float _y, std::string _spriteName );

@@ -8,7 +8,6 @@ UISystem* UISystem::UISystemPointer = nullptr;
 UISystem::UISystem(float _leftTitlePosition, float _topTitlePosition, int _titleSpacing) : leftTitlePosition(_leftTitlePosition), topTitlePosition(_topTitlePosition), titleSpacing(_titleSpacing) {
     MakeMainMenu();
     MakeInGameUI();
-
 }
 
 UISystem UISystem::GetUISystem() {
