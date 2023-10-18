@@ -3,29 +3,98 @@
 
 class Transform;
 
+/*
+===============================================================================
+The Grid class represents the game grid.
+===============================================================================
+*/
 class Grid
 {
 public:
-	Grid(int gameGridWidth, int gameGridHeight)	;
-	void ReadAndAddFileToGrid(std::string fileName);
-	int GetGridCoordinates(int x, int y);
-	int GetRandomFloorCoordinates();
-	bool HasTransformHere(int x, int y, std::vector<Transform*>& _entityList);
-	bool HasCollision(int _x, int _y, std::vector<Transform*>& _entityList);
-	bool HasCollisionWallOnly(int _x, int _y);
-	int GetXFromGridApprox(int gridCoord);
-	int GetYFromGridApprox(int gridCoord);
-	Transform* GetTransformHere(int _x, int _y, std::vector<Transform*>& _entityList);
-
-
-	int *grid;
+	//Pointer towards the elements of the grid.
+	int* grid;
+	//Game fgrid size as a 1 dimensional table.
 	int gameGridSize;
-
-	//Were private before
+	//Game grid width.
 	const int gameGridWidth = 10;
+	//Game grid height.
 	const int gameGridHeight = 10;
 
-private:
-	
+	/*
+	====================
+	Grid()
+		Constructor for the Grid object.
+		@param gameGridWidth : Width for the game grid.
+		@param gameGridHeight : Height for the game grid.
+	====================
+	*/
+	Grid( int gameGridWidth, int gameGridHeight )	;
+
+	/*
+	====================
+	ReadAndAddFileToGrid()
+		Read a text file that contains a series of 0 (ground) and 1 (walls) and transfer its structure into the game grid.
+		@param fileName : String that contains the name of the file to read.
+	====================
+	*/
+	void ReadAndAddFileToGrid( std::string fileName );
+
+	/*
+	====================
+	GetGridCoordinates()
+		Read a text file that contains a series of 0 (ground) and 1 (walls) and transfer its structure into the game grid.
+		@param x : Int the coordinate on the X axis.
+		@param y : Int the coordinate on the Y axis.
+		@return : Int, the coordinates (x,y) in the grid represented as a 1 dimensional table.
+	====================
+	*/
+	int GetGridCoordinates( int x, int y );
+
+	/*
+	====================
+	GetRandomFloorCoordinatesRefs()
+		Change the value of the coordinate parameters x and y to random coordinates within the ground tiles of the grid.
+		@param x : Float a coordinate on the X axis.
+		@param y : Float a coordinate on the Y axis.
+		@param _entityList : Container which includes the list of all the entities present in the game.
+	====================
+	*/
+	void GetRandomFloorCoordinatesRefs( float& x, float& y, std::vector<Transform*>& _entityList );
+
+	/*
+	====================
+	HasTransformHere()
+		Checks if there is an entity at the grid coordinates specified by the parameters x, y.
+		@param x : Int the coordinate on the X axis.
+		@param y : Int the coordinate on the Y axis.
+		@param _entityList : Container which includes the list of all the entities present in the game.
+		@return : Boolean, true if there is an entity at these coordinates, false otherwise.
+	====================
+	*/
+	bool HasTransformHere( int x, int y, std::vector<Transform*>& _entityList );
+
+	/*
+	====================
+	HasCollision()
+		Checks if there is an entity or a wall at the grid coordinates specified by the parameters x, y.
+		@param x : Int the coordinate on the X axis.
+		@param y : Int the coordinate on the Y axis.
+		@param _entityList : Container which includes the list of all the entities present in the game.
+		@return : Boolean, true if there is an entity or a wall at these coordinates, false otherwise.
+	====================
+	*/
+	bool HasCollision( int _x, int _y, std::vector<Transform*>& _entityList );
+
+	/*
+	====================
+	GetTransformHere()
+		Get the transform of an entity at the grid coordinates specified by the parameters x, y if there is one.
+		@param x : Int the coordinate on the X axis.
+		@param y : Int the coordinate on the Y axis.
+		@param _entityList : Container which includes the list of all the entities present in the game.
+		@return : Pointer towards a Transform, the transform of an entity if there is one at these coordinates, the null pointer otherwise.
+	====================
+	*/
+	Transform* GetTransformHere( int _x, int _y, std::vector<Transform*>& _entityList );
 };
 

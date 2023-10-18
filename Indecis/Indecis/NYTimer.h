@@ -1,6 +1,12 @@
 #pragma once
 #include <windows.h>
 
+/*
+===============================================================================
+The NYTimer class allow the use of a precise timer for the Windows Console.
+The source code was given to us as a starting point of the project.
+===============================================================================
+*/
 class NYTimer
 {
 public:
@@ -9,8 +15,8 @@ public:
 	static float deltaTime;
 
 	NYTimer(); //constructor
-	static void Start(void);
-	static float getElapsedSeconds(bool restart = false);
+	static void Start( void );
+	static float getElapsedSeconds( bool restart = false );
 	static void deltaTimeCalcul();
-	static unsigned long getElapsedMs(bool restart = false);
+	static unsigned long getElapsedMs( bool restart = false );
 };

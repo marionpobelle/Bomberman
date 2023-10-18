@@ -13,21 +13,24 @@
 #include "NYTimer.h"
 #include "Transform.h"
 #include "Player.h"
+#include "DummyWall.h"
 #include "WallTypes.h"
 #include <io.h>
 #include <fcntl.h>
 #include "SpriteReader.h"
+#include "AudioEngine.h"
 
 std::vector<Transform*> entityList;
 Buffer buffer = Buffer(10);
 Grid grid(10, 10);
 UISystem uiSystem = UISystem::GetUISystem(0.4f, 0.25f, 7);
 bool uiHasToUpdate = false;
+int amountOfDummyWalls = 8;
 
 void Update() {
-    for (int i = 0; i < entityList.size(); i++)
+    for ( int i = 0; i < entityList.size(); i++ )
     {
-        entityList[i]->Update(entityList, grid);
+        entityList[i]->Update( entityList, grid );
     }
     uiSystem.UpdateUIInput();
     buffer.UpdateConsole(grid, entityList, uiSystem);
@@ -47,6 +50,9 @@ int main()
     buffer.yGameWindowPosition = SCREEN_HEIGHT / 2 - 10 * GRID_RATIO/2;
     float Size = 0.5;
     grid.ReadAndAddFileToGrid("maps/map.txt");
+    //For sound
+    AudioEngine::Init();
+    AudioEngine::PlayLoop("music\\AnAdventureintheFuture.ogg");
 
     //buffer.UpdateConsole(grid, entityList, uiSystem);
     NYTimer deltaTime = NYTimer();
@@ -61,8 +67,14 @@ int main()
     player2->playerUI = player2UI;
     entityList.push_back(player1);
     entityList.push_back(player2);
-
-    while (true) {
+    float xDummy;
+    float yDummy;
+    for ( int i = 0; i < amountOfDummyWalls; i++ ) {
+        grid.GetRandomFloorCoordinatesRefs( xDummy, yDummy, entityList );
+        entityList.push_back(new DummyWall( xDummy, yDummy, "WALL_DUMMY" ) );
+    }
+    
+    while ( true ) {
         Update();
         NYTimer::deltaTimeCalcul();
     }

@@ -4,26 +4,26 @@
  float NYTimer::deltaTime;
 
 NYTimer::NYTimer() { //constructor
-	QueryPerformanceCounter(&lastUpdateTime);
+	QueryPerformanceCounter( &lastUpdateTime );
 	LARGE_INTEGER li_freq;
-	QueryPerformanceFrequency(&li_freq);
+	QueryPerformanceFrequency( &li_freq );
 	freq = li_freq.QuadPart;
 	freq /= 1000;
 }
 
-void NYTimer::Start(void) {
-	QueryPerformanceCounter(&lastUpdateTime);
+void NYTimer::Start( void ) {
+	QueryPerformanceCounter( &lastUpdateTime );
 }
 
-float NYTimer::getElapsedSeconds(bool restart) {
+float NYTimer::getElapsedSeconds( bool restart ) {
 	LARGE_INTEGER timeNow;
-	QueryPerformanceCounter(&timeNow);
+	QueryPerformanceCounter( &timeNow );
 	LONGLONG elapsedLong = timeNow.QuadPart - lastUpdateTime.QuadPart;
 
-	float elapsed = (float)((float)elapsedLong / (float)freq);
+	float elapsed = ( float )( ( float )elapsedLong / ( float )freq );
 	elapsed /= 1000.0f;
 
-	if (restart)
+	if ( restart )
 		lastUpdateTime = timeNow;
 
 	return elapsed;
@@ -31,22 +31,22 @@ float NYTimer::getElapsedSeconds(bool restart) {
 
 void NYTimer::deltaTimeCalcul() { //calcule à chaque frame la valeur de delta time dans l'update de Indecis.cpp
 	LARGE_INTEGER timeNow;
-	QueryPerformanceCounter(&timeNow);
+	QueryPerformanceCounter( &timeNow );
 	LONGLONG elapsedLong = timeNow.QuadPart - lastUpdateTime.QuadPart;
 
-	float elapsed = (float)((float)elapsedLong / (float)freq);
+	float elapsed = ( float )( ( float )elapsedLong / ( float )freq );
 
 	lastUpdateTime = timeNow;
 
 	deltaTime = elapsed;
 }
 
-unsigned long NYTimer::getElapsedMs(bool restart)
+unsigned long NYTimer::getElapsedMs( bool restart )
 {
 	LARGE_INTEGER timeNow;
-	QueryPerformanceCounter(&timeNow);
+	QueryPerformanceCounter( &timeNow );
 	LONGLONG elapsedLong = timeNow.QuadPart - lastUpdateTime.QuadPart;
 
-	unsigned long elapsed = (unsigned long)((float)elapsedLong / (float)freq);
+	unsigned long elapsed = ( unsigned long )( ( float )elapsedLong / ( float )freq );
 	return elapsed;
 }
