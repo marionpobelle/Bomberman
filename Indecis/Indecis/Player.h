@@ -62,8 +62,6 @@ public:
     */
     void PlantBomb( std::vector<Transform*> &_entityList, Grid &_grid );
 
-    void Draw(Buffer &_buffer, int _x, int _y);
-
     /*
     ====================
     ExplosionReaction()

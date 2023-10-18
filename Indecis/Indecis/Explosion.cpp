@@ -22,7 +22,7 @@ void Explosion::Update( std::vector<Transform*>& _entityList, Grid& grid ) {
     }
 }
 
-void Explosion::ExplodeTowards_r( std::vector<Transform*>& _entityList, Grid& _grid, int _x, int _y, int _orientation, int currentCase ) {
+void Explosion::ExplodeTowards_r( std::vector<Transform*> &_entityList, Grid &_grid, int _x, int _y, int _orientation, int currentCase ) {
     int maxCase = 1;
 
     int nextCaseX = _x;
@@ -44,17 +44,17 @@ void Explosion::ExplodeTowards_r( std::vector<Transform*>& _entityList, Grid& _g
     default:
         break;
     }
-    if (_grid.HasCollision(nextCaseX, nextCaseY, _entityList)) { //If there is a collision, check if it's a player
-        Transform* _transform = _grid.HasTransformHere(nextCaseX, nextCaseY, _entityList);
-        if (_transform != nullptr) {
-            _transform->ExplosionReaction(_entityList);
+    if ( _grid.HasCollision( nextCaseX, nextCaseY, _entityList ) ) { //If there is a collision, check if it's a player
+        Transform* _transform = _grid.HasTransformHere( nextCaseX, nextCaseY, _entityList );
+        if ( _transform != nullptr ) {
+            _transform->ExplosionReaction( _entityList );
         }
     }
     else { //If there isn't a collision, continue
-        Explosion *_nextExplosion = new Explosion(nextCaseX, nextCaseY, "EXPLOSION");
-        _entityList.push_back(_nextExplosion);
-        if (currentCase < maxCase) {
-            _nextExplosion->ExplodeTowards_r(_entityList, _grid, _x, _y, _orientation, currentCase+1);
+        Explosion *_nextExplosion = new Explosion( nextCaseX, nextCaseY, "EXPLOSION" );
+        _entityList.push_back( _nextExplosion );
+        if ( currentCase < maxCase ) {
+            _nextExplosion->ExplodeTowards_r( _entityList, _grid, _x, _y, _orientation, currentCase+1 );
         }
         else {
             return;
