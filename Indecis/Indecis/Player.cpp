@@ -92,6 +92,7 @@ void Player::ExplosionReaction( std::vector<Transform*>& _entityList ) {
             break;
         }
     }
+    UISystem::OpenEndMenu();
     delete this;
 }
 

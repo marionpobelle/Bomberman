@@ -8,6 +8,7 @@ UISystem* UISystem::UISystemPointer = nullptr;
 UISystem::UISystem(float _leftTitlePosition, float _topTitlePosition, int _titleSpacing) : leftTitlePosition(_leftTitlePosition), topTitlePosition(_topTitlePosition), titleSpacing(_titleSpacing) {
     MakeMainMenu();
     MakeInGameUI();
+    MakeEndMenu();
 }
 
 UISystem UISystem::GetUISystem() {
@@ -39,7 +40,7 @@ UIWindow* UISystem::MakeHeartUI(UIWindow* _parent, int _heartNum, int _spacing) 
 }
 
 UISystem::PlayerUI UISystem::MakePlayerUI(float _posX, float _posY, int _playerNum) {
-    UIWindow* player = new UIWindow(_posX, _posY, 0.35f, 1.f, 5);
+    UIWindow* player = new UIWindow(_posX, _posY, 0.25f, 1.f, 5);
     player->SetText("Player " + std::to_string(_playerNum));
     player->SetTextHorAlignment(UIWindow::HoriAlignment::HMiddle);
     player->SetTextVerAlignment(UIWindow::VertAlignment::Top);
@@ -102,14 +103,14 @@ UISystem::PlayerUI UISystem::GetPlayerUI(int _playerIndex) {
     return playerUIs[_playerIndex];
 }
 
-UIWindow* UISystem::MakeTitleLetter(char _letter, int _letterNum) {
+UIWindow* UISystem::MakeTitleLetter(char _letter, int _letterNum, bool _isOpened ) {
     UIWindow* Letter = new UIWindow(leftTitlePosition, topTitlePosition, 0.5f, 0.5f, 6);
     Letter->position.xPx = titleSpacing * _letterNum;
     Letter->SetWindowHorAlignment(UIWindow::HoriAlignment::HMiddle);
     Letter->SetWindowVerAlignment(UIWindow::VertAlignment::VMiddle);
     Letter->spriteName = _letter;
     Letter->isImage = true;
-    Letter->isOpened = true;
+    Letter->isOpened = _isOpened;
     return Letter;
 }
 
@@ -121,12 +122,12 @@ void UISystem::MakeMainMenu() {
 
 
     //MAKING THE TITLE
-    UIWindow* B = MakeTitleLetter('B', 1);
-    UIWindow* O = MakeTitleLetter('O', 2);
-    UIWindow* M = MakeTitleLetter('M', 3);
-    UIWindow* B1 = MakeTitleLetter('B', 4);
-    UIWindow* E = MakeTitleLetter('E', 5);
-    UIWindow* R = MakeTitleLetter('R', 6);
+    UIWindow* B = MakeTitleLetter('B', 1, true);
+    UIWindow* O = MakeTitleLetter('O', 2, true);
+    UIWindow* M = MakeTitleLetter('M', 3, true);
+    UIWindow* B1 = MakeTitleLetter('B', 4, true);
+    UIWindow* E = MakeTitleLetter('E', 5, true);
+    UIWindow* R = MakeTitleLetter('R', 6, true);
 
 
     UIWindow* PlayButton = new UIWindow(0.5f, 0.45f, 0.2f, 0.1f, 5);
@@ -177,16 +178,16 @@ void UISystem::MakeEndMenu() {
     UIWindow* EndMenu = new UIWindow(0.5f, 0.5f, 1.f, 1.f, 5);
     EndMenu->SetWindowHorAlignment(UIWindow::HoriAlignment::HMiddle);
     EndMenu->SetWindowVerAlignment(UIWindow::VertAlignment::VMiddle);
-    EndMenu->isOpened = true;
+    EndMenu->isOpened = false;
 
 
     //MAKING THE TITLE
-    UIWindow* B = MakeTitleLetter('B', 1);
-    UIWindow* O = MakeTitleLetter('O', 2);
-    UIWindow* M = MakeTitleLetter('M', 3);
-    UIWindow* B1 = MakeTitleLetter('B', 4);
-    UIWindow* E = MakeTitleLetter('E', 5);
-    UIWindow* R = MakeTitleLetter('R', 6);
+    UIWindow* B = MakeTitleLetter('B', 1, false);
+    UIWindow* O = MakeTitleLetter('O', 2, false);
+    UIWindow* M = MakeTitleLetter('M', 3, false);
+    UIWindow* B1 = MakeTitleLetter('B', 4, false);
+    UIWindow* E = MakeTitleLetter('E', 5, false);
+    UIWindow* R = MakeTitleLetter('R', 6, false);
 
     UIWindow* Info = new UIWindow(0.5f, 0.4f, 0.25f, 0.15f, 5);
     Info->SetWindowHorAlignment(UIWindow::HoriAlignment::HMiddle);
@@ -194,7 +195,7 @@ void UISystem::MakeEndMenu() {
     Info->SetText("Player Won !");
     Info->SetTextHorAlignment(UIWindow::HoriAlignment::HMiddle);
     Info->SetTextVerAlignment(UIWindow::VertAlignment::VMiddle);
-    Info->isOpened = true;
+    Info->isOpened = false;
 
     UIWindow* QuitButton = new UIWindow(0.5f, 0.55f, 0.2f, 0.1f, 5);
     QuitButton->SetWindowHorAlignment(UIWindow::HoriAlignment::HMiddle);
@@ -204,9 +205,10 @@ void UISystem::MakeEndMenu() {
     QuitButton->SetTextVerAlignment(UIWindow::VertAlignment::VMiddle);
     QuitButton->isSelectable = true;
     QuitButton->CallBack = QuitGame;
-    QuitButton->isOpened = true;
+    QuitButton->isOpened = false;
 
     EndMenu->AddWindowChild(QuitButton);
+    EndMenu->AddWindowChild(Info);
     EndMenu->AddWindowChild(B);
     EndMenu->AddWindowChild(O);
     EndMenu->AddWindowChild(M);
@@ -215,6 +217,7 @@ void UISystem::MakeEndMenu() {
     EndMenu->AddWindowChild(R);
 
     UIWindows.push_back(EndMenu);
+    UIWindows.push_back(Info);
     UIWindows.push_back(QuitButton);
     UIWindows.push_back(B);
     UIWindows.push_back(O);
@@ -237,6 +240,20 @@ void UISystem::CloseMainMenu() {
 void UISystem::OpenMainMenu() {
     UISystemPointer->mainMenu->OpenWindow();
     for (auto i = UISystemPointer->GameUIWindows.begin(); i != UISystemPointer->GameUIWindows.end(); i++)
+    {
+        UIWindow* gameWindow = *i;
+        gameWindow->isOpened = false;
+    }
+}
+
+void UISystem::OpenEndMenu() {
+    UISystemPointer->endMenu->OpenWindow();
+    for (auto i = UISystemPointer->GameUIWindows.begin(); i != UISystemPointer->GameUIWindows.end(); i++)
+    {
+        UIWindow* gameWindow = *i;
+        gameWindow->isOpened = false;
+    }
+    for (auto i = UISystemPointer->mainMenu->windowChilds.begin(); i != UISystemPointer->mainMenu->windowChilds.end(); i++)
     {
         UIWindow* gameWindow = *i;
         gameWindow->isOpened = false;
