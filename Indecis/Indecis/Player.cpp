@@ -1,16 +1,18 @@
 #include <algorithm>
 #include "Player.h"
-float Player::SPEED = .01;
+float Player::SPEED = .005;
 
 Player::Player( float _x, float _y, std::string _spriteName, UCHAR _leftVK, UCHAR _rightVK, UCHAR _upVK, UCHAR _downVK, UCHAR _bombVK ) //constructor
-    : Entity( _x, _y, _spriteName ), leftVK( _leftVK ), rightVK( _rightVK ), upVK( _upVK ), downVK( _downVK ), bombVK( _bombVK ), orientation( 0 )
+    : Entity( _x, _y, _spriteName ), leftVK( _leftVK ), rightVK( _rightVK ), upVK( _upVK ), downVK( _downVK ), bombVK( _bombVK ), orientation( 0 ), playerName ( _spriteName )
 {}
 
 void Player::Update( std::vector<Transform*> &_entityList, Grid &_grid ) {
+    isWalking = false;
     if ( GetAsyncKeyState( downVK ) ) {
         if ( !_grid.HasCollision( floor( position.x ), floor( position.y ) + 1, _entityList ) ) {
         	position.y += ( SPEED * NYTimer::deltaTime );
             orientation = 0;
+            isWalking = true;
         } else {
             position.y = floor( position.y );
         }
@@ -19,22 +21,27 @@ void Player::Update( std::vector<Transform*> &_entityList, Grid &_grid ) {
         if ( !_grid.HasCollision( floor( position.x ), floor( position.y ) - 1, _entityList ) ) {
         	position.y -= ( SPEED * NYTimer::deltaTime );
             orientation = 2;
+            isWalking = true;
         } else {
             position.y = floor( position.y );
         }
     }
     if ( GetAsyncKeyState( rightVK ) ) {
+        lookingLeft = false;
         if ( !_grid.HasCollision( floor(position.x ) + 1, floor( position.y ), _entityList ) ) {
         	position.x += ( SPEED * NYTimer::deltaTime );
         	orientation = 1;
+            isWalking = true;
         } else {
             position.x = floor( position.x );
         }
     }
     if ( GetAsyncKeyState( leftVK ) ) {
+        lookingLeft = true;
         if ( !_grid.HasCollision( floor( position.x ) - 1, floor( position.y ), _entityList ) ) {
         	position.x -= ( SPEED * NYTimer::deltaTime );
         	orientation = 3;
+            isWalking = true;
         } else {
             position.x = floor( position.x );
         }
@@ -45,15 +52,39 @@ void Player::Update( std::vector<Transform*> &_entityList, Grid &_grid ) {
     }
 
     if ( bombCooldown > 0 ) bombCooldown -= NYTimer::deltaTime;
+
     if (damageBlinkTimer > 0) {
         damageBlinkTimer -= NYTimer::deltaTime;
         if (damageBlinkTimer <= 0) {
-            std::string s = "-DAMAGE";
-            std::string::size_type j = spriteName.find(s);
-            if (j != std::string::npos)
-                spriteName.erase(j, s.length());
+            spriteName = playerName;
+        }
+    } else {
+        if (isWalking) {
+            if (lookingLeft) {
+                spriteName = playerName + "-LEFT" + "-WALKING";
+            } else {
+                spriteName = playerName + "-WALKING";
+            }
+        } else {
+            if (lookingLeft) {
+                spriteName = playerName + "-LEFT";
+            } else {
+                spriteName = playerName;
+            }
+            animFrame = 0;
+        }
+
+        if (walkAnimTimer > 0 && isWalking) {
+            walkAnimTimer -= NYTimer::deltaTime;
+            if (walkAnimTimer <= 0) {
+                if (animFrame == 2) animFrame = 0;
+                else animFrame++;
+                walkAnimTimer = 100;
+            }
         }
     }
+
+
 }
 
 void Player::PlantBomb( std::vector<Transform*> &_entityList, Grid &_grid ) {
@@ -112,6 +143,6 @@ void Player::UpdateHearts() {
         heart->spriteName = (std::distance(playerUI.Hearts.begin(), i)) >= life ? "HEART1" : "HEART";
         std::string damnDaniel = heart->spriteName;
     }
-    spriteName = spriteName + "-DAMAGE";
+    spriteName = playerName + "-DAMAGE";
     damageBlinkTimer = 300;
 }

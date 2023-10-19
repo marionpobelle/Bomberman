@@ -79,7 +79,10 @@ private:
     ====================
     */
     void UpdateHearts();
-
+    std::string playerName;
     float damageBlinkTimer = 0;
+    float walkAnimTimer = 300;
+    bool isWalking = false;
+    bool lookingLeft = false;
 };
 
