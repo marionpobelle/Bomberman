@@ -7,6 +7,18 @@ Bomb::Bomb( float _x, float _y, std::string _spriteName ) //constructor
 void Bomb::Update( std::vector<Transform*> &_entityList, Grid &_grid ) {
     timer -= NYTimer::deltaTime;
 
+    if (timer <= 1500 && animFrame == 0) {
+        animFrame++;
+    }
+
+    if (timer <= 1000 && animFrame == 1) {
+        animFrame++;
+    }
+
+    if (timer <= 500 && animFrame == 2) {
+        animFrame++;
+    }
+
     if ( timer <= 0 ) {
         std::vector<Transform*>::iterator ptr;
         for ( ptr = _entityList.begin(); ptr < _entityList.end(); ptr++ ) {
