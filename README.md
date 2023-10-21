@@ -16,7 +16,9 @@ Player 2 (Green) : Movement uses Q (left), D (right), Z (top), S (bottom), press
 
 # Demo
 
-[Bomberman Trailer](https://www.youtube.com/watch?v=giArnZTPAPo&ab_channel=Alvina)
+https://github.com/alvina-dr/indecis/assets/112869026/81062e74-2b0a-4a2c-bbb5-da0db4121fe5
+
+This trailer can be found on Youtube : [Bomber Trailer](https://www.youtube.com/watch?v=giArnZTPAPo&ab_channel=Alvina).
 
 # Credits
 
