@@ -16,7 +16,7 @@ Player 2 (Green) : Movement uses Q (left), D (right), Z (top), S (bottom), press
 
 # Demo
 
-https://www.youtube.com/watch?v=giArnZTPAPo&ab_channel=Alvina
+![Sans titre 2](https://github.com/alvina-dr/indecis/assets/112869026/568a0690-985a-4bb4-8e09-7214dbaa5625)(https://www.youtube.com/watch?v=giArnZTPAPo&ab_channel=Alvina)
 
 # Credits
 
@@ -28,6 +28,7 @@ https://www.youtube.com/watch?v=giArnZTPAPo&ab_channel=Alvina
 This game was made by ENJMIN students in a few weeks, as a way to learn C++. The main challenge was that all the graphics had to be shown in the console in ASCII. [Visual Studio](https://visualstudio.microsoft.com/fr/) was used to develop this game.
 
 Class Diagram :
+
 ![Class_Diagram](https://github.com/alvina-dr/indecis/assets/112869026/be3aba57-3312-4a79-b30c-ba0ae6d286ea)
 
 # TDL
