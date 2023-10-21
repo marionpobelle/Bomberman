@@ -20,7 +20,7 @@ Player 2 (Green) : Movement uses Q (left), D (right), Z (top), S (bottom), press
 
 # Credits
 
-[Alvina Damasio-Razafiarizaka](https://alvina-dr.itch.io/)
+[Alvina Damasio-Razafiarizaka](https://alvina-dr.itch.io/) \n
 
 [Marion Pobelle](https://vitaminexe.itch.io/)
 
