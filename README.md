@@ -7,7 +7,7 @@ A 2 players remake of the classic Bomberman, in local multiplayer.  After launch
 
 ## Development
 
-This game was programmed in C++ using only ASCII characters.\
+This game was programmed in C++ using only ASCII characters.
 
 ## Demo
 
