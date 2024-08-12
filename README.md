@@ -5,10 +5,6 @@
 
 A remake of the classic Bomberman, playable in local multiplayer.  After launching the game from the main menu, players appear in two different corners of the map. Their objective is to reach the other player and and eliminate them. Both players are able to place bombs on the ground. A bomb will be placed in the last direction taken by the player and will generate a cross-shaped explosion capable of inflicting damage on the opposing player and the destructible walls of the map. The map is made up of a solid part, indestructible yellow walls which define solid boundaries for players, and a number of destructible walls that add a strategic dimension to the game.
 
-![GIF_20-10-2023_14-33-10](https://github.com/alvina-dr/indecis/assets/112869026/b89dc932-e919-486f-80c6-57c88637210f)
-
-![GIF_19-10-2023_21-02-19](https://github.com/alvina-dr/indecis/assets/112869026/c0dc9c17-0bd3-4409-b2b0-293468e586a0)
-
 ## Development
 
 This game was programmed in C++ using only ASCII characters.\
@@ -16,6 +12,10 @@ This game was programmed in C++ using only ASCII characters.\
 ## Demo
 
 https://github.com/alvina-dr/indecis/assets/112869026/81062e74-2b0a-4a2c-bbb5-da0db4121fe5
+
+![GIF_20-10-2023_14-33-10](https://github.com/alvina-dr/indecis/assets/112869026/b89dc932-e919-486f-80c6-57c88637210f)
+
+![GIF_19-10-2023_21-02-19](https://github.com/alvina-dr/indecis/assets/112869026/c0dc9c17-0bd3-4409-b2b0-293468e586a0)
 
 ## Trailer
 
