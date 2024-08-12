@@ -1,4 +1,5 @@
-# Presentation
+# Bomberman
+## Summary
 
 ![bEKhqe](https://github.com/alvina-dr/indecis/assets/112869026/79028da4-c3ca-4623-928c-a57234bb83db)
 
@@ -8,35 +9,19 @@ A remake of the classic Bomberman, playable in local multiplayer.  After launchi
 
 ![GIF_19-10-2023_21-02-19](https://github.com/alvina-dr/indecis/assets/112869026/c0dc9c17-0bd3-4409-b2b0-293468e586a0)
 
-# Controls
+## Development
 
-Player 1 (Blue) : Movement uses the ARROW KEYS,  press SHIFT to place a bomb.
+This game was programmed in C++ using only ASCII characters.\
 
-Player 2 (Green) : Movement uses Q (left), D (right), Z (top), S (bottom), press E to place a bomb.
-
-# Demo
+## Demo
 
 https://github.com/alvina-dr/indecis/assets/112869026/81062e74-2b0a-4a2c-bbb5-da0db4121fe5
 
-This trailer can be found on Youtube : [Bomber Trailer](https://www.youtube.com/watch?v=giArnZTPAPo&ab_channel=Alvina).
+## Trailer
 
-# Credits
+[Bomber Trailer](https://www.youtube.com/watch?v=giArnZTPAPo&ab_channel=Alvina).
 
-[Alvina Damasio-Razafiarizaka](https://alvina-dr.itch.io/)
-
-[Marion Pobelle](https://vitaminexe.itch.io/)
-
-[Jules Sarton du Jonchay](https://julessarton.itch.io/)
-
-# Development
-
-This game was made by ENJMIN students in a few weeks, as a way to learn C++. The main challenge was that all the graphics had to be shown in the console in ASCII. [Visual Studio](https://visualstudio.microsoft.com/fr/) was used to develop this game.
-
-Class Diagram :
-
-![Class_Diagram](https://github.com/alvina-dr/indecis/assets/112869026/be3aba57-3312-4a79-b30c-ba0ae6d286ea)
-
-# TDL
+## TDL
 
 - [x] MAZE
 - - [x] Border sprites
@@ -69,3 +54,11 @@ Class Diagram :
 - - [x] Main music
 - - [x] Placing bomb SE
 - - [x] Explosion SE
+ 
+## Credits
+
+[Alvina Damasio-Razafiarizaka](https://alvina-dr.itch.io/)
+
+[Marion Pobelle](https://vitaminexe.itch.io/)
+
+[Jules Sarton du Jonchay](https://julessarton.itch.io/)
