@@ -5,6 +5,8 @@
 
 A 2 players remake of the classic Bomberman, in local multiplayer.  After launching the game from the main menu, players appear in two different corners of the map. Their objective is to reach the other player and and eliminate them. Both players are able to place bombs on the ground. A bomb will be placed in the last direction taken by the player and will generate a cross-shaped explosion capable of inflicting damage on the opposing player and the destructible walls of the map. The map is made of a solid part (indestructible yellow walls) which define solid boundaries for players and a number of destructible walls that add a strategic dimension to the game.
 
+Find the game on Itch.io: [ASCII Bomberman](https://alvina-dr.itch.io/bomber).
+
 ## Development
 
 This game was programmed in C++ using only ASCII characters.
